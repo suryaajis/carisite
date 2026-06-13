@@ -494,4 +494,210 @@ Article content in Markdown format...
 
 ---
 
+## 16. System Architecture Overview
+
+This is a **static-first (JAMstack) website**. There is no application server, no
+runtime database, and no backend API of our own. All pages are pre-rendered to
+static HTML/CSS/JS at build time and served from a CDN. Dynamic behavior is
+limited to small client-side "islands" and a third-party redirect (WhatsApp).
+
+```
+┌──────────────┐     git push      ┌──────────────┐    build     ┌──────────────┐
+│  Developer   │ ────────────────▶ │  GitHub Repo │ ───────────▶ │    Vercel    │
+│  (local dev) │                   │ (source code │   (CI/CD)    │  Build Step  │
+└──────────────┘                   │  + content)  │              │ astro build  │
+                                   └──────────────┘              └──────┬───────┘
+                                                                        │ static
+                                                                        │ output
+                                                                        ▼
+┌──────────────┐    request HTML   ┌──────────────┐   serve     ┌──────────────┐
+│   Visitor    │ ◀───────────────▶ │  Cloudflare  │ ◀─────────▶ │ Vercel Edge  │
+│  (browser)   │                   │  CDN / SSL   │             │  (static CDN)│
+└──────┬───────┘                   └──────────────┘             └──────────────┘
+       │
+       │ form submit / CTA click
+       ▼
+┌──────────────────────┐
+│  wa.me (WhatsApp)     │  ← external; receives pre-filled message
+└──────────────────────┘
+```
+
+**Key architectural decisions:**
+
+| Decision | Choice | Rationale |
+|---|---|---|
+| Rendering model | Static Site Generation (SSG) | Best performance & SEO, no server cost |
+| State management | None (stateless) | No user accounts, no persistent app state |
+| Data source | Local files (MDX/JSON) at build time | No database needed; content is version-controlled |
+| Backend | None | Order handling delegated to WhatsApp |
+| Hydration | Partial (Astro Islands) | Ship ~0 KB JS except where interactivity is required |
+
+---
+
+## 17. Rendering & Data Flow
+
+**Build-time (server, runs once per deploy):**
+1. Astro reads Content Collections (`src/content/articles/*.mdx`, `src/content/demo/*.json`).
+2. For each item, Astro generates a static route (`/articles/[slug]`, `/demo/[slug]`).
+3. Section components read static config (`src/config/site.ts`) and content data.
+4. Output: a folder of static `.html` files + hashed CSS/JS assets.
+
+**Request-time (client, per visitor):**
+1. Browser requests a URL → CDN returns pre-built HTML (no compute).
+2. HTML is fully rendered/visible immediately (no loading spinners).
+3. Only interactive islands hydrate: FAQ accordion, stats counter, order form, mobile menu.
+
+**Data classification:**
+
+| Data | Type | Where it lives | Changes how? |
+|---|---|---|---|
+| Site config (brand, WA number) | Static | `src/config/site.ts` | Edit file → redeploy |
+| Pricing packages | Static | `src/config/` or section component | Edit file → redeploy |
+| Portfolio/demo items | Content | `src/content/demo/*.json` | Add file → redeploy |
+| Articles | Content | `src/content/articles/*.mdx` | Add file → redeploy |
+| Order submissions | Transient | Not stored — sent to WhatsApp | Real-time, no persistence |
+
+> **Important for system design:** there is **no write path** into the system.
+> Every content change is a code change (Git commit) that triggers a rebuild.
+> This keeps the attack surface minimal and hosting effectively free.
+
+---
+
+## 18. Build & Deployment Pipeline
+
+```
+1. Developer commits to a feature branch (e.g. calonweb/feature-x)
+2. Open Pull Request → main
+3. Vercel creates a Preview Deployment (unique URL) for review
+4. PR merged into main
+5. Vercel runs production build:  npm install → astro build → output to /dist
+6. Static assets uploaded to Vercel Edge + fronted by Cloudflare
+7. Custom domain (jagoweb.site) points to deployment via DNS
+```
+
+**Environments:**
+
+| Environment | Trigger | URL | Purpose |
+|---|---|---|---|
+| Local | `npm run dev` | localhost:4321 | Development |
+| Preview | PR opened/updated | `*-preview.vercel.app` | QA / stakeholder review |
+| Production | merge to `main` | jagoweb.site | Live |
+
+**CI checks (recommended, run on PR):**
+- `astro check` (type checking)
+- `astro build` (build must succeed)
+- Optional: Lighthouse CI for performance budgets
+
+---
+
+## 19. Component Architecture & Interaction Model
+
+The UI is composed of three layers, from least to most interactive:
+
+```
+┌─────────────────────────────────────────────────────────────┐
+│  Layout Layer (.astro, 0 JS)                                  │
+│  BaseLayout → Navbar, Footer, FloatingWhatsApp, BottomNav     │
+├─────────────────────────────────────────────────────────────┤
+│  Section Layer (.astro, mostly 0 JS)                          │
+│  Hero, Problem, Solution, Pricing, Advantages, FinalCTA...    │
+├─────────────────────────────────────────────────────────────┤
+│  Island Layer (hydrated, ships JS only here)                  │
+│  • StatsCounter      → count-up on scroll (IntersectionObs.)  │
+│  • FaqAccordion      → expand/collapse                        │
+│  • OrderForm         → validate + build wa.me URL             │
+│  • MobileMenu        → open/close navigation drawer           │
+└─────────────────────────────────────────────────────────────┘
+```
+
+**Hydration directives (Astro):**
+- `client:visible` → StatsCounter, FaqAccordion (hydrate when scrolled into view)
+- `client:load` → MobileMenu, OrderForm (needed immediately on interaction)
+
+This keeps the initial JS payload near zero, which is the main reason for choosing
+Astro over a full SPA framework.
+
+---
+
+## 20. Order Flow (Sequence)
+
+The order form does **not** post to a server. It assembles a WhatsApp deep link.
+
+```
+Visitor                OrderForm Island              WhatsApp (wa.me)
+   │                          │                             │
+   │ fills name/business/dom  │                             │
+   │─────────────────────────▶│                             │
+   │ clicks "Send Order"      │                             │
+   │─────────────────────────▶│                             │
+   │                          │ validate fields (client)    │
+   │                          │ build message string        │
+   │                          │ encode → wa.me/<no>?text=... │
+   │                          │────────────────────────────▶│
+   │                          │   open in new tab/app        │
+   │                          │                             │ chat opens
+   │                          │                             │ with prefilled
+   │                          │                             │ order text
+```
+
+**Implication for system design:** lead/order data is captured **inside the business
+owner's WhatsApp**, not in any database. If lead tracking/CRM is needed later, that
+becomes a separate future enhancement (see §22).
+
+---
+
+## 21. Content Management Flow
+
+Because there is no CMS dashboard, content is managed through the repository:
+
+```
+Add an article:
+  1. Create src/content/articles/my-post.mdx with frontmatter + body
+  2. Add thumbnail to public/images/articles/
+  3. Commit + push → PR → merge → auto-rebuild → article live
+
+Add a portfolio demo:
+  1. Create src/content/demo/my-demo.json
+  2. Add thumbnail to public/images/demo/
+  3. Commit + push → PR → merge → auto-rebuild → demo card + detail page live
+```
+
+Content schema is enforced by `src/content/config.ts` (Zod-based), so invalid
+frontmatter fails the build rather than shipping broken pages.
+
+---
+
+## 22. Scalability & Future Considerations
+
+The current design intentionally avoids a backend. If the business grows, these are
+natural, isolated upgrade paths (none required for v1):
+
+| Need | Future Option | Impact |
+|---|---|---|
+| Store/track leads | Add a serverless function (Vercel Functions) + Supabase | Adds a write path + DB |
+| Non-technical content editing | Integrate a headless CMS (Sanity, Decap) | Replaces file-based content |
+| Online payment | Payment gateway (Midtrans/Xendit) + serverless | Adds backend + webhooks |
+| Multi-language | Astro i18n routing | Build-time only, no infra change |
+| A/B testing | Edge middleware / analytics tool | Minor |
+
+**Design principle:** keep v1 static and stateless; add infrastructure only when a
+concrete requirement justifies it.
+
+---
+
+## 23. Non-Functional Requirements
+
+| Category | Requirement |
+|---|---|
+| Performance | LCP < 2.5s, CLS < 0.1, initial JS < 50 KB |
+| Availability | CDN-served static = effectively 100% uptime |
+| Security | No server/DB = minimal attack surface; HTTPS enforced; no secrets in client |
+| SEO | SSR-quality HTML, sitemap, structured data, semantic markup |
+| Accessibility | WCAG AA: keyboard nav, alt text, color contrast, ARIA on accordion/menu |
+| Maintainability | Config-driven (site.ts), typed content, component reuse |
+| Responsiveness | Mobile-first; breakpoints at 640 / 768 / 1024 px |
+| Browser support | Last 2 versions of evergreen browsers |
+
+---
+
 *This document is the single source of truth during development. Update it as requirements change.*
