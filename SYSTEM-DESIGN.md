@@ -43,7 +43,7 @@ flowchart TD
     D -->|Yes| E["Merge to main"]
     E --> F["Production build<br/>npm install → astro build"]
     F --> G["Upload static assets<br/>Vercel Edge + Cloudflare"]
-    G --> H["Live at jagoweb.site<br/>via DNS"]
+    G --> H["Live at calonweb.site<br/>via DNS"]
 
     classDef start fill:#2563EB,stroke:#1e40af,color:#fff
     classDef live fill:#16a34a,stroke:#15803d,color:#fff
@@ -55,7 +55,7 @@ flowchart TD
 |---|---|---|---|
 | Local | `npm run dev` | localhost:4321 | Development |
 | Preview | PR opened/updated | `*-preview.vercel.app` | QA / review |
-| Production | merge to `main` | jagoweb.site | Live |
+| Production | merge to `main` | calonweb.site | Live |
 
 ---
 

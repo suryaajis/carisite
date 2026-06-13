@@ -1,5 +1,5 @@
 # PRD — Website Development Services for SMEs
-**Reference:** jagoweb.site
+**Reference:** calonweb.site
 **Tech Stack:** Astro + Tailwind CSS
 **Date:** 2026-06-13
 **Status:** Draft
@@ -381,12 +381,12 @@ Data that can be changed easily without touching components:
 
 ```typescript
 export const SITE = {
-  name: "Jagoweb.site",
+  name: "Calonweb.site",
   tagline: "Professional Websites for SMEs",
   whatsapp: "628xxxxxxxxxx",
   whatsappMessage: "Hello, I would like to consult about website development",
   email: "hello@domain.com",
-  domain: "jagoweb.site",
+  domain: "calonweb.site",
 }
 ```
 
@@ -572,7 +572,7 @@ limited to small client-side "islands" and a third-party redirect (WhatsApp).
 4. PR merged into main
 5. Vercel runs production build:  npm install → astro build → output to /dist
 6. Static assets uploaded to Vercel Edge + fronted by Cloudflare
-7. Custom domain (jagoweb.site) points to deployment via DNS
+7. Custom domain (calonweb.site) points to deployment via DNS
 ```
 
 **Environments:**
@@ -581,7 +581,7 @@ limited to small client-side "islands" and a third-party redirect (WhatsApp).
 |---|---|---|---|
 | Local | `npm run dev` | localhost:4321 | Development |
 | Preview | PR opened/updated | `*-preview.vercel.app` | QA / stakeholder review |
-| Production | merge to `main` | jagoweb.site | Live |
+| Production | merge to `main` | calonweb.site | Live |
 
 **CI checks (recommended, run on PR):**
 - `astro check` (type checking)
