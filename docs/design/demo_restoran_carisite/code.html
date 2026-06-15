@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+
+<html lang="id"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Rasa Nusantara - Demo Jagoweb</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-high": "#dce9ff",
+                        "on-tertiary": "#ffffff",
+                        "secondary-fixed-dim": "#95d3ba",
+                        "on-background": "#0b1c30",
+                        "on-secondary": "#ffffff",
+                        "inverse-on-surface": "#eaf1ff",
+                        "background": "#f8f9ff",
+                        "outline": "#6c7a71",
+                        "outline-variant": "#bbcabf",
+                        "on-secondary-fixed": "#002117",
+                        "on-surface": "#0b1c30",
+                        "on-tertiary-fixed-variant": "#653e00",
+                        "inverse-surface": "#213145",
+                        "secondary-fixed": "#b0f0d6",
+                        "on-primary-fixed": "#002113",
+                        "on-primary-container": "#00422b",
+                        "error": "#ba1a1a",
+                        "tertiary-fixed-dim": "#ffb95f",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary": "#ffffff",
+                        "on-error-container": "#93000a",
+                        "tertiary": "#855300",
+                        "primary-fixed": "#6ffbbe",
+                        "primary-container": "#10b981",
+                        "on-tertiary-fixed": "#2a1700",
+                        "surface-container-low": "#eff4ff",
+                        "surface-bright": "#f8f9ff",
+                        "on-primary-fixed-variant": "#005236",
+                        "error-container": "#ffdad6",
+                        "surface": "#f8f9ff",
+                        "surface-variant": "#d3e4fe",
+                        "surface-tint": "#006c49",
+                        "secondary": "#2b6954",
+                        "surface-container-highest": "#d3e4fe",
+                        "inverse-primary": "#4edea3",
+                        "tertiary-container": "#e29100",
+                        "on-tertiary-container": "#523200",
+                        "on-secondary-fixed-variant": "#0b513d",
+                        "surface-dim": "#cbdbf5",
+                        "primary-fixed-dim": "#4edea3",
+                        "on-secondary-container": "#306d58",
+                        "surface-container": "#e5eeff",
+                        "secondary-container": "#adedd3",
+                        "primary": "#006c49",
+                        "tertiary-fixed": "#ffddb8",
+                        "on-surface-variant": "#3c4a42",
+                        "on-error": "#ffffff"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-desktop": "32px",
+                        "xs": "4px",
+                        "gutter": "24px",
+                        "margin-mobile": "16px",
+                        "base": "8px",
+                        "sm": "12px",
+                        "md": "24px",
+                        "xl": "64px",
+                        "lg": "40px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Plus Jakarta Sans"],
+                        "label-sm": ["Plus Jakarta Sans"],
+                        "label-md": ["Plus Jakarta Sans"],
+                        "display-lg": ["Plus Jakarta Sans"],
+                        "headline-md": ["Plus Jakarta Sans"],
+                        "headline-lg-mobile": ["Plus Jakarta Sans"],
+                        "headline-lg": ["Plus Jakarta Sans"],
+                        "body-md": ["Plus Jakarta Sans"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "label-sm": ["12px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                        "label-md": ["14px", {"lineHeight": "1.4", "letterSpacing": "0.01em", "fontWeight": "600"}],
+                        "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "headline-md": ["24px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "headline-lg-mobile": ["28px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .soft-shadow {
+            box-shadow: 0 4px 12px rgba(16, 185, 129, 0.08);
+        }
+    </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md antialiased min-h-screen flex flex-col">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/90 dark:bg-surface-container/90 backdrop-blur-md shadow-sm">
+<div class="flex justify-between items-center px-margin-desktop py-base max-w-[1280px] mx-auto">
+<div class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim">
+                Jagoweb
+            </div>
+<nav class="hidden md:flex gap-md">
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-outline-variant hover:text-primary transition-colors duration-200" href="#">Home</a>
+<a class="font-body-md text-body-md text-primary dark:text-primary-fixed-dim font-bold border-b-2 border-primary pb-1" href="#">Demo</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-outline-variant hover:text-primary transition-colors duration-200" href="#">Keunggulan</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-outline-variant hover:text-primary transition-colors duration-200" href="#">Harga</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-outline-variant hover:text-primary transition-colors duration-200" href="#">Artikel</a>
+<a class="font-body-md text-body-md text-on-surface-variant dark:text-outline-variant hover:text-primary transition-colors duration-200" href="#">FAQ</a>
+</nav>
+<button class="bg-primary-container text-on-primary-container px-4 py-2 rounded-lg font-label-md text-label-md transition-all duration-300 active:scale-95 hidden md:block">
+                Order Sekarang
+            </button>
+<!-- Mobile Menu Icon (simplified for layout) -->
+<button class="md:hidden text-on-surface">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</header>
+<main class="flex-grow pt-[80px]">
+<!-- Hero Section -->
+<section class="relative min-h-[819px] flex items-center justify-center px-margin-desktop overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img alt="Hero Background" class="w-full h-full object-cover opacity-90" data-alt="A warm, inviting, top-down view of a rustic wooden table filled with vibrant Indonesian dishes like Rendang, Satay, and Sambal. The scene is brightly lit with natural, soft sunlight casting gentle shadows, highlighting the rich colors of the food and spices. The overall aesthetic feels organic, fresh, and modern, aligning perfectly with a clean, light-mode growth-oriented brand theme using subtle green and warm golden tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQWzJ4GgxureyK7grignZ-1do1y6IU324H7kfOZMQ_63lIpBs42BalDx6915-V1E-qekbqhCMeQ1Nr8c0E9KN292WKHEkXXvL-Go5fpp4l8m8gJhuPl2UbzteCCoIygtqmOXRWnMESZZ_TiXiG6CdkgOHuL4zMX_Vy3NEZM6GbdtpJhzK8iq25l0myn-CWzY31CLk9yhOKmsMTLXzEf8UNv04pP5n0mYdHkkjtLxRk3du3H4c-35FwQ7_Lw-Zbl346HaIFqeQXkgk"/>
+<div class="absolute inset-0 bg-gradient-to-r from-surface/90 to-surface/40"></div>
+</div>
+<div class="relative z-10 max-w-[1280px] w-full grid grid-cols-1 md:grid-cols-2 gap-xl items-center">
+<div class="flex flex-col gap-md">
+<div class="inline-flex items-center gap-2 bg-secondary-container/30 text-on-secondary-container px-3 py-1 rounded-full w-fit">
+<span class="material-symbols-outlined text-sm">restaurant</span>
+<span class="font-label-sm text-label-sm">Demo Website Restoran Modern</span>
+</div>
+<h1 class="font-display-lg text-display-lg text-on-background">
+                        Cita Rasa Autentik,<br/>
+<span class="text-primary">Kenyamanan Modern.</span>
+</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-lg">
+                        Selamat datang di Rasa Nusantara. Kami menyajikan hidangan tradisional dengan sentuhan modern di tengah suasana yang hangat dan mengundang.
+                    </p>
+<div class="flex gap-4 mt-sm">
+<a class="bg-primary text-on-primary px-6 py-3 rounded-lg font-label-md text-label-md flex items-center gap-2 transition-transform hover:scale-105 shadow-md" href="#menu">
+                            Lihat Menu
+                            <span class="material-symbols-outlined text-sm">arrow_downward</span>
+</a>
+<a class="border border-outline-variant text-on-surface px-6 py-3 rounded-lg font-label-md text-label-md hover:bg-surface-variant transition-colors glass-panel" href="#reservasi">
+                            Reservasi Meja
+                        </a>
+</div>
+</div>
+</div>
+</section>
+<!-- Highlight Menu Bento Grid -->
+<section class="py-xl px-margin-desktop bg-surface-container-lowest" id="menu">
+<div class="max-w-[1280px] mx-auto flex flex-col gap-xl">
+<div class="text-center max-w-2xl mx-auto">
+<h2 class="font-headline-lg text-headline-lg text-on-background mb-4">Pilihan Terfavorit Kami</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Jelajahi hidangan andalan kami yang memadukan resep turun-temurun dengan presentasi masa kini.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-md auto-rows-[250px]">
+<!-- Bento Item 1 (Large) -->
+<div class="md:col-span-8 row-span-2 rounded-xl overflow-hidden relative group soft-shadow">
+<img alt="Rendang" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A close-up, high-end food photography shot of a perfectly plated beef rendang on a modern ceramic white plate. The rich, dark brown caramelized coconut milk sauce glistens slightly under soft, directional studio lighting. Small garnishes of fresh green micro-herbs sit on top. The background is a clean, slightly blurred light-toned marble surface, maintaining the bright, modern, and appetizing aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNkLwclljoexvX44Wj29hopk53xXZI47Gq-o42MyOtDAaRdJ2M-wj-UX6ckzxSquMBjzbeW8q8HQreuesrZKMnlFb3796fcVcUPdUEHy7obh5hh7KO7ZTycyPvBIoo-RTvA1AiwSlq2LjKjJK8irI3rEc2BAGY_kmGYv0z3NybiGHTMzdXToJjkGcGibBPchA2d97WHvKAg_bb6N-pWG089gqCOTa-MHXJThOXIKbQcF0B1dZm8p_pWWEM6XLfQyKjktgVRN7D_zs"/>
+<div class="absolute inset-0 bg-gradient-to-t from-inverse-surface/80 via-transparent to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-lg w-full">
+<h3 class="font-headline-md text-headline-md text-on-primary mb-2">Rendang Padang Premium</h3>
+<p class="font-body-md text-body-md text-on-primary/80 line-clamp-2">Daging sapi pilihan yang dimasak perlahan selama 8 jam dengan rempah rahasia keluarga.</p>
+</div>
+</div>
+<!-- Bento Item 2 -->
+<div class="md:col-span-4 row-span-1 rounded-xl overflow-hidden relative group soft-shadow">
+<img alt="Sate Ayam" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Appetizing close-up of beautifully charred chicken skewers (satay) resting on a minimalist rectangular plate. Thick, rich peanut sauce is drizzled artistically over the meat. The lighting is warm and inviting, highlighting the glossy sauce and the texture of the grill marks. The setting is clean and bright, fitting a modern dining concept." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNC_BtsvYMciiaBNgDGkvZf_HFMxd2Wi7Q0symNoYwqWZYo--5xcZMB_EtGNXpTrl47i9m6lTIopLIijHHLyFg5Z4psbKwUD7elQZ8EIL4IG6kcussFiVIQuI39rAFhOjHcsK9qLMvCM349TgvYTp1OvEzSrhd6gtLBdGYww3n-LfPmSx_AS3dJGnlfxzWLKvjdkWdnl7FCz7Zh2Sz-s_WIESRLVJkbtQOldqO_eMvhBUjbSwL-5QKamk28STlUyVnfwP9kJpIq6Q"/>
+<div class="absolute bottom-0 left-0 p-md w-full bg-surface/90 backdrop-blur-sm border-t border-outline-variant/30">
+<h4 class="font-label-md text-label-md text-on-surface">Sate Lilit Bali</h4>
+</div>
+</div>
+<!-- Bento Item 3 -->
+<div class="md:col-span-4 row-span-1 rounded-xl overflow-hidden relative group soft-shadow bg-primary-container p-md flex flex-col justify-center items-center text-center">
+<span class="material-symbols-outlined text-[48px] text-on-primary-container mb-4">menu_book</span>
+<h4 class="font-headline-md text-headline-md text-on-primary-container mb-2">Lihat Menu Lengkap</h4>
+<p class="font-body-md text-body-md text-on-primary-container/80 mb-4">Temukan puluhan hidangan lainnya</p>
+<button class="bg-surface text-primary px-4 py-2 rounded-full font-label-sm text-label-sm hover:bg-surface-variant transition-colors">Unduh PDF Menu</button>
+</div>
+</div>
+</div>
+</section>
+<!-- Reservation Section (WhatsApp Integration) -->
+<section class="py-xl px-margin-desktop bg-surface-container-low" id="reservasi">
+<div class="max-w-[1280px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-xl items-center">
+<div class="relative h-[400px] md:h-[500px] rounded-2xl overflow-hidden shadow-sm border border-outline-variant/20">
+<img alt="Restaurant Interior" class="w-full h-full object-cover" data-alt="A wide shot of a modern, beautifully designed restaurant interior during daytime. Large windows let in abundant natural light, illuminating wooden tables, comfortable minimalist chairs, and vibrant green potted plants scattered throughout the space. The atmosphere is serene, welcoming, and cleanly structured, perfectly matching a bright, modern-organic brand identity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQ4q6CyJbEIvLz2ExUgnDUmD3_VEX2ttqruB8aUre2a16Kjh7A6xGe6gktoZrOYNKZLMbs08pl8hNC_MZDm2JvN7a86HJ1yAs_Gu2WuiQlUI-NukS_NIV-bpcgiZOaVuxn8-ym3SDZ-lUBKhxgy1BKmpoGG1yn15HX6LxqkWfU1OKnTYMi3nHu0eQ6qX5wmA3gmQE5oA-QMb5MW80z_acuqdMzr5QP1wBPA9VfyfeSgL7QxQLyMrqKYpEr4HZUP64qjyJpFjw5hoU"/>
+</div>
+<div class="glass-panel rounded-2xl p-lg soft-shadow flex flex-col gap-md">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-background mb-2">Pesan Meja Anda</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Pastikan tempat Anda tersedia. Kami menerima reservasi khusus untuk acara keluarga atau pertemuan bisnis.</p>
+</div>
+<div class="flex flex-col gap-4">
+<div class="flex items-center gap-4 p-4 border border-outline-variant/50 rounded-xl bg-surface">
+<div class="bg-primary-container/20 p-3 rounded-full text-primary">
+<span class="material-symbols-outlined">schedule</span>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-on-surface">Jam Operasional</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Setiap Hari: 10:00 - 22:00 WIB</p>
+</div>
+</div>
+<div class="flex items-center gap-4 p-4 border border-outline-variant/50 rounded-xl bg-surface">
+<div class="bg-primary-container/20 p-3 rounded-full text-primary">
+<span class="material-symbols-outlined">location_on</span>
+</div>
+<div>
+<h4 class="font-label-md text-label-md text-on-surface">Lokasi Strategis</h4>
+<p class="font-body-md text-body-md text-on-surface-variant">Pusat Kuliner Sudirman, Jakarta</p>
+</div>
+</div>
+</div>
+<a class="mt-4 bg-[#25D366] text-white px-6 py-4 rounded-xl font-label-md text-label-md flex items-center justify-center gap-3 transition-transform hover:scale-[1.02] shadow-sm" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">chat</span>
+                         Reservasi via WhatsApp
+                     </a>
+<p class="text-center font-label-sm text-label-sm text-on-surface-variant mt-2">Respon cepat dalam 5 menit</p>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full bg-surface-container-low dark:bg-inverse-surface border-t border-outline-variant/30">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-desktop py-xl max-w-[1280px] mx-auto">
+<div class="col-span-1 md:col-span-1 flex flex-col gap-4">
+<div class="font-headline-md text-headline-md font-bold text-primary dark:text-primary-fixed-dim">
+                     Jagoweb
+                 </div>
+<p class="font-label-sm text-label-sm text-on-surface-variant">© 2024 Jagoweb.site - Solusi Digital UMKM Indonesia</p>
+</div>
+<div class="col-span-1 md:col-span-3 grid grid-cols-2 md:grid-cols-3 gap-8">
+<div class="flex flex-col gap-3">
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim underline underline-offset-4 opacity-90 hover:opacity-100 transition-opacity" href="#">Tentang Kami</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim underline underline-offset-4 opacity-90 hover:opacity-100 transition-opacity" href="#">Kebijakan Privasi</a>
+</div>
+<div class="flex flex-col gap-3">
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim underline underline-offset-4 opacity-90 hover:opacity-100 transition-opacity" href="#">Syarat &amp; Ketentuan</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim underline underline-offset-4 opacity-90 hover:opacity-100 transition-opacity" href="#">Kontak Kami</a>
+</div>
+<div class="flex flex-col gap-3">
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim underline underline-offset-4 opacity-90 hover:opacity-100 transition-opacity" href="#">Blog</a>
+<a class="font-label-md text-label-md text-on-surface-variant dark:text-outline-variant hover:text-primary dark:hover:text-primary-fixed-dim underline underline-offset-4 opacity-90 hover:opacity-100 transition-opacity" href="#">Portfolio</a>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

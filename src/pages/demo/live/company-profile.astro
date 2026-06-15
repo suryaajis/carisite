@@ -1,0 +1,116 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import { Icon } from 'astro-icon/components'
+
+const HERO_IMG =
+  'https://lh3.googleusercontent.com/aida-public/AB6AXuB1icWiP0M03Rc0CTVMZr5lSBMkqjOdrFW3YZop1aTPXZvHcap9RGwnKIgFkmdK-VmviDysAhbtCzDZH5e729Sd47WmzA90CdyYjRDoxGx4Q63IrEew5LYBUT7ZiPSE6UXB0fcRrB5ZiemQu0LtaD1rktlCMj4b1T8e8Vw5LAoF3scMFrkYZL1rpgUHWWL5SWqLs2VpdFh26r1kfFf_1QBFyDtVSoA3kElv60WyN6tfYE0Av38lpD7k00EI27uxTpj-hWdi7pBVC6A'
+const ABOUT_IMG =
+  'https://lh3.googleusercontent.com/aida-public/AB6AXuBU6rwhsfNP-_lMFvAtDlLbiqPs1qDmF6-pBR_NsKn5svsQAl-fjOLRPZRvQilvafUGWaEpulkMxdW-QknuRpK7vh1nm9H6uzuRsLFVhZkoW7ijhoU2q5ns6tdGSzSMy00OJqttc6PCFjsifucOT7FR7r5AoDmmUJ87Re7jaUbR3XlQOblfF3TmFsgCPMZu_pDEOKi6mKIaFPyGoeuRfePoshEy1kqZK2O5fILTj5F02X42oJOi2Quwa1jeSMcqocFPN3JUPxTrIcw'
+
+const about = [
+  'Lebih dari 10 tahun pengalaman industri B2B.',
+  'Pendekatan kustom untuk setiap tantangan korporat.',
+  'Jaringan profesional global yang luas.',
+]
+---
+
+<BaseLayout
+  title="Artha Solusi Mandiri — Demo Company Profile | Carisite"
+  description="Contoh website company profile korporat untuk perusahaan jasa & konsultan B2B, dibuat oleh Carisite."
+>
+  <div class="bg-primary-deep px-4 py-2 text-center text-xs text-white sm:px-6">
+    Contoh website (demo) yang dibuat oleh Carisite —
+    <a href="/#demo" class="font-semibold underline underline-offset-2">lihat demo lain</a>
+  </div>
+
+  <!-- Hero -->
+  <section class="relative flex min-h-[600px] items-center overflow-hidden bg-surface-lowest lg:min-h-[700px]">
+    <div class="absolute inset-0 z-0">
+      <img src={HERO_IMG} alt="Suasana kantor korporat modern" width="1280" height="720" loading="eager" class="h-full w-full object-cover opacity-20" />
+      <div class="absolute inset-0 bg-gradient-to-r from-surface-lowest via-surface-lowest/80 to-transparent"></div>
+    </div>
+    <div class="relative z-10 mx-auto max-w-container px-4 sm:px-6 lg:px-8">
+      <div class="max-w-2xl space-y-6">
+        <span class="inline-flex items-center gap-2 rounded-full border border-outline-variant bg-surface-high px-4 py-2 text-sm font-semibold text-ink-muted">
+          <span class="h-2 w-2 rounded-full bg-primary"></span> Solusi Bisnis Profesional
+        </span>
+        <h1 class="font-heading text-4xl font-extrabold leading-tight text-ink sm:text-5xl">
+          Mendorong Pertumbuhan Bisnis dengan <span class="text-primary">Keunggulan</span>
+        </h1>
+        <p class="text-lg leading-relaxed text-ink-muted">
+          Artha Solusi Mandiri menyediakan layanan konsultasi korporat komprehensif yang
+          dirancang untuk menskalakan operasi B2B Anda dan mengoptimalkan efisiensi di setiap level.
+        </p>
+        <div class="flex flex-wrap gap-3 pt-2">
+          <a href="#" class="rounded-full bg-primary px-8 py-3 text-sm font-semibold text-white shadow-soft transition hover:bg-primary-hover active:scale-95">Konsultasi Gratis</a>
+          <a href="#layanan" class="rounded-full border border-primary-deep bg-surface px-8 py-3 text-sm font-semibold text-primary-deep transition hover:bg-surface-container active:scale-95">Pelajari Layanan Kami</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section class="bg-surface py-16 lg:py-20">
+    <div class="mx-auto grid max-w-container items-center gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
+      <div class="relative">
+        <div class="absolute -left-4 -top-4 -z-10 h-24 w-24 rounded-xl bg-surface-high"></div>
+        <div class="absolute -bottom-4 -right-4 -z-10 h-32 w-32 rounded-full bg-primary-soft opacity-70"></div>
+        <img src={ABOUT_IMG} alt="Tim profesional sedang rapat" width="800" height="600" loading="lazy" class="aspect-[4/3] w-full rounded-xl border border-outline-variant object-cover shadow-card" />
+      </div>
+      <div class="space-y-4">
+        <h2 class="font-heading text-3xl font-bold text-ink">Tentang Artha Solusi Mandiri</h2>
+        <p class="leading-relaxed text-ink-muted">
+          Kami adalah mitra strategis untuk perusahaan menengah hingga besar, berdedikasi
+          memberikan solusi terukur yang mendorong kinerja finansial dan operasional. Dengan
+          pendekatan berbasis data dan keahlian industri yang mendalam, kami menjembatani
+          kesenjangan antara visi dan eksekusi.
+        </p>
+        <ul class="space-y-3 pt-2">
+          {about.map((item) => (
+            <li class="flex items-start gap-3">
+              <Icon name="lucide:check-circle-2" class="mt-0.5 h-5 w-5 shrink-0 text-primary" />
+              <span class="text-ink">{item}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services bento -->
+  <section id="layanan" class="bg-surface-lowest py-16 lg:py-20">
+    <div class="mx-auto max-w-container px-4 sm:px-6 lg:px-8">
+      <div class="mx-auto mb-12 max-w-2xl space-y-3 text-center">
+        <h2 class="font-heading text-3xl font-bold text-ink">Layanan Komprehensif Kami</h2>
+        <p class="text-ink-muted">Solusi end-to-end untuk mengoptimalkan setiap aspek bisnis Anda demi pertumbuhan yang berkelanjutan.</p>
+      </div>
+      <div class="grid gap-6 md:grid-cols-3">
+        <div class="flex flex-col justify-between rounded-xl border border-outline-variant bg-surface p-6 transition-shadow hover:shadow-card md:col-span-2">
+          <div>
+            <span class="mb-6 flex h-12 w-12 items-center justify-center rounded-lg bg-primary-soft text-primary"><Icon name="lucide:line-chart" class="h-7 w-7" /></span>
+            <h3 class="mb-2 font-heading text-2xl font-semibold text-ink">Konsultasi Manajemen Strategis</h3>
+            <p class="max-w-lg text-ink-muted">Panduan ahli dalam restrukturisasi organisasi, optimalisasi proses, dan perencanaan pertumbuhan jangka panjang untuk keunggulan kompetitif.</p>
+          </div>
+        </div>
+        <div class="rounded-xl border border-outline-variant bg-surface p-6 transition-shadow hover:shadow-card">
+          <span class="mb-6 flex h-12 w-12 items-center justify-center rounded-lg bg-primary-soft text-primary-deep"><Icon name="lucide:landmark" class="h-7 w-7" /></span>
+          <h3 class="mb-2 text-lg font-bold text-ink">Advisori Finansial</h3>
+          <p class="text-sm text-ink-muted">Analisis mendalam dan strategi alokasi modal untuk memaksimalkan ROI dan memitigasi risiko.</p>
+        </div>
+        <div class="rounded-xl border border-outline-variant bg-surface p-6 transition-shadow hover:shadow-card">
+          <span class="mb-6 flex h-12 w-12 items-center justify-center rounded-lg bg-amber-50 text-accent"><Icon name="lucide:network" class="h-7 w-7" /></span>
+          <h3 class="mb-2 text-lg font-bold text-ink">Integrasi Teknologi</h3>
+          <p class="text-sm text-ink-muted">Transformasi digital B2B melalui implementasi sistem enterprise yang mulus.</p>
+        </div>
+        <div class="relative flex flex-col items-center justify-between gap-6 overflow-hidden rounded-xl bg-ink p-6 md:col-span-2 md:flex-row">
+          <div class="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-primary/20 blur-3xl"></div>
+          <div class="relative z-10 md:w-2/3">
+            <h3 class="mb-2 font-heading text-2xl font-semibold text-white">Manajemen Rantai Pasok</h3>
+            <p class="text-white/70">Optimalisasi logistik dan pengadaan untuk mengurangi biaya operasional dan meningkatkan efisiensi pengiriman hulu ke hilir.</p>
+          </div>
+          <a href="#" class="relative z-10 whitespace-nowrap rounded-full bg-primary px-5 py-2 text-sm font-semibold text-white">Pelajari Lebih Lanjut</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -19,6 +19,7 @@ const demo = defineCollection({
     category: z.string(),
     image: z.string(),
     demoUrl: z.string().url(),
+    livePath: z.string().optional(), // internal route to a real in-site live demo
     features: z.array(z.string()).optional(),
   }),
 })

@@ -14,7 +14,12 @@ export async function getStaticPaths() {
 }
 
 const { entry } = Astro.props
-const { title, description, category, image, demoUrl, features } = entry.data
+const { title, description, category, image, demoUrl, livePath, features } =
+  entry.data
+
+// Prefer a real in-site live demo (internal, same tab); else external demoUrl.
+const liveHref = livePath ?? demoUrl
+const liveIsInternal = Boolean(livePath)
 ---
 
 <BaseLayout title={`${title} — Carisite`} description={description} ogImage={image}>
@@ -61,9 +66,9 @@ const { title, description, category, image, demoUrl, features } = entry.data
           <div class="mt-8 flex flex-col gap-3 sm:flex-row">
             <Button
               variant="outline"
-              href={demoUrl}
-              target="_blank"
-              rel="noopener noreferrer"
+              href={liveHref}
+              target={liveIsInternal ? undefined : '_blank'}
+              rel={liveIsInternal ? undefined : 'noopener noreferrer'}
             >
               <Icon name="lucide:external-link" class="h-4 w-4" />
               Buka Demo Live

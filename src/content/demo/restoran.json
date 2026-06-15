@@ -1,0 +1,9 @@
+{
+  "title": "Rasa Nusantara",
+  "description": "Website restoran modern dengan galeri menu bento, info jam buka, dan reservasi meja langsung via WhatsApp.",
+  "category": "Restoran",
+  "image": "/images/demo/restoran.svg",
+  "demoUrl": "https://carisite.id",
+  "livePath": "/demo/live/restoran",
+  "features": ["Galeri menu favorit", "Reservasi via WhatsApp", "Info jam & lokasi", "Hero foto makanan"]
+}
