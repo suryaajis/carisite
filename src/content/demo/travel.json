@@ -1,0 +1,8 @@
+{
+  "title": "Website Travel & Wisata",
+  "description": "Website agen travel dan open trip dengan katalog paket wisata, jadwal keberangkatan, dan booking via WhatsApp.",
+  "category": "Travel",
+  "image": "/images/demo/travel.svg",
+  "demoUrl": "https://carisite.id",
+  "features": ["Katalog paket wisata", "Jadwal keberangkatan", "Booking WhatsApp", "Galeri destinasi"]
+}

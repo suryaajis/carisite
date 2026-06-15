@@ -1,0 +1,8 @@
+{
+  "title": "Website Cafe & Resto",
+  "description": "Tampilan menarik untuk cafe dan restoran dengan menu digital, foto makanan, dan reservasi meja online.",
+  "category": "Cafe",
+  "image": "/images/demo/cafe.svg",
+  "demoUrl": "https://carisite.id",
+  "features": ["Menu digital", "Galeri makanan", "Reservasi meja", "Integrasi peta lokasi"]
+}

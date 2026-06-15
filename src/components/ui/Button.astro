@@ -1,0 +1,44 @@
+---
+interface Props {
+  variant?: 'primary' | 'outline'
+  href?: string
+  class?: string
+  target?: string
+  rel?: string
+  type?: 'button' | 'submit'
+  'aria-label'?: string
+}
+
+const {
+  variant = 'primary',
+  href,
+  class: className = '',
+  target,
+  rel,
+  type = 'button',
+  ...rest
+} = Astro.props
+
+const base =
+  'inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3 text-sm font-semibold transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-2 active:scale-[0.98]'
+
+const variants = {
+  primary: 'bg-primary text-white shadow-soft hover:bg-primary-hover',
+  outline:
+    'border border-primary text-primary bg-transparent hover:bg-primary hover:text-white',
+}
+
+const classes = `${base} ${variants[variant]} ${className}`
+---
+
+{
+  href ? (
+    <a href={href} class={classes} target={target} rel={rel} {...rest}>
+      <slot />
+    </a>
+  ) : (
+    <button type={type} class={classes} {...rest}>
+      <slot />
+    </button>
+  )
+}

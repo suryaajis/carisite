@@ -1,0 +1,8 @@
+{
+  "title": "Website Bengkel & Servis",
+  "description": "Website bengkel motor dan mobil dengan daftar layanan servis, harga, dan booking jadwal perbaikan.",
+  "category": "Bengkel",
+  "image": "/images/demo/workshop.svg",
+  "demoUrl": "https://carisite.id",
+  "features": ["Daftar layanan servis", "Estimasi harga", "Booking jadwal", "Lokasi bengkel"]
+}

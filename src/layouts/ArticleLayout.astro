@@ -1,0 +1,105 @@
+---
+import BaseLayout from './BaseLayout.astro'
+import Badge from '@/components/ui/Badge.astro'
+import Button from '@/components/ui/Button.astro'
+
+interface Props {
+  title: string
+  description: string
+  category: string
+  publishDate: Date
+  image: string
+}
+
+const { title, description, category, publishDate, image } = Astro.props
+
+const dateLabel = publishDate.toLocaleDateString('id-ID', {
+  day: 'numeric',
+  month: 'long',
+  year: 'numeric',
+})
+---
+
+<BaseLayout title={`${title} — Carisite`} description={description} ogImage={image}>
+  <article class="mx-auto max-w-3xl px-4 py-12 sm:px-6 lg:py-16">
+    <a
+      href="/articles"
+      class="text-sm font-medium text-primary-deep hover:underline"
+    >
+      ← Kembali ke Artikel
+    </a>
+
+    <div class="mt-6 flex items-center gap-3">
+      <Badge label={category} />
+      <time datetime={publishDate.toISOString()} class="text-sm text-ink-muted">
+        {dateLabel}
+      </time>
+    </div>
+
+    <h1 class="mt-4 text-3xl font-extrabold leading-tight text-ink sm:text-4xl">
+      {title}
+    </h1>
+    <p class="mt-4 text-lg text-ink-muted">{description}</p>
+
+    <img
+      src={image}
+      alt={title}
+      width="800"
+      height="500"
+      loading="eager"
+      class="mt-8 w-full rounded-xl border border-outline-variant object-cover"
+    />
+
+    <div
+      class="prose-article mt-10 space-y-4 text-base leading-relaxed text-ink-muted"
+    >
+      <slot />
+    </div>
+
+    <div
+      class="mt-12 rounded-xl border border-primary/20 bg-primary-soft p-8 text-center"
+    >
+      <h2 class="text-xl font-bold text-ink">Butuh website untuk bisnis Anda?</h2>
+      <p class="mt-2 text-sm text-ink-muted">
+        Wujudkan website profesional yang mendatangkan pelanggan, mulai dari
+        Rp699.000.
+      </p>
+      <div class="mt-5 flex justify-center">
+        <Button variant="primary" href="/#order">Order Sekarang</Button>
+      </div>
+    </div>
+  </article>
+</BaseLayout>
+
+<style is:global>
+  .prose-article h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #0b1c30;
+    margin-top: 2rem;
+    margin-bottom: 0.5rem;
+  }
+  .prose-article h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #0b1c30;
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+  .prose-article p {
+    margin-bottom: 1rem;
+  }
+  .prose-article ul,
+  .prose-article ol {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+    list-style: revert;
+  }
+  .prose-article li {
+    margin-bottom: 0.5rem;
+  }
+  .prose-article strong {
+    color: #0b1c30;
+    font-weight: 600;
+  }
+</style>

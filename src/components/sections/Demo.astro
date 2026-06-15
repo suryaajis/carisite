@@ -1,0 +1,57 @@
+---
+import { getCollection } from 'astro:content'
+import { Icon } from 'astro-icon/components'
+import SectionLabel from '@/components/ui/SectionLabel.astro'
+import Button from '@/components/ui/Button.astro'
+
+const demos = await getCollection('demo')
+---
+
+<section id="demo" class="bg-surface">
+  <div class="mx-auto max-w-container px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+    <SectionLabel label="Demo" />
+    <h2 class="reveal mt-4 text-center text-3xl font-extrabold text-ink sm:text-4xl">
+      Pilih Tampilan Impianmu
+    </h2>
+    <p class="reveal mx-auto mt-3 max-w-2xl text-center text-ink-muted">
+      Lihat berbagai contoh desain website yang siap kami sesuaikan untuk
+      beragam jenis usaha.
+    </p>
+
+    <div class="mt-12 grid gap-6 sm:grid-cols-2">
+      {
+        demos.map((item) => (
+          <article class="reveal group overflow-hidden rounded-xl border border-outline-variant bg-surface-lowest shadow-soft transition-shadow hover:shadow-card">
+            <a href={`/demo/${item.id}`} class="block overflow-hidden">
+              <img
+                src={item.data.image}
+                alt={item.data.title}
+                width="800"
+                height="500"
+                loading="lazy"
+                class="aspect-[8/5] w-full object-cover transition-transform duration-300 group-hover:scale-[1.03]"
+              />
+            </a>
+            <div class="p-6">
+              <span class="text-xs font-semibold uppercase tracking-wide text-primary">
+                {item.data.category}
+              </span>
+              <h3 class="mt-1.5 font-heading text-xl font-bold text-ink">
+                {item.data.title}
+              </h3>
+              <p class="mt-2 text-sm leading-relaxed text-ink-muted">
+                {item.data.description}
+              </p>
+              <div class="mt-5">
+                <Button variant="outline" href={`/demo/${item.id}`} class="px-5 py-2">
+                  Lihat Detail
+                  <Icon name="lucide:arrow-right" class="h-4 w-4" />
+                </Button>
+              </div>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>

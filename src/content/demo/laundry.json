@@ -1,0 +1,8 @@
+{
+  "title": "Website Laundry Profesional",
+  "description": "Website siap pakai untuk bisnis laundry dan dry cleaning dengan daftar harga digital dan pemesanan via WhatsApp.",
+  "category": "Laundry",
+  "image": "/images/demo/laundry.svg",
+  "demoUrl": "https://carisite.id",
+  "features": ["Daftar harga digital", "Tombol order WhatsApp", "Peta lokasi outlet", "Galeri layanan"]
+}

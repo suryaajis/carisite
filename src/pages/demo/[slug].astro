@@ -1,0 +1,79 @@
+---
+import { getCollection } from 'astro:content'
+import { Icon } from 'astro-icon/components'
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import Button from '@/components/ui/Button.astro'
+import Badge from '@/components/ui/Badge.astro'
+
+export async function getStaticPaths() {
+  const demos = await getCollection('demo')
+  return demos.map((entry) => ({
+    params: { slug: entry.id },
+    props: { entry },
+  }))
+}
+
+const { entry } = Astro.props
+const { title, description, category, image, demoUrl, features } = entry.data
+---
+
+<BaseLayout title={`${title} — Carisite`} description={description} ogImage={image}>
+  <section class="bg-surface">
+    <div class="mx-auto max-w-container px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
+      <a href="/#demo" class="text-sm font-medium text-primary-deep hover:underline">
+        ← Kembali ke Demo
+      </a>
+
+      <div class="mt-6 grid gap-10 lg:grid-cols-2 lg:items-start">
+        <!-- Visual -->
+        <div class="rounded-2xl border border-outline-variant bg-surface-lowest p-3 shadow-card">
+          <img
+            src={image}
+            alt={title}
+            width="800"
+            height="500"
+            loading="eager"
+            class="w-full rounded-xl object-cover"
+          />
+        </div>
+
+        <!-- Detail -->
+        <div>
+          <Badge label={category} />
+          <h1 class="mt-4 text-3xl font-extrabold leading-tight text-ink sm:text-4xl">
+            {title}
+          </h1>
+          <p class="mt-4 text-lg text-ink-muted">{description}</p>
+
+          {
+            features && features.length > 0 && (
+              <ul class="mt-6 space-y-3">
+                {features.map((f) => (
+                  <li class="flex items-center gap-2.5 text-sm text-ink">
+                    <Icon name="lucide:check-circle-2" class="h-5 w-5 text-primary" />
+                    {f}
+                  </li>
+                ))}
+              </ul>
+            )
+          }
+
+          <div class="mt-8 flex flex-col gap-3 sm:flex-row">
+            <Button
+              variant="outline"
+              href={demoUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Icon name="lucide:external-link" class="h-4 w-4" />
+              Buka Demo Live
+            </Button>
+            <Button variant="primary" href="/#order">
+              Pesan Website Serupa
+            </Button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

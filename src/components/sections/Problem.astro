@@ -1,0 +1,56 @@
+---
+import { Icon } from 'astro-icon/components'
+import SectionLabel from '@/components/ui/SectionLabel.astro'
+import Card from '@/components/ui/Card.astro'
+
+const problems = [
+  {
+    icon: 'lucide:search',
+    title: 'Sulit ditemukan di Google',
+    desc: 'Calon pelanggan mencari di Google, tapi bisnis Anda tidak muncul sama sekali.',
+  },
+  {
+    icon: 'lucide:heart',
+    title: 'Calon pelanggan ragu percaya',
+    desc: 'Tanpa website resmi, bisnis terlihat kurang meyakinkan dan kurang profesional.',
+  },
+  {
+    icon: 'lucide:layout',
+    title: 'Informasi bisnis tidak lengkap',
+    desc: 'Produk, harga, dan kontak tersebar di banyak tempat sehingga membingungkan.',
+  },
+  {
+    icon: 'lucide:user',
+    title: 'Belum punya profil profesional',
+    desc: 'Bisnis belum punya wajah digital yang bisa dibanggakan ke pelanggan.',
+  },
+]
+---
+
+<section id="problem" class="bg-surface">
+  <div class="mx-auto max-w-container px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+    <SectionLabel label="Masalah" />
+    <h2 class="reveal mt-4 text-center text-3xl font-extrabold text-ink sm:text-4xl">
+      Masih Mengandalkan Media Sosial Saja?
+    </h2>
+    <p class="reveal mx-auto mt-3 max-w-2xl text-center text-ink-muted">
+      Tanpa website, banyak peluang pelanggan yang hilang setiap harinya.
+    </p>
+
+    <div class="mt-12 grid gap-5 sm:grid-cols-2">
+      {
+        problems.map((p) => (
+          <Card class="reveal flex gap-4">
+            <span class="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-orange-50 text-orange-500">
+              <Icon name={p.icon} class="h-6 w-6" />
+            </span>
+            <div>
+              <h3 class="font-heading text-lg font-bold text-ink">{p.title}</h3>
+              <p class="mt-1.5 text-sm leading-relaxed text-ink-muted">{p.desc}</p>
+            </div>
+          </Card>
+        ))
+      }
+    </div>
+  </div>
+</section>

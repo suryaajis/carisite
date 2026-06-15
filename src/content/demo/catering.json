@@ -1,0 +1,8 @@
+{
+  "title": "Website Katering",
+  "description": "Website untuk usaha katering dan nasi box dengan paket menu, daftar harga, dan pemesanan langsung.",
+  "category": "Katering",
+  "image": "/images/demo/catering.svg",
+  "demoUrl": "https://carisite.id",
+  "features": ["Paket menu katering", "Daftar harga per porsi", "Form pemesanan event", "Galeri menu"]
+}

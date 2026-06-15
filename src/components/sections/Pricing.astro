@@ -1,0 +1,77 @@
+---
+import { Icon } from 'astro-icon/components'
+import SectionLabel from '@/components/ui/SectionLabel.astro'
+import Button from '@/components/ui/Button.astro'
+
+const landing = ['Domain .COM', 'Hosting', '1 Halaman', 'Tombol WhatsApp', 'Mobile Friendly', 'SEO Dasar']
+const company = ['Domain .COM', 'Hosting', 'Multi Halaman', 'Profil Perusahaan', 'Galeri', 'Form Kontak', 'SEO Dasar', 'Mobile Friendly']
+---
+
+<section id="pricing" class="bg-surface-low">
+  <div class="mx-auto max-w-container px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+    <SectionLabel label="Harga" />
+    <h2 class="reveal mt-4 text-center text-3xl font-extrabold text-ink sm:text-4xl">
+      Pilih Paket Terbaik
+    </h2>
+    <p class="reveal mx-auto mt-3 max-w-2xl text-center text-ink-muted">
+      Harga terjangkau dengan kualitas premium untuk bisnis Anda.
+    </p>
+
+    <div class="mx-auto mt-12 grid max-w-4xl gap-6 lg:grid-cols-2">
+      <!-- Landing Page -->
+      <div class="reveal flex flex-col rounded-2xl border border-outline-variant bg-surface-lowest p-8 shadow-soft">
+        <h3 class="font-heading text-2xl font-bold text-ink">Landing Page</h3>
+        <p class="mt-1 text-sm text-ink-muted">
+          Cocok untuk bisnis yang butuh halaman singkat dan efektif.
+        </p>
+        <p class="mt-6">
+          <span class="font-heading text-4xl font-extrabold text-primary-deep">Rp699.000</span>
+          <span class="text-sm text-ink-muted">/tahun</span>
+        </p>
+        <ul class="mt-6 space-y-3">
+          {
+            landing.map((f) => (
+              <li class="flex items-center gap-2.5 text-sm text-ink">
+                <Icon name="lucide:check-circle-2" class="h-5 w-5 text-primary" />
+                {f}
+              </li>
+            ))
+          }
+        </ul>
+        <div class="mt-8 pt-2">
+          <Button variant="outline" href="#order" class="w-full">Pesan Sekarang</Button>
+        </div>
+      </div>
+
+      <!-- Company Profile (highlighted) -->
+      <div class="reveal relative flex flex-col rounded-2xl border-2 border-primary bg-surface-lowest p-8 shadow-card">
+        <span
+          class="absolute -top-3 right-6 rounded-full bg-primary px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white"
+        >
+          Paling Populer
+        </span>
+        <h3 class="font-heading text-2xl font-bold text-ink">Company Profile</h3>
+        <p class="mt-1 text-sm text-ink-muted">
+          Solusi lengkap untuk bisnis yang ingin tampil profesional.
+        </p>
+        <p class="mt-6">
+          <span class="font-heading text-4xl font-extrabold text-primary-deep">Rp1.990.000</span>
+          <span class="text-sm text-ink-muted">/tahun</span>
+        </p>
+        <ul class="mt-6 space-y-3">
+          {
+            company.map((f) => (
+              <li class="flex items-center gap-2.5 text-sm text-ink">
+                <Icon name="lucide:check-circle-2" class="h-5 w-5 text-primary" />
+                {f}
+              </li>
+            ))
+          }
+        </ul>
+        <div class="mt-8 pt-2">
+          <Button variant="primary" href="#order" class="w-full">Pesan Sekarang</Button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
