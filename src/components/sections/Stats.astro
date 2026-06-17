@@ -1,0 +1,63 @@
+---
+const stats = [
+  { value: '50+', count: '50', suffix: '+', label: 'Contoh Website' },
+  { value: '24 Jam', count: null, label: 'Respon Cepat' },
+  { value: '100%', count: '100', suffix: '%', label: 'Bagus di HP' },
+  { value: 'SEO', count: null, label: 'Tampil di Google' },
+]
+---
+
+<section id="stats" class="border-y border-outline-variant bg-surface-lowest">
+  <div class="mx-auto max-w-container px-4 py-10 sm:px-6 lg:px-8">
+    <dl class="grid grid-cols-2 gap-8 text-center lg:grid-cols-4">
+      {
+        stats.map((s) => (
+          <div class="reveal">
+            <dt class="font-heading text-3xl font-extrabold text-primary-deep sm:text-4xl">
+              {s.count ? (
+                <span data-count-up data-target={s.count} data-suffix={s.suffix}>
+                  0{s.suffix}
+                </span>
+              ) : (
+                s.value
+              )}
+            </dt>
+            <dd class="mt-1 text-sm font-medium text-ink-muted">{s.label}</dd>
+          </div>
+        ))
+      }
+    </dl>
+  </div>
+</section>
+
+<script>
+  const els = document.querySelectorAll<HTMLElement>('[data-count-up]')
+  const animate = (el: HTMLElement) => {
+    const target = Number(el.dataset.target ?? '0')
+    const suffix = el.dataset.suffix ?? ''
+    const duration = 1500
+    const start = performance.now()
+    const step = (now: number) => {
+      const progress = Math.min((now - start) / duration, 1)
+      const eased = 1 - Math.pow(1 - progress, 3)
+      el.textContent = Math.round(eased * target) + suffix
+      if (progress < 1) requestAnimationFrame(step)
+    }
+    requestAnimationFrame(step)
+  }
+
+  if (els.length) {
+    const io = new IntersectionObserver(
+      (entries, obs) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            animate(entry.target as HTMLElement)
+            obs.unobserve(entry.target)
+          }
+        })
+      },
+      { threshold: 0.5 }
+    )
+    els.forEach((el) => io.observe(el))
+  }
+</script>

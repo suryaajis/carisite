@@ -1,0 +1,9 @@
+{
+  "title": "Sekolah Harapan Bangsa",
+  "description": "Website profil sekolah untuk Penerimaan Siswa Baru — menonjolkan akreditasi, prestasi, dan program unggulan.",
+  "category": "Sekolah",
+  "image": "/images/demo/sekolah.svg",
+  "demoUrl": "https://carisite.id",
+  "livePath": "/demo/live/sekolah",
+  "features": ["Hero PSB", "Indikator akreditasi & prestasi", "CTA pendaftaran", "Foto suasana kampus"]
+}

@@ -1,0 +1,94 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import { Icon } from 'astro-icon/components'
+
+const HERO_IMG =
+  'https://lh3.googleusercontent.com/aida-public/AB6AXuAXrwyrdxKWUNde4ZIKZaTcIR5tu_Nh_aXGFbVZFArIfrlwPykezO2nuTHi4z8JIVQU2yrg3_GlR55Fce_uBKhiSxYYO5hM6gIURUcYgWPv9OevOUVg5QDBqNYn0K0SLlQSt8W32cHGQGvvZng9tH9zurmu9E9Q90zo9MA6EV3ZaJ1iVs3c-Mu8aADSDyUMilmlCty1o9gTipUVunXG1wKcYoxuMJ4rpWSMpJx4CrfW36W-sbsM72LmVG9mSM95yCgRU5GDH0xKrUc'
+
+const stats = [
+  { value: 'A', label: 'Akreditasi' },
+  { value: '98%', label: 'Lulusan ke PTN' },
+  { value: '15+', label: 'Fasilitas Modern' },
+]
+const programs = [
+  { icon: 'lucide:flask-conical', title: 'Sains & Riset', desc: 'Laboratorium modern dan bimbingan olimpiade sains nasional.' },
+  { icon: 'lucide:languages', title: 'Bahasa & Literasi', desc: 'Program bilingual dengan native speaker dan kelas debat.' },
+  { icon: 'lucide:palette', title: 'Seni & Kreativitas', desc: 'Studio seni, musik, dan ekstrakurikuler pengembangan bakat.' },
+  { icon: 'lucide:trophy', title: 'Olahraga Prestasi', desc: 'Pembinaan atlet muda dengan fasilitas lapangan lengkap.' },
+]
+---
+
+<BaseLayout
+  title="Sekolah Harapan Bangsa — Demo Website Sekolah | Carisite"
+  description="Contoh website profil sekolah untuk Penerimaan Siswa Baru, dibuat oleh Carisite."
+>
+  <div class="bg-primary-deep px-4 py-2 text-center text-xs text-white sm:px-6">
+    Contoh website (demo) yang dibuat oleh Carisite —
+    <a href="/#demo" class="font-semibold underline underline-offset-2">lihat demo lain</a>
+  </div>
+
+  <!-- Hero -->
+  <section class="mx-auto grid max-w-container items-center gap-10 px-4 py-16 sm:px-6 lg:grid-cols-12 lg:px-8 lg:py-20">
+    <div class="z-10 flex flex-col gap-6 lg:col-span-6">
+      <span class="inline-flex w-fit items-center gap-2 rounded-full bg-primary-soft px-3 py-1 text-xs font-semibold text-primary-deep">
+        <span class="h-2 w-2 animate-pulse rounded-full bg-primary"></span> Penerimaan Siswa Baru 2026/2027
+      </span>
+      <h1 class="font-heading text-3xl font-extrabold text-ink sm:text-4xl lg:text-5xl">
+        Membentuk Generasi <br /><span class="text-primary">Unggul &amp; Berkarakter</span>
+      </h1>
+      <p class="max-w-lg text-lg leading-relaxed text-ink-muted">
+        Sekolah Harapan Bangsa menyediakan lingkungan belajar modern, suportif, dan holistik
+        untuk memaksimalkan potensi setiap siswa dalam meraih masa depan gemilang.
+      </p>
+      <div class="mt-2 flex flex-wrap gap-4">
+        <a href="#daftar" class="flex items-center gap-2 rounded-full bg-primary px-6 py-3 text-sm font-semibold text-white shadow-soft transition hover:bg-primary-hover active:scale-95">
+          Daftar Sekarang <Icon name="lucide:arrow-right" class="h-4 w-4" />
+        </a>
+        <a href="#program" class="rounded-full border border-primary px-6 py-3 text-sm font-semibold text-primary-deep transition hover:bg-primary-soft active:scale-95">Jelajahi Program</a>
+      </div>
+      <div class="mt-8 flex items-center gap-6 border-t border-outline-variant pt-6">
+        {stats.map((s, i) => (
+          <>
+            {i > 0 && <div class="h-8 w-px bg-outline-variant"></div>}
+            <div>
+              <p class="font-heading text-2xl font-bold text-ink">{s.value}</p>
+              <p class="text-xs text-ink-muted">{s.label}</p>
+            </div>
+          </>
+        ))}
+      </div>
+    </div>
+    <div class="group relative h-[400px] overflow-hidden rounded-xl shadow-card lg:col-span-6 lg:h-[560px]">
+      <img src={HERO_IMG} alt="Suasana siswa di kampus sekolah modern" width="800" height="600" loading="eager" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
+      <div class="absolute bottom-6 left-6 flex items-center gap-3 rounded-lg border border-outline-variant bg-surface/90 p-4 shadow-soft backdrop-blur">
+        <span class="rounded-full bg-primary-soft p-2 text-primary-deep"><Icon name="lucide:award" class="h-5 w-5" /></span>
+        <div>
+          <p class="text-sm font-semibold text-ink">Sekolah Berprestasi</p>
+          <p class="text-xs text-ink-muted">Tingkat Nasional 2023</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Programs -->
+  <section id="program" class="bg-surface-low py-16 lg:py-20">
+    <div class="mx-auto max-w-container px-4 sm:px-6 lg:px-8">
+      <div class="mx-auto mb-12 max-w-2xl space-y-3 text-center">
+        <h2 class="font-heading text-3xl font-bold text-ink">Program Unggulan</h2>
+        <p class="text-ink-muted">Kurikulum holistik yang mengembangkan akademik, karakter, dan bakat setiap siswa.</p>
+      </div>
+      <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        {programs.map((p) => (
+          <div class="rounded-xl border border-outline-variant bg-surface-lowest p-6 shadow-soft">
+            <span class="flex h-12 w-12 items-center justify-center rounded-full bg-primary-soft text-primary"><Icon name={p.icon} class="h-6 w-6" /></span>
+            <h3 class="mt-4 font-heading text-lg font-bold text-ink">{p.title}</h3>
+            <p class="mt-1.5 text-sm leading-relaxed text-ink-muted">{p.desc}</p>
+          </div>
+        ))}
+      </div>
+      <div id="daftar" class="mt-12 flex justify-center">
+        <a href="#" class="rounded-full bg-primary px-8 py-3 text-sm font-semibold text-white shadow-soft transition hover:bg-primary-hover">Daftar Penerimaan Siswa Baru</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

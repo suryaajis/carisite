@@ -1,0 +1,22 @@
+---
+interface Props {
+  label: string
+  variant?: 'default' | 'light'
+  class?: string
+}
+
+const { label, variant = 'default', class: className = '' } = Astro.props
+
+const styles = {
+  default:
+    'bg-primary-soft text-primary-deep border border-primary/20',
+  light: 'bg-white/10 text-white border border-white/20',
+}
+---
+
+<span
+  class={`inline-flex items-center gap-1.5 rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-wide ${styles[variant]} ${className}`}
+>
+  <slot name="icon" />
+  {label}
+</span>

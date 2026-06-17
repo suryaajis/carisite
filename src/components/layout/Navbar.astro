@@ -1,0 +1,151 @@
+---
+import { Icon } from 'astro-icon/components'
+import { NAV_ITEMS } from '@/config/navigation'
+import { SITE } from '@/config/site'
+import Button from '@/components/ui/Button.astro'
+---
+
+<header class="sticky top-0 z-40 border-b border-outline-variant bg-surface/90 backdrop-blur">
+  <nav
+    class="mx-auto flex h-16 max-w-container items-center justify-between px-4 sm:px-6 lg:px-8"
+    aria-label="Navigasi utama"
+  >
+    <a href="/#hero" class="font-heading text-xl font-extrabold text-primary-deep">
+      Cari<span class="text-primary">site</span>
+    </a>
+
+    <!-- Desktop nav -->
+    <ul class="hidden items-center gap-1 md:flex">
+      {
+        NAV_ITEMS.map((item) => (
+          <li>
+            <a
+              href={item.href}
+              data-nav-link
+              class="rounded-lg px-3 py-2 text-sm font-medium text-ink-muted transition-colors hover:text-primary-deep aria-[current=true]:text-primary aria-[current=true]:font-semibold"
+            >
+              {item.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+
+    <div class="hidden md:block">
+      <Button variant="primary" href="/#order" class="px-5 py-2">Order Sekarang</Button>
+    </div>
+
+    <!-- Mobile hamburger -->
+    <button
+      id="nav-toggle"
+      class="inline-flex items-center justify-center rounded-lg p-2 text-ink md:hidden"
+      aria-label="Buka menu"
+      aria-expanded="false"
+      aria-controls="mobile-drawer"
+    >
+      <Icon name="lucide:menu" class="h-6 w-6" />
+    </button>
+  </nav>
+
+  <!-- Mobile drawer -->
+  <div
+    id="mobile-drawer"
+    class="fixed inset-0 z-50 hidden md:hidden"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Menu navigasi"
+  >
+    <div id="drawer-backdrop" class="absolute inset-0 bg-ink/40"></div>
+    <div
+      class="absolute right-0 top-0 h-full w-72 max-w-[80%] bg-surface-lowest p-6 shadow-card"
+    >
+      <div class="flex items-center justify-between">
+        <span class="font-heading text-lg font-extrabold text-primary-deep">Menu</span>
+        <button id="nav-close" class="rounded-lg p-2 text-ink" aria-label="Tutup menu">
+          <Icon name="lucide:x" class="h-6 w-6" />
+        </button>
+      </div>
+      <ul class="mt-6 flex flex-col gap-1">
+        {
+          NAV_ITEMS.map((item) => (
+            <li>
+              <a
+                href={item.href}
+                data-drawer-link
+                class="block rounded-lg px-3 py-2.5 text-base font-medium text-ink hover:bg-surface-low hover:text-primary-deep"
+              >
+                {item.label}
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+      <a
+        href={`https://wa.me/${SITE.whatsapp}`}
+        class="mt-6 block rounded-xl bg-primary px-4 py-3 text-center text-sm font-semibold text-white"
+      >
+        Order Sekarang
+      </a>
+    </div>
+  </div>
+</header>
+
+<script>
+  const toggle = document.getElementById('nav-toggle')
+  const drawer = document.getElementById('mobile-drawer')
+  const closeBtn = document.getElementById('nav-close')
+  const backdrop = document.getElementById('drawer-backdrop')
+
+  function openDrawer() {
+    drawer?.classList.remove('hidden')
+    toggle?.setAttribute('aria-expanded', 'true')
+    document.body.style.overflow = 'hidden'
+  }
+  function closeDrawer() {
+    drawer?.classList.add('hidden')
+    toggle?.setAttribute('aria-expanded', 'false')
+    document.body.style.overflow = ''
+  }
+
+  toggle?.addEventListener('click', openDrawer)
+  closeBtn?.addEventListener('click', closeDrawer)
+  backdrop?.addEventListener('click', closeDrawer)
+  document
+    .querySelectorAll('[data-drawer-link]')
+    .forEach((el) => el.addEventListener('click', closeDrawer))
+
+  // Expose for BottomNavMobile "MENU" button
+  ;(window as any).openNavDrawer = openDrawer
+
+  // Scroll spy — highlight active nav link based on section in view
+  const links = Array.from(
+    document.querySelectorAll('[data-nav-link]')
+  ) as HTMLAnchorElement[]
+  const sections = links
+    .map((l) => {
+      const id = l.getAttribute('href')?.split('#')[1]
+      return id ? document.getElementById(id) : null
+    })
+    .filter((s): s is HTMLElement => Boolean(s))
+
+  if (sections.length) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            links.forEach((l) =>
+              l.setAttribute(
+                'aria-current',
+                l.getAttribute('href')?.endsWith('#' + entry.target.id)
+                  ? 'true'
+                  : 'false'
+              )
+            )
+          }
+        })
+      },
+      { rootMargin: '-45% 0px -50% 0px' }
+    )
+    sections.forEach((s) => observer.observe(s))
+  }
+</script>

@@ -1,0 +1,69 @@
+---
+import { Icon } from 'astro-icon/components'
+import SectionLabel from '@/components/ui/SectionLabel.astro'
+
+const faqs = [
+  {
+    q: 'Berapa lama proses pembuatan website?',
+    a: 'Untuk paket Landing Page biasanya selesai dalam 3–5 hari kerja, sedangkan Company Profile sekitar 7–10 hari kerja. Waktu bisa lebih cepat jika materi seperti logo dan foto sudah lengkap.',
+  },
+  {
+    q: 'Apakah domain dan hosting sudah termasuk?',
+    a: 'Ya, semua paket sudah termasuk domain .COM dan hosting untuk tahun pertama. Anda tidak perlu membeli atau mengurusnya secara terpisah.',
+  },
+  {
+    q: 'Apakah website bisa dibuka di HP?',
+    a: 'Tentu. Semua website kami dibuat mobile friendly, sehingga tampil rapi dan cepat dibuka di HP, tablet, maupun komputer.',
+  },
+  {
+    q: 'Apakah website bisa muncul di Google?',
+    a: 'Bisa. Setiap website sudah dioptimasi dengan SEO dasar agar lebih mudah ditemukan di Google ketika orang mencari layanan serupa.',
+  },
+  {
+    q: 'Bagaimana cara memesan website?',
+    a: 'Cukup isi form order di halaman ini atau klik tombol WhatsApp. Tim kami akan membalas, membantu memilih paket, dan memproses pesanan Anda.',
+  },
+]
+---
+
+<section id="faq" class="bg-surface-low">
+  <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+    <SectionLabel label="FAQ" />
+    <h2 class="reveal mt-4 text-center text-3xl font-extrabold text-ink sm:text-4xl">
+      Pertanyaan yang Sering Diajukan
+    </h2>
+
+    <div class="mt-10 space-y-3">
+      {
+        faqs.map((item) => (
+          <details class="faq-item group rounded-xl border border-outline-variant bg-surface-lowest px-5 shadow-soft">
+            <summary
+              class="flex cursor-pointer list-none items-center justify-between gap-4 py-4 font-heading text-base font-semibold text-ink"
+              aria-expanded="false"
+            >
+              {item.q}
+              <Icon
+                name="lucide:chevron-down"
+                class="h-5 w-5 shrink-0 text-primary transition-transform duration-300 group-open:rotate-180"
+              />
+            </summary>
+            <div class="faq-answer">
+              <div>
+                <p class="pb-4 text-sm leading-relaxed text-ink-muted">{item.a}</p>
+              </div>
+            </div>
+          </details>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<script>
+  document.querySelectorAll<HTMLDetailsElement>('details.faq-item').forEach((d) => {
+    const summary = d.querySelector('summary')
+    d.addEventListener('toggle', () => {
+      summary?.setAttribute('aria-expanded', d.open ? 'true' : 'false')
+    })
+  })
+</script>

@@ -1,0 +1,116 @@
+---
+import { Icon } from 'astro-icon/components'
+import Button from '@/components/ui/Button.astro'
+import { SITE } from '@/config/site'
+
+const badges = [
+  'Mobile Friendly',
+  'Domain .COM',
+  'SEO Friendly',
+  'Bantuan WhatsApp',
+]
+---
+
+<section
+  id="hero"
+  class="bg-gradient-to-b from-surface to-surface-low"
+>
+  <div
+    class="mx-auto grid max-w-container items-center gap-12 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:gap-8 lg:px-8 lg:py-24"
+  >
+    <!-- Copy -->
+    <div class="reveal">
+      <span
+        class="inline-flex items-center gap-1.5 rounded-full bg-primary-soft px-3 py-1 text-xs font-semibold text-primary-deep"
+      >
+        <Icon name="lucide:sparkles" class="h-3.5 w-3.5" />
+        Solusi Digital UMKM Indonesia
+      </span>
+
+      <h1 class="mt-5 text-4xl font-extrabold leading-[1.1] text-ink sm:text-5xl">
+        Website Profesional untuk UMKM
+        <span class="text-primary">Biar Naik Kelas</span>
+      </h1>
+
+      <p class="mt-5 max-w-lg text-lg leading-relaxed text-ink-muted">
+        Bikin usaha makin dipercaya, jangkau lebih banyak pelanggan, dan jualan
+        24 jam non-stop dengan website buatan kami. Gak perlu ribet coding!
+      </p>
+
+      <div class="mt-7 flex flex-col gap-3 sm:flex-row">
+        <Button variant="primary" href="#demo">
+          <Icon name="lucide:eye" class="h-4 w-4" />
+          Lihat Contoh Website
+        </Button>
+        <Button
+          variant="outline"
+          href={`https://wa.me/${SITE.whatsapp}?text=${encodeURIComponent(SITE.whatsappMessage)}`}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <Icon name="lucide:message-circle" class="h-4 w-4" />
+          Konsultasi Gratis (WA)
+        </Button>
+      </div>
+
+      <ul class="mt-8 flex flex-wrap gap-x-5 gap-y-2">
+        {
+          badges.map((b) => (
+            <li class="inline-flex items-center gap-1.5 text-sm font-medium text-ink-muted">
+              <Icon name="lucide:check" class="h-4 w-4 text-primary" />
+              {b}
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+
+    <!-- Mockup -->
+    <div class="reveal relative">
+      <div
+        class="rounded-2xl border border-outline-variant bg-surface-lowest p-4 shadow-card"
+      >
+        <svg
+          viewBox="0 0 480 320"
+          class="h-auto w-full"
+          role="img"
+          aria-label="Ilustrasi tampilan website di laptop dan ponsel"
+        >
+          <!-- Laptop -->
+          <rect x="40" y="30" width="320" height="200" rx="10" fill="#EFF4FF" stroke="#DCE9FF" />
+          <rect x="40" y="30" width="320" height="34" rx="10" fill="#006C49" />
+          <circle cx="58" cy="47" r="4" fill="#ffffff" opacity="0.8" />
+          <circle cx="74" cy="47" r="4" fill="#ffffff" opacity="0.5" />
+          <rect x="60" y="84" width="130" height="14" rx="5" fill="#10B981" />
+          <rect x="60" y="108" width="200" height="8" rx="4" fill="#BBCABF" />
+          <rect x="60" y="124" width="170" height="8" rx="4" fill="#BBCABF" />
+          <rect x="60" y="150" width="90" height="26" rx="8" fill="#10B981" />
+          <rect x="260" y="84" width="80" height="92" rx="8" fill="#DCE9FF" />
+          <rect x="30" y="230" width="340" height="12" rx="6" fill="#0B1C30" />
+          <!-- Phone -->
+          <rect x="360" y="120" width="96" height="170" rx="16" fill="#0B1C30" />
+          <rect x="368" y="132" width="80" height="146" rx="8" fill="#F8F9FF" />
+          <rect x="378" y="146" width="48" height="10" rx="4" fill="#10B981" />
+          <rect x="378" y="166" width="60" height="6" rx="3" fill="#BBCABF" />
+          <rect x="378" y="180" width="52" height="6" rx="3" fill="#BBCABF" />
+          <rect x="378" y="248" width="60" height="18" rx="6" fill="#10B981" />
+        </svg>
+      </div>
+
+      <!-- Floating stat card -->
+      <div
+        class="absolute -bottom-4 -left-3 flex items-center gap-3 rounded-xl border border-outline-variant bg-surface-lowest px-4 py-3 shadow-card sm:-left-6"
+      >
+        <span
+          class="flex h-9 w-9 items-center justify-center rounded-full bg-primary-soft text-primary"
+        >
+          <Icon name="lucide:trending-up" class="h-5 w-5" />
+        </span>
+        <div>
+          <p class="text-sm font-bold leading-none text-ink">+150%</p>
+          <p class="text-xs text-ink-muted">Pengunjung naik</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

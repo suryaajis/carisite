@@ -1,0 +1,44 @@
+---
+import { Icon } from 'astro-icon/components'
+import SectionLabel from '@/components/ui/SectionLabel.astro'
+
+const advantages = [
+  { icon: 'lucide:palette', title: 'Desain Modern & Profesional', desc: 'Estetik & sesuai dengan kepercayaan brand bisnis Anda.' },
+  { icon: 'lucide:smartphone', title: 'Mobile Friendly', desc: 'Tampilan sempurna di semua perangkat.' },
+  { icon: 'lucide:zap', title: 'Akses Super Cepat', desc: 'Performa optimal, pelanggan tidak menunggu.' },
+  { icon: 'lucide:search', title: 'SEO Friendly', desc: 'Mudah ditemukan di pencarian Google.' },
+  { icon: 'lucide:globe', title: 'Domain .COM', desc: 'Identitas bisnis yang profesional & milik Anda.' },
+  { icon: 'lucide:headphones', title: 'Support Berkelanjutan', desc: 'Bantuan teknis setelah website selesai.' },
+  { icon: 'lucide:store', title: 'Cocok untuk Semua UMKM', desc: 'Kuliner, jasa, retail, dan lainnya.' },
+  { icon: 'lucide:message-circle', title: 'Integrasi WhatsApp', desc: 'Terhubung langsung dengan pelanggan.' },
+]
+---
+
+<section id="advantages" class="bg-surface">
+  <div class="mx-auto max-w-container px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+    <SectionLabel label="Keunggulan" />
+    <h2 class="reveal mt-4 text-center text-3xl font-extrabold text-ink sm:text-4xl">
+      Mengapa Memilih <span class="text-primary">Carisite</span>?
+    </h2>
+    <p class="reveal mx-auto mt-3 max-w-2xl text-center text-ink-muted">
+      Kami membawakan solusi digital terbaik untuk membantu UMKM Indonesia naik
+      kelas dengan website profesional.
+    </p>
+
+    <div class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+      {
+        advantages.map((a) => (
+          <div class="reveal rounded-xl border border-outline-variant bg-surface-lowest p-6 shadow-soft">
+            <span class="flex h-11 w-11 items-center justify-center rounded-full bg-primary-soft text-primary">
+              <Icon name={a.icon} class="h-5 w-5" />
+            </span>
+            <h3 class="mt-4 flex items-start gap-1.5 font-heading text-base font-bold text-ink">
+              {a.title}
+            </h3>
+            <p class="mt-1.5 text-sm leading-relaxed text-ink-muted">{a.desc}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

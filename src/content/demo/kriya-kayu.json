@@ -1,0 +1,9 @@
+{
+  "title": "Kriya Kayu Abadi",
+  "description": "Katalog produk UMKM kerajinan kayu dengan galeri produk, harga, cerita brand, dan testimoni pelanggan.",
+  "category": "UMKM / Kerajinan",
+  "image": "/images/demo/kriya-kayu.svg",
+  "demoUrl": "https://carisite.id",
+  "livePath": "/demo/live/kriya-kayu",
+  "features": ["Katalog produk + harga", "Pesan via WhatsApp", "Cerita brand", "Testimoni pelanggan"]
+}

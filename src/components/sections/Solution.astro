@@ -1,0 +1,76 @@
+---
+import { Icon } from 'astro-icon/components'
+import SectionLabel from '@/components/ui/SectionLabel.astro'
+import Card from '@/components/ui/Card.astro'
+
+const solutions = [
+  {
+    icon: 'lucide:monitor',
+    title: 'Website Profesional',
+    desc: 'Tampilan modern yang membuat bisnis Anda terlihat tepercaya.',
+  },
+  {
+    icon: 'lucide:message-circle',
+    title: 'Tombol WhatsApp Langsung',
+    desc: 'Pelanggan bisa langsung order atau bertanya dalam satu klik.',
+  },
+  {
+    icon: 'lucide:search',
+    title: 'SEO Friendly',
+    desc: 'Dioptimasi agar mudah ditemukan di pencarian Google.',
+  },
+  {
+    icon: 'lucide:smartphone',
+    title: 'Mobile Friendly',
+    desc: 'Tampilan rapi dan cepat dibuka di semua ukuran layar HP.',
+  },
+  {
+    icon: 'lucide:image',
+    title: 'Galeri Produk & Layanan',
+    desc: 'Pamerkan produk dan jasa Anda dengan tampilan menarik.',
+  },
+  {
+    icon: 'lucide:file-text',
+    title: 'Form Pemesanan',
+    desc: 'Terima order kapan saja lewat form yang mudah diisi.',
+  },
+]
+
+const tints = [
+  'bg-primary-soft text-primary',
+  'bg-sky-50 text-sky-500',
+  'bg-amber-50 text-amber-500',
+  'bg-violet-50 text-violet-500',
+  'bg-rose-50 text-rose-500',
+  'bg-emerald-50 text-emerald-500',
+]
+---
+
+<section id="solution" class="bg-surface-low">
+  <div class="mx-auto max-w-container px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
+    <SectionLabel label="Solusi" />
+    <h2 class="reveal mt-4 text-center text-3xl font-extrabold text-ink sm:text-4xl">
+      Website yang Bekerja untuk Bisnis Anda 24/7
+    </h2>
+    <p class="reveal mx-auto mt-3 max-w-2xl text-center text-ink-muted">
+      Semua yang dibutuhkan UMKM untuk tampil profesional dan mendatangkan
+      pelanggan.
+    </p>
+
+    <div class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        solutions.map((s, i) => (
+          <Card class="reveal">
+            <span
+              class={`flex h-12 w-12 items-center justify-center rounded-full ${tints[i % tints.length]}`}
+            >
+              <Icon name={s.icon} class="h-6 w-6" />
+            </span>
+            <h3 class="mt-4 font-heading text-lg font-bold text-ink">{s.title}</h3>
+            <p class="mt-1.5 text-sm leading-relaxed text-ink-muted">{s.desc}</p>
+          </Card>
+        ))
+      }
+    </div>
+  </div>
+</section>
