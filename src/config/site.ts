@@ -1,7 +1,7 @@
 export const SITE = {
   name: 'Carisite',
   tagline: 'Website Profesional untuk UMKM',
-  whatsapp: '628xxxxxxxxxx', // owner fills this in (format: 628...)
+  whatsapp: '6281213251743', // format: 628... (lokal 081213251743)
   whatsappMessage: 'Halo, saya ingin konsultasi pembuatan website',
   email: 'hello@carisite.id',
   domain: 'carisite.id',
