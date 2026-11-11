@@ -1,0 +1,9 @@
+node_modules
+dist
+.astro
+.git
+.claude
+.env
+.env.*
+docs/qa
+npm-debug.log*

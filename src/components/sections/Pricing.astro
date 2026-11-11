@@ -1,77 +1,10 @@
 ---
-import { Icon } from 'astro-icon/components'
-import SectionLabel from '@/components/ui/SectionLabel.astro'
-import Button from '@/components/ui/Button.astro'
-
-const landing = ['Domain .COM', 'Hosting', '1 Halaman', 'Tombol WhatsApp', 'Mobile Friendly', 'SEO Dasar']
-const company = ['Domain .COM', 'Hosting', 'Multi Halaman', 'Profil Perusahaan', 'Galeri', 'Form Kontak', 'SEO Dasar', 'Mobile Friendly']
+import { packages } from '@/data/services'
+const planCopy = [
+ { name:'Landing Page', label:'Awal yang tepat', price:'699.000', description:'Fokuskan cerita bisnis Anda dalam satu halaman yang efektif.', features:['1 halaman website','Domain .COM & hosting','Desain responsif','Tombol WhatsApp','SEO dasar'], featured:false, cta:'Pilih Landing Page', href:'/kontak?paket=landing-page' },
+ { name:'Company Profile', label:'Ruang untuk bercerita', price:'1.990.000', description:'Tampilkan identitas dan layanan bisnis secara lebih lengkap.', features:['Website multi halaman','Domain .COM & hosting','Profil perusahaan & galeri','Formulir kontak','Desain responsif & SEO dasar'], featured:true, cta:'Pilih Company Profile', href:'/kontak?paket=company-profile' },
+ { name:'Custom Website', label:'Dibentuk untuk Anda', price:null, description:'Untuk kebutuhan, alur kerja, atau integrasi yang lebih spesifik.', features:['Lingkup sesuai kebutuhan','Perencanaan fitur bersama','Desain antarmuka khusus','Integrasi sesuai kesepakatan','Estimasi setelah diskusi brief'], featured:false, cta:'Diskusikan kebutuhan', href:'/kontak?paket=custom' },
+]
+const plans = planCopy.map((plan, index) => ({ ...plan, name: packages[index].name === 'Custom' ? 'Custom Website' : packages[index].name, price: packages[index].price?.toLocaleString('id-ID') ?? null, features: [packages[index].scope, ...packages[index].features], href: `/kontak?paket=${packages[index].id}` }))
 ---
-
-<section id="pricing" class="bg-surface-low">
-  <div class="mx-auto max-w-container px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
-    <SectionLabel label="Harga" />
-    <h2 class="reveal mt-4 text-center text-3xl font-extrabold text-ink sm:text-4xl">
-      Pilih Paket Terbaik
-    </h2>
-    <p class="reveal mx-auto mt-3 max-w-2xl text-center text-ink-muted">
-      Harga terjangkau dengan kualitas premium untuk bisnis Anda.
-    </p>
-
-    <div class="mx-auto mt-12 grid max-w-4xl gap-6 lg:grid-cols-2">
-      <!-- Landing Page -->
-      <div class="reveal flex flex-col rounded-2xl border border-outline-variant bg-surface-lowest p-8 shadow-soft">
-        <h3 class="font-heading text-2xl font-bold text-ink">Landing Page</h3>
-        <p class="mt-1 text-sm text-ink-muted">
-          Cocok untuk bisnis yang butuh halaman singkat dan efektif.
-        </p>
-        <p class="mt-6">
-          <span class="font-heading text-4xl font-extrabold text-primary-deep">Rp699.000</span>
-          <span class="text-sm text-ink-muted">/tahun</span>
-        </p>
-        <ul class="mt-6 space-y-3">
-          {
-            landing.map((f) => (
-              <li class="flex items-center gap-2.5 text-sm text-ink">
-                <Icon name="lucide:check-circle-2" class="h-5 w-5 text-primary" />
-                {f}
-              </li>
-            ))
-          }
-        </ul>
-        <div class="mt-8 pt-2">
-          <Button variant="outline" href="#order" class="w-full">Pesan Sekarang</Button>
-        </div>
-      </div>
-
-      <!-- Company Profile (highlighted) -->
-      <div class="reveal relative flex flex-col rounded-2xl border-2 border-primary bg-surface-lowest p-8 shadow-card">
-        <span
-          class="absolute -top-3 right-6 rounded-full bg-primary px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white"
-        >
-          Paling Populer
-        </span>
-        <h3 class="font-heading text-2xl font-bold text-ink">Company Profile</h3>
-        <p class="mt-1 text-sm text-ink-muted">
-          Solusi lengkap untuk bisnis yang ingin tampil profesional.
-        </p>
-        <p class="mt-6">
-          <span class="font-heading text-4xl font-extrabold text-primary-deep">Rp1.990.000</span>
-          <span class="text-sm text-ink-muted">/tahun</span>
-        </p>
-        <ul class="mt-6 space-y-3">
-          {
-            company.map((f) => (
-              <li class="flex items-center gap-2.5 text-sm text-ink">
-                <Icon name="lucide:check-circle-2" class="h-5 w-5 text-primary" />
-                {f}
-              </li>
-            ))
-          }
-        </ul>
-        <div class="mt-8 pt-2">
-          <Button variant="primary" href="#order" class="w-full">Pesan Sekarang</Button>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+<section id="pricing" class="section pricing-section"><div class="wrap"><div class="section-top"><span class="eyebrow">04 / The investment</span><span class="quiet-label">Mulai dari yang Anda butuhkan</span></div><div class="section-heading"><h2 data-motion>Langkah besar.<br /><em>Mulai dengan tepat.</em></h2><p>Pilih fondasi yang sesuai dengan tahap bisnis Anda. Detail kebutuhan dan lingkup pekerjaan kita pastikan sebelum mulai.</p></div><div class="pricing-grid">{plans.map(plan => <article class:list={['price-card',{featured:plan.featured}]} data-motion><span class="eyebrow">{plan.label}</span><h3>{plan.name}</h3><p>{plan.description}</p><div class="price">{plan.price ? <><span class="currency">Rp</span><strong>{plan.price}</strong><small>mulai dari</small></> : <strong class="price-custom">Let’s talk.</strong>}</div><a class:list={['button',plan.featured?'button-primary':'button-secondary']} href={plan.href}>{plan.cta}<span aria-hidden="true">↗</span></a><ul>{plan.features.map(f=><li><span aria-hidden="true">✓</span>{f}</li>)}</ul></article>)}</div><div class="pricing-note"><span>Harga awal dalam Rupiah. Lingkup, masa layanan domain/hosting, dan biaya perpanjangan dikonfirmasi dalam penawaran.</span><a href="#faq">Punya pertanyaan? ↓</a></div></div></section>

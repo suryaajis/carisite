@@ -1,9 +1,21 @@
 {
   "title": "Artha Solusi Mandiri",
-  "description": "Company profile korporat untuk perusahaan jasa & konsultan B2B — profesional, terpercaya, dan menonjolkan layanan.",
+  "description": "Website korporat dengan struktur layanan yang membantu calon klien memahami solusi yang tepat.",
   "category": "Company Profile",
-  "image": "/images/demo/company-profile.svg",
-  "demoUrl": "https://carisite.id",
+  "image": "/images/previews/company-profile-desktop.webp",
+  "demoUrl": "https://carisite.id/demo/live/company-profile",
   "livePath": "/demo/live/company-profile",
-  "features": ["Hero korporat", "Profil perusahaan", "Grid layanan (bento)", "CTA konsultasi"]
+  "features": [
+    "Pemilihan layanan",
+    "Brief konsultasi simulasi",
+    "Profil & pendekatan kerja"
+  ],
+  "status": "Konsep / demo",
+  "accent": "#203d59",
+  "year": 2026,
+  "challenge": "Bagaimana menjelaskan layanan B2B yang beragam tanpa membebani calon klien dengan informasi?",
+  "solution": "Kelompok layanan yang jelas, proses kerja yang transparan, dan alur konsultasi berdasarkan kebutuhan.",
+  "design": "Komposisi editorial, biru korporat, dan ruang kosong yang menekankan kejelasan.",
+  "interaction": "Pilih layanan dan susun ringkasan kebutuhan konsultasi.",
+  "order": 0
 }

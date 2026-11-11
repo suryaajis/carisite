@@ -2,100 +2,30 @@
 import '@/styles/global.css'
 import Navbar from '@/components/layout/Navbar.astro'
 import Footer from '@/components/layout/Footer.astro'
-import FloatingWhatsApp from '@/components/layout/FloatingWhatsApp.astro'
-import BottomNavMobile from '@/components/layout/BottomNavMobile.astro'
 import { SITE } from '@/config/site'
-
-interface Props {
-  title: string
-  description: string
-  ogImage?: string
-  isHome?: boolean
-}
-
-const {
-  title,
-  description,
-  ogImage = '/favicon.svg',
-  isHome = false,
-} = Astro.props
-
+import SiteMotion from '@/components/ui/SiteMotion.astro'
+import headingFont from '@fontsource/plus-jakarta-sans/files/plus-jakarta-sans-latin-600-normal.woff2?url'
+import bodyFont from '@fontsource/inter/files/inter-latin-400-normal.woff2?url'
+interface Props { title: string; description: string; ogImage?: string; isHome?: boolean; noindex?: boolean }
+const { title, description, ogImage = '/images/og-carisite.png', isHome = false, noindex = false } = Astro.props
 const canonical = new URL(Astro.url.pathname, Astro.site ?? SITE.url).href
 const ogImageUrl = new URL(ogImage, Astro.site ?? SITE.url).href
-
-const jsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'LocalBusiness',
-  name: SITE.name,
-  description: 'Jasa pembuatan website profesional untuk UMKM Indonesia',
-  url: SITE.url,
-  email: SITE.email,
-  serviceType: 'Web Development',
-}
+const jsonLd = { '@context': 'https://schema.org', '@type': 'ProfessionalService', name: SITE.name, description: 'Studio desain dan pengembangan website untuk bisnis Indonesia', url: SITE.url, email: SITE.email }
 ---
-
 <!doctype html>
-<html lang="id">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="canonical" href={canonical} />
-    <meta name="generator" content={Astro.generator} />
-
-    <title>{title}</title>
-    <meta name="description" content={description} />
-
-    <!-- Open Graph -->
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
-    <meta property="og:url" content={canonical} />
-    <meta property="og:image" content={ogImageUrl} />
-    <meta property="og:site_name" content={SITE.name} />
-    <meta property="og:locale" content="id_ID" />
-
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={ogImageUrl} />
-
-    {
-      isHome && (
-        <script
-          type="application/ld+json"
-          set:html={JSON.stringify(jsonLd)}
-        />
-      )
-    }
-  </head>
-  <body>
-    <Navbar />
-    <main class="pb-16 md:pb-0">
-      <slot />
-    </main>
-    <Footer />
-    <FloatingWhatsApp />
-    <BottomNavMobile />
-
-    <script>
-      // Shared scroll-reveal: reveal any [.reveal] element as it enters view
-      const revealEls = document.querySelectorAll('.reveal')
-      if (revealEls.length) {
-        const io = new IntersectionObserver(
-          (entries, obs) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                entry.target.classList.add('is-visible')
-                obs.unobserve(entry.target)
-              }
-            })
-          },
-          { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
-        )
-        revealEls.forEach((el) => io.observe(el))
-      }
-    </script>
-  </body>
-</html>
+<html lang="id"><head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" /><link rel="canonical" href={canonical} />
+  <link rel="preload" href={headingFont} as="font" type="font/woff2" crossorigin />
+  <link rel="preload" href={bodyFont} as="font" type="font/woff2" crossorigin />
+  {isHome && <link rel="preload" as="image" imagesrcset="/images/previews/restoran-480.webp 480w, /images/previews/restoran-960.webp 960w, /images/previews/restoran-desktop.webp 1440w" imagesizes="(max-width:640px) 85vw, 60vw" fetchpriority="high" />}
+  <meta name="generator" content={Astro.generator} /><meta name="theme-color" content="#103d2e" />
+  <title>{title}</title><meta name="description" content={description} />
+  {noindex && <meta name="robots" content="noindex, follow" />}
+  <meta property="og:type" content="website" /><meta property="og:title" content={title} /><meta property="og:description" content={description} /><meta property="og:url" content={canonical} /><meta property="og:image" content={ogImageUrl} /><meta property="og:site_name" content={SITE.name} /><meta property="og:locale" content="id_ID" />
+  <meta name="twitter:card" content="summary_large_image" /><meta name="twitter:title" content={title} /><meta name="twitter:description" content={description} /><meta name="twitter:image" content={ogImageUrl} />
+  {isHome && <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
+</head><body>
+  <a class="skip-link" href="#main-content">Lewati ke konten utama</a><Navbar />
+  <main id="main-content" tabindex="-1"><slot /></main><Footer /><SiteMotion />
+</body></html>

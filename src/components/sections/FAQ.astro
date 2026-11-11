@@ -1,69 +1,11 @@
 ---
-import { Icon } from 'astro-icon/components'
-import SectionLabel from '@/components/ui/SectionLabel.astro'
-
 const faqs = [
-  {
-    q: 'Berapa lama proses pembuatan website?',
-    a: 'Untuk paket Landing Page biasanya selesai dalam 3–5 hari kerja, sedangkan Company Profile sekitar 7–10 hari kerja. Waktu bisa lebih cepat jika materi seperti logo dan foto sudah lengkap.',
-  },
-  {
-    q: 'Apakah domain dan hosting sudah termasuk?',
-    a: 'Ya, semua paket sudah termasuk domain .COM dan hosting untuk tahun pertama. Anda tidak perlu membeli atau mengurusnya secara terpisah.',
-  },
-  {
-    q: 'Apakah website bisa dibuka di HP?',
-    a: 'Tentu. Semua website kami dibuat mobile friendly, sehingga tampil rapi dan cepat dibuka di HP, tablet, maupun komputer.',
-  },
-  {
-    q: 'Apakah website bisa muncul di Google?',
-    a: 'Bisa. Setiap website sudah dioptimasi dengan SEO dasar agar lebih mudah ditemukan di Google ketika orang mencari layanan serupa.',
-  },
-  {
-    q: 'Bagaimana cara memesan website?',
-    a: 'Cukup isi form order di halaman ini atau klik tombol WhatsApp. Tim kami akan membalas, membantu memilih paket, dan memproses pesanan Anda.',
-  },
+ ['Belum punya materi website. Bisa mulai?', 'Bisa. Kita mulai dengan membahas tujuan, target pengunjung, dan layanan Anda. Setelah itu, kami membantu memetakan materi yang perlu disiapkan, seperti logo, foto, dan informasi bisnis.'],
+ ['Berapa lama proses pengerjaannya?', 'Estimasi pengerjaan diberikan setelah kebutuhan dan materi ditinjau. Jadwal mengikuti lingkup, kesiapan konten, serta proses review yang disepakati dalam penawaran.'],
+ ['Apa domain dan hosting sudah termasuk?', 'Domain .COM dan hosting tercantum dalam penawaran awal Landing Page. Cakupan tiap paket, ketersediaan nama domain, masa layanan, dan biaya perpanjangan dikonfirmasi dalam penawaran sebelum pekerjaan dimulai.'],
+ ['Apakah desain bisa disesuaikan dengan bisnis saya?', 'Ya. Demo adalah titik awal untuk berdiskusi. Warna, konten, dan arah visual disesuaikan dengan identitas bisnis serta lingkup paket. Untuk fitur atau alur khusus, kita dapat membahas solusi custom.'],
+ ['Bagaimana dengan revisi dan dukungan setelah live?', 'Jumlah putaran revisi, lingkup dukungan, dan kebutuhan pemeliharaan dibicarakan saat penyusunan brief. Semua dibuat jelas sebelum pengerjaan agar ekspektasi kita sama.'],
+ ['Apakah website langsung muncul di Google?', 'Kami menyiapkan SEO dasar agar halaman dapat dipahami mesin pencari. Waktu indeks dan posisi pencarian bergantung pada banyak faktor; kami tidak menjanjikan peringkat tertentu.'],
 ]
 ---
-
-<section id="faq" class="bg-surface-low">
-  <div class="mx-auto max-w-3xl px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
-    <SectionLabel label="FAQ" />
-    <h2 class="reveal mt-4 text-center text-3xl font-extrabold text-ink sm:text-4xl">
-      Pertanyaan yang Sering Diajukan
-    </h2>
-
-    <div class="mt-10 space-y-3">
-      {
-        faqs.map((item) => (
-          <details class="faq-item group rounded-xl border border-outline-variant bg-surface-lowest px-5 shadow-soft">
-            <summary
-              class="flex cursor-pointer list-none items-center justify-between gap-4 py-4 font-heading text-base font-semibold text-ink"
-              aria-expanded="false"
-            >
-              {item.q}
-              <Icon
-                name="lucide:chevron-down"
-                class="h-5 w-5 shrink-0 text-primary transition-transform duration-300 group-open:rotate-180"
-              />
-            </summary>
-            <div class="faq-answer">
-              <div>
-                <p class="pb-4 text-sm leading-relaxed text-ink-muted">{item.a}</p>
-              </div>
-            </div>
-          </details>
-        ))
-      }
-    </div>
-  </div>
-</section>
-
-<script>
-  document.querySelectorAll<HTMLDetailsElement>('details.faq-item').forEach((d) => {
-    const summary = d.querySelector('summary')
-    d.addEventListener('toggle', () => {
-      summary?.setAttribute('aria-expanded', d.open ? 'true' : 'false')
-    })
-  })
-</script>
+<section id="faq" class="section faq-section"><div class="wrap faq-grid"><div><span class="eyebrow">06 / Good questions</span><h2 data-motion>Sebelum kita<br /><em>mulai.</em></h2><p>Masih ada yang ingin dibicarakan?<br />Kami senang mendengarnya.</p><a href="/kontak" class="text-link">Tanya langsung ↗</a></div><div class="faq-list">{faqs.map(([q,a],i) => <details class="faq-item"><summary><span class="faq-number">0{i+1}</span><span>{q}</span><span class="faq-icon" aria-hidden="true">+</span></summary><p>{a}</p></details>)}</div></div></section>

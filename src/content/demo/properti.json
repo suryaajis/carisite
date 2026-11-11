@@ -1,0 +1,21 @@
+{
+  "title": "Ruang",
+  "description": "Showcase ruang dan properti dengan pendekatan arsitektural yang terkurasi.",
+  "category": "Properti",
+  "image": "/images/previews/properti-desktop.webp",
+  "demoUrl": "https://carisite.id/demo/live/properti",
+  "livePath": "/demo/live/properti",
+  "features": [
+    "Filter properti",
+    "Detail listing",
+    "Galeri ruang"
+  ],
+  "status": "Konsep / demo",
+  "accent": "#756750",
+  "year": 2026,
+  "challenge": "Bagaimana menghadirkan karakter setiap ruang sambil membantu pengunjung mempersempit pilihan?",
+  "solution": "Listing dengan filter dan detail properti dalam pengalaman editorial.",
+  "design": "Grid arsitektural, neutral hangat, dan proporsi foto yang lapang.",
+  "interaction": "Filter listing dan buka detail properti yang menarik.",
+  "order": 4
+}

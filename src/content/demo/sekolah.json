@@ -1,9 +1,21 @@
 {
   "title": "Sekolah Harapan Bangsa",
-  "description": "Website profil sekolah untuk Penerimaan Siswa Baru — menonjolkan akreditasi, prestasi, dan program unggulan.",
-  "category": "Sekolah",
-  "image": "/images/demo/sekolah.svg",
-  "demoUrl": "https://carisite.id",
+  "description": "Profil sekolah yang menghubungkan informasi program dengan langkah pendaftaran.",
+  "category": "Pendidikan",
+  "image": "/images/previews/sekolah-desktop.webp",
+  "demoUrl": "https://carisite.id/demo/live/sekolah",
   "livePath": "/demo/live/sekolah",
-  "features": ["Hero PSB", "Indikator akreditasi & prestasi", "CTA pendaftaran", "Foto suasana kampus"]
+  "features": [
+    "Pilihan program",
+    "Informasi sekolah",
+    "Simulasi pendaftaran"
+  ],
+  "status": "Konsep / demo",
+  "accent": "#1e5657",
+  "year": 2026,
+  "challenge": "Bagaimana membantu orang tua menemukan program yang relevan dan memahami langkah pendaftaran?",
+  "solution": "Informasi program yang terstruktur dan form pendaftaran contoh yang mudah diikuti.",
+  "design": "Warna yang ramah, informasi yang tenang, dan hierarki jelas untuk orang tua.",
+  "interaction": "Jelajahi program dan coba formulir pendaftaran lokal.",
+  "order": 3
 }

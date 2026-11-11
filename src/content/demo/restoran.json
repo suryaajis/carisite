@@ -1,9 +1,21 @@
 {
   "title": "Rasa Nusantara",
-  "description": "Website restoran modern dengan galeri menu bento, info jam buka, dan reservasi meja langsung via WhatsApp.",
+  "description": "Pengalaman restoran yang membawa cerita rasa ke menu digital dan alur reservasi.",
   "category": "Restoran",
-  "image": "/images/demo/restoran.svg",
-  "demoUrl": "https://carisite.id",
+  "image": "/images/previews/restoran-desktop.webp",
+  "demoUrl": "https://carisite.id/demo/live/restoran",
   "livePath": "/demo/live/restoran",
-  "features": ["Galeri menu favorit", "Reservasi via WhatsApp", "Info jam & lokasi", "Hero foto makanan"]
+  "features": [
+    "Filter menu",
+    "Form reservasi",
+    "Validasi data simulasi"
+  ],
+  "status": "Konsep / demo",
+  "accent": "#8d3928",
+  "year": 2026,
+  "challenge": "Bagaimana membuat menu mudah dijelajahi sekaligus mempermudah rencana kunjungan?",
+  "solution": "Menu per kategori dan formulir reservasi dengan ringkasan yang jelas.",
+  "design": "Warna hangat, tipografi ekspresif, dan fotografi makanan sebagai pusat perhatian.",
+  "interaction": "Filter menu lalu coba reservasi dengan tanggal dan jumlah tamu.",
+  "order": 2
 }

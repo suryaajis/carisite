@@ -1,0 +1,8 @@
+---
+import {getCollection} from 'astro:content'
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import CaseStudy from '@/components/ui/CaseStudy.astro'
+export async function getStaticPaths(){return (await getCollection('demo')).map(entry=>({params:{slug:entry.id},props:{entry}}))}
+const {entry}=Astro.props
+---
+<BaseLayout title={`${entry.data.title} — Studi Konsep | Carisite`} description={entry.data.description} ogImage={entry.data.image}><CaseStudy entry={entry}/></BaseLayout>

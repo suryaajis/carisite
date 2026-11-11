@@ -1,0 +1,402 @@
+[
+  {
+    "route": "/articles/",
+    "title": "Jurnal — Ide, Website & Bisnis | Carisite",
+    "description": true,
+    "h1": 1,
+    "broken": [],
+    "overflow": false
+  },
+  {
+    "route": "/articles/order-sme-website-online/",
+    "title": "Cara Pesan Website UMKM Secara Online — Carisite",
+    "description": true,
+    "h1": 1,
+    "broken": [],
+    "overflow": false
+  },
+  {
+    "route": "/articles/professional-sme-website-services/",
+    "title": "Memilih Jasa Pembuatan Website UMKM yang Tepat — Carisite",
+    "description": true,
+    "h1": 1,
+    "broken": [],
+    "overflow": false
+  },
+  {
+    "route": "/articles/sme-website-pricing-2026/",
+    "title": "Berapa Biaya Bikin Website UMKM di 2026? — Carisite",
+    "description": true,
+    "h1": 1,
+    "broken": [],
+    "overflow": false
+  },
+  {
+    "route": "/articles/website-development-for-smes/",
+    "title": "Pentingnya Website untuk UMKM di Era Digital — Carisite",
+    "description": true,
+    "h1": 1,
+    "broken": [],
+    "overflow": false
+  },
+  {
+    "route": "/demo/company-profile/",
+    "title": "Artha Solusi Mandiri — Studi Konsep | Carisite",
+    "description": true,
+    "h1": 1,
+    "broken": [],
+    "overflow": false
+  },
+  {
+    "route": "/demo/dashboard/",
+    "title": "Pulse Workspace — Studi Konsep | Carisite",
+    "description": true,
+    "h1": 1,
+    "broken": [],
+    "overflow": false
+  },
+  {
+    "route": "/demo/ecommerce/",
+    "title": "COMMON — Studi Konsep | Carisite",
+    "description": true,
+    "h1": 1,
+    "broken": [],
+    "overflow": false
+  },
+  {
+    "route": "/demo/hotel/",
+    "title": "SÉLA — Studi Konsep | Carisite",
+    "description": true,
+    "h1": 1,
+    "broken": [],
+    "overflow": false
+  },
+  {
+    "route": "/demo/",
+    "title": "Demo Website Interaktif — Carisite",
+    "description": true,
+    "h1": 1,
+    "broken": [],
+    "overflow": false
+  },
+  {
+    "route": "/demo/kriya-kayu/",
+    "title": "Kriya Kayu Abadi — Studi Konsep | Carisite",
+    "description": true,
+    "h1": 1,
+    "broken": [],
+    "overflow": false
+  },
+  {
+    "route": "/demo/live/company-profile/",
+    "title": "Artha — Strategy & Advisory | Demo Carisite",
+    "description": true,
+    "h1": 1,
+    "broken": [],
+    "overflow": false
+  },
+  {
+    "route": "/demo/live/dashboard/",
+    "title": "Pulse — Your business, at a glance | Demo Carisite",
+    "description": true,
+    "h1": 1,
+    "broken": [],
+    "overflow": false
+  },
+  {
+    "route": "/demo/live/ecommerce/",
+    "title": "COMMON — Good things, every day | Demo Carisite",
+    "description": true,
+    "h1": 1,
+    "broken": [],
+    "overflow": false
+  },
+  {
+    "route": "/demo/live/hotel/",
+    "title": "SÉLA — A slower kind of stay | Demo Carisite",
+    "description": true,
+    "h1": 1,
+    "broken": [],
+    "overflow": false
+  },
+  {
+    "route": "/demo/live/kriya-kayu/",
+    "title": "Kriya Kayu — Objects for slow living | Demo Carisite",
+    "description": true,
+    "h1": 1,
+    "broken": [],
+    "overflow": false
+  },
+  {
+    "route": "/demo/live/properti/",
+    "title": "RUANG — Homes with a point of view | Demo Carisite",
+    "description": true,
+    "h1": 1,
+    "broken": [],
+    "overflow": false
+  },
+  {
+    "route": "/demo/live/restoran/",
+    "title": "Rasa — A place at our table | Demo Carisite",
+    "description": true,
+    "h1": 1,
+    "broken": [],
+    "overflow": false
+  },
+  {
+    "route": "/demo/live/sekolah/",
+    "title": "Harapan Bangsa — Grow with curiosity | Demo Carisite",
+    "description": true,
+    "h1": 1,
+    "broken": [],
+    "overflow": false
+  },
+  {
+    "route": "/demo/preview/company-profile/",
+    "title": "Artha Solusi Mandiri — Live Preview | Carisite",
+    "description": true,
+    "h1": 1,
+    "broken": [],
+    "overflow": false
+  },
+  {
+    "route": "/demo/preview/dashboard/",
+    "title": "Pulse Workspace — Live Preview | Carisite",
+    "description": true,
+    "h1": 1,
+    "broken": [],
+    "overflow": false
+  },
+  {
+    "route": "/demo/preview/ecommerce/",
+    "title": "COMMON — Live Preview | Carisite",
+    "description": true,
+    "h1": 1,
+    "broken": [],
+    "overflow": false
+  },
+  {
+    "route": "/demo/preview/hotel/",
+    "title": "SÉLA — Live Preview | Carisite",
+    "description": true,
+    "h1": 1,
+    "broken": [],
+    "overflow": false
+  },
+  {
+    "route": "/demo/preview/kriya-kayu/",
+    "title": "Kriya Kayu Abadi — Live Preview | Carisite",
+    "description": true,
+    "h1": 1,
+    "broken": [],
+    "overflow": false
+  },
+  {
+    "route": "/demo/preview/properti/",
+    "title": "Ruang — Live Preview | Carisite",
+    "description": true,
+    "h1": 1,
+    "broken": [],
+    "overflow": false
+  },
+  {
+    "route": "/demo/preview/restoran/",
+    "title": "Rasa Nusantara — Live Preview | Carisite",
+    "description": true,
+    "h1": 1,
+    "broken": [],
+    "overflow": false
+  },
+  {
+    "route": "/demo/preview/sekolah/",
+    "title": "Sekolah Harapan Bangsa — Live Preview | Carisite",
+    "description": true,
+    "h1": 1,
+    "broken": [],
+    "overflow": false
+  },
+  {
+    "route": "/demo/properti/",
+    "title": "Ruang — Studi Konsep | Carisite",
+    "description": true,
+    "h1": 1,
+    "broken": [],
+    "overflow": false
+  },
+  {
+    "route": "/demo/restoran/",
+    "title": "Rasa Nusantara — Studi Konsep | Carisite",
+    "description": true,
+    "h1": 1,
+    "broken": [],
+    "overflow": false
+  },
+  {
+    "route": "/demo/sekolah/",
+    "title": "Sekolah Harapan Bangsa — Studi Konsep | Carisite",
+    "description": true,
+    "h1": 1,
+    "broken": [],
+    "overflow": false
+  },
+  {
+    "route": "/",
+    "title": "Carisite — Digital Atelier untuk Bisnis Anda",
+    "description": true,
+    "h1": 1,
+    "broken": [],
+    "overflow": false
+  },
+  {
+    "route": "/karya/company-profile/",
+    "title": "Artha Solusi Mandiri — Studi Konsep | Carisite",
+    "description": true,
+    "h1": 1,
+    "broken": [],
+    "overflow": false
+  },
+  {
+    "route": "/karya/dashboard/",
+    "title": "Pulse Workspace — Studi Konsep | Carisite",
+    "description": true,
+    "h1": 1,
+    "broken": [],
+    "overflow": false
+  },
+  {
+    "route": "/karya/ecommerce/",
+    "title": "COMMON — Studi Konsep | Carisite",
+    "description": true,
+    "h1": 1,
+    "broken": [],
+    "overflow": false
+  },
+  {
+    "route": "/karya/hotel/",
+    "title": "SÉLA — Studi Konsep | Carisite",
+    "description": true,
+    "h1": 1,
+    "broken": [],
+    "overflow": false
+  },
+  {
+    "route": "/karya/",
+    "title": "Karya & Studi Konsep — Carisite",
+    "description": true,
+    "h1": 1,
+    "broken": [],
+    "overflow": false
+  },
+  {
+    "route": "/karya/kriya-kayu/",
+    "title": "Kriya Kayu Abadi — Studi Konsep | Carisite",
+    "description": true,
+    "h1": 1,
+    "broken": [],
+    "overflow": false
+  },
+  {
+    "route": "/karya/properti/",
+    "title": "Ruang — Studi Konsep | Carisite",
+    "description": true,
+    "h1": 1,
+    "broken": [],
+    "overflow": false
+  },
+  {
+    "route": "/karya/restoran/",
+    "title": "Rasa Nusantara — Studi Konsep | Carisite",
+    "description": true,
+    "h1": 1,
+    "broken": [],
+    "overflow": false
+  },
+  {
+    "route": "/karya/sekolah/",
+    "title": "Sekolah Harapan Bangsa — Studi Konsep | Carisite",
+    "description": true,
+    "h1": 1,
+    "broken": [],
+    "overflow": false
+  },
+  {
+    "route": "/kontak/",
+    "title": "Diskusikan Proyek Website — Carisite",
+    "description": true,
+    "h1": 1,
+    "broken": [],
+    "overflow": false
+  },
+  {
+    "route": "/layanan/booking/",
+    "title": "Booking & reservasi — Layanan Carisite",
+    "description": true,
+    "h1": 1,
+    "broken": [],
+    "overflow": false
+  },
+  {
+    "route": "/layanan/commerce/",
+    "title": "Katalog & e-commerce — Layanan Carisite",
+    "description": true,
+    "h1": 1,
+    "broken": [],
+    "overflow": false
+  },
+  {
+    "route": "/layanan/company-profile/",
+    "title": "Company profile — Layanan Carisite",
+    "description": true,
+    "h1": 1,
+    "broken": [],
+    "overflow": false
+  },
+  {
+    "route": "/layanan/",
+    "title": "Layanan Website & Solusi Digital — Carisite",
+    "description": true,
+    "h1": 1,
+    "broken": [],
+    "overflow": false
+  },
+  {
+    "route": "/layanan/landing-page/",
+    "title": "Landing page — Layanan Carisite",
+    "description": true,
+    "h1": 1,
+    "broken": [],
+    "overflow": false
+  },
+  {
+    "route": "/layanan/redesign/",
+    "title": "Redesign & integrasi — Layanan Carisite",
+    "description": true,
+    "h1": 1,
+    "broken": [],
+    "overflow": false
+  },
+  {
+    "route": "/layanan/web-app/",
+    "title": "Dashboard & aplikasi web — Layanan Carisite",
+    "description": true,
+    "h1": 1,
+    "broken": [],
+    "overflow": false
+  },
+  {
+    "route": "/privasi/",
+    "title": "Privasi & Penggunaan Demo — Carisite",
+    "description": true,
+    "h1": 1,
+    "broken": [],
+    "overflow": false
+  },
+  {
+    "route": "/tentang/",
+    "title": "Tentang Carisite — Desain yang Punya Tujuan",
+    "description": true,
+    "h1": 1,
+    "broken": [],
+    "overflow": false
+  }
+]

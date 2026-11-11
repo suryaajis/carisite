@@ -1,0 +1,75 @@
+{
+  "generatedAt": "2026-11-11T13:14:56.848Z",
+  "base": "http://127.0.0.1:4321",
+  "results": [
+    {
+      "name": "Catalog: search, category, empty state and reset",
+      "passed": true
+    },
+    {
+      "name": "Brief: prefill, validation, summary and safe WhatsApp link",
+      "passed": true
+    },
+    {
+      "name": "Viewer: real viewport presets, reload and demo change",
+      "passed": true
+    },
+    {
+      "name": "Company: service selection and brief simulation",
+      "passed": true
+    },
+    {
+      "name": "Furniture: category, details, shortlist and removal",
+      "passed": true
+    },
+    {
+      "name": "Restaurant: menu filter and validated reservation",
+      "passed": true
+    },
+    {
+      "name": "School: accessible program tabs and visit simulation",
+      "passed": true
+    },
+    {
+      "name": "Property: filter, detail and simulated visit",
+      "passed": true
+    },
+    {
+      "name": "Hotel: date rules, availability, room total and simulation",
+      "passed": true
+    },
+    {
+      "name": "Commerce: variants, basket quantity and simulated checkout",
+      "passed": true
+    },
+    {
+      "name": "Dashboard: chart, search, detail, empty state and export",
+      "passed": true
+    },
+    {
+      "name": "Mobile navigation: focus, trap and Escape",
+      "passed": true
+    },
+    {
+      "name": "All built routes: status, metadata, images, page overflow",
+      "passed": true
+    },
+    {
+      "name": "Responsive: 360, 390, 768, 1024, 1440 and screenshots",
+      "passed": true
+    },
+    {
+      "name": "Accessibility: WCAG A/AA on representative pages",
+      "passed": true
+    },
+    {
+      "name": "Progressive enhancement: no JS and no WebGL",
+      "passed": true
+    },
+    {
+      "name": "3D: texture rendering, pause, mobile fallback",
+      "passed": true
+    }
+  ],
+  "pageErrors": []
+}

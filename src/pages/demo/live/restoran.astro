@@ -1,119 +1,45 @@
 ---
-import BaseLayout from '@/layouts/BaseLayout.astro'
-import { Icon } from 'astro-icon/components'
-
-const WA = '6281234567890'
-const reserveLink = `https://wa.me/${WA}?text=${encodeURIComponent('Halo Rasa Nusantara, saya ingin reservasi meja.')}`
-
-const HERO_IMG =
-  'https://lh3.googleusercontent.com/aida-public/AB6AXuCQWzJ4GgxureyK7grignZ-1do1y6IU324H7kfOZMQ_63lIpBs42BalDx6915-V1E-qekbqhCMeQ1Nr8c0E9KN292WKHEkXXvL-Go5fpp4l8m8gJhuPl2UbzteCCoIygtqmOXRWnMESZZ_TiXiG6CdkgOHuL4zMX_Vy3NEZM6GbdtpJhzK8iq25l0myn-CWzY31CLk9yhOKmsMTLXzEf8UNv04pP5n0mYdHkkjtLxRk3du3H4c-35FwQ7_Lw-Zbl346HaIFqeQXkgk'
-const RENDANG_IMG =
-  'https://lh3.googleusercontent.com/aida-public/AB6AXuBNkLwclljoexvX44Wj29hopk53xXZI47Gq-o42MyOtDAaRdJ2M-wj-UX6ckzxSquMBjzbeW8q8HQreuesrZKMnlFb3796fcVcUPdUEHy7obh5hh7KO7ZTycyPvBIoo-RTvA1AiwSlq2LjKjJK8irI3rEc2BAGY_kmGYv0z3NybiGHTMzdXToJjkGcGibBPchA2d97WHvKAg_bb6N-pWG089gqCOTa-MHXJThOXIKbQcF0B1dZm8p_pWWEM6XLfQyKjktgVRN7D_zs'
-const INTERIOR_IMG =
-  'https://lh3.googleusercontent.com/aida-public/AB6AXuDQ4q6CyJbEIvLz2ExUgnDUmD3_VEX2ttqruB8aUre2a16Kjh7A6xGe6gktoZrOYNKZLMbs08pl8hNC_MZDm2JvN7a86HJ1yAs_Gu2WuiQlUI-NukS_NIV-bpcgiZOaVuxn8-ym3SDZ-lUBKhxgy1BKmpoGG1yn15HX6LxqkWfU1OKnTYMi3nHu0eQ6qX5wmA3gmQE5oA-QMb5MW80z_acuqdMzr5QP1wBPA9VfyfeSgL7QxQLyMrqKYpEr4HZUP64qjyJpFjw5hoU'
+import DemoLayout from '@/layouts/DemoLayout.astro'
+const dishes = [
+ {name:'Nasi rempah & ayam bakar',category:'Hidangan utama',price:'68',description:'Nasi aromatik, ayam bakar kecap, sambal matah, dan lalapan.',image:'photo-1512058564366-18510be2db19',label:'PILIHAN DAPUR'},
+ {name:'Iga panggang madu',category:'Hidangan utama',price:'125',description:'Iga sapi panggang dengan olesan madu, kentang, dan sayuran.',image:'photo-1544025162-d76694265947',label:'DARI PANGGANGAN'},
+ {name:'Salad kebun',category:'Pembuka',price:'42',description:'Sayuran segar, tomat, biji panggang, dan dressing jeruk.',image:'photo-1512621776951-a57141f2eefd',label:'RINGAN & SEGAR'},
+ {name:'Kopi susu aren',category:'Minuman',price:'32',description:'Espresso, susu segar, dan gula aren. Disajikan dingin.',image:'photo-1461023058943-07fcbe16d735',label:'TEMAN BERBINCANG'},
+]
 ---
-
-<BaseLayout
-  title="Rasa Nusantara — Demo Website Restoran | Carisite"
-  description="Contoh website restoran modern dengan galeri menu dan reservasi via WhatsApp, dibuat oleh Carisite."
->
-  <div class="bg-primary-deep px-4 py-2 text-center text-xs text-white sm:px-6">
-    Contoh website (demo) yang dibuat oleh Carisite —
-    <a href="/#demo" class="font-semibold underline underline-offset-2">lihat demo lain</a>
-  </div>
-
-  <!-- Hero -->
-  <section class="relative flex min-h-[560px] items-center justify-center overflow-hidden px-4 sm:px-6 lg:min-h-[680px]">
-    <div class="absolute inset-0 z-0">
-      <img src={HERO_IMG} alt="Aneka hidangan Indonesia di atas meja" width="1280" height="720" loading="eager" class="h-full w-full object-cover opacity-90" />
-      <div class="absolute inset-0 bg-gradient-to-r from-surface/90 to-surface/40"></div>
-    </div>
-    <div class="relative z-10 grid w-full max-w-container items-center gap-16 md:grid-cols-2">
-      <div class="flex flex-col gap-6">
-        <span class="inline-flex w-fit items-center gap-2 rounded-full bg-primary-soft px-3 py-1 text-xs font-semibold text-primary-deep">
-          <Icon name="lucide:utensils" class="h-4 w-4" /> Demo Website Restoran Modern
-        </span>
-        <h1 class="font-heading text-4xl font-extrabold text-ink sm:text-5xl">
-          Cita Rasa Autentik,<br /><span class="text-primary">Kenyamanan Modern.</span>
-        </h1>
-        <p class="max-w-lg text-lg leading-relaxed text-ink-muted">
-          Selamat datang di Rasa Nusantara. Kami menyajikan hidangan tradisional dengan
-          sentuhan modern di tengah suasana yang hangat dan mengundang.
-        </p>
-        <div class="mt-2 flex gap-4">
-          <a href="#menu" class="flex items-center gap-2 rounded-xl bg-primary px-6 py-3 text-sm font-semibold text-white shadow-soft transition hover:scale-105">
-            Lihat Menu <Icon name="lucide:arrow-down" class="h-4 w-4" />
-          </a>
-          <a href="#reservasi" class="rounded-xl border border-outline-variant bg-surface/80 px-6 py-3 text-sm font-semibold text-ink backdrop-blur transition hover:bg-surface-high">Reservasi Meja</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Menu bento -->
-  <section id="menu" class="bg-surface-lowest px-4 py-16 sm:px-6 lg:py-20">
-    <div class="mx-auto flex max-w-container flex-col gap-12">
-      <div class="mx-auto max-w-2xl text-center">
-        <h2 class="mb-3 font-heading text-3xl font-bold text-ink">Pilihan Terfavorit Kami</h2>
-        <p class="text-ink-muted">Jelajahi hidangan andalan kami yang memadukan resep turun-temurun dengan presentasi masa kini.</p>
-      </div>
-      <div class="grid auto-rows-[250px] grid-cols-1 gap-6 md:grid-cols-12">
-        <div class="group relative row-span-2 overflow-hidden rounded-xl shadow-soft md:col-span-8">
-          <img src={RENDANG_IMG} alt="Rendang Padang Premium" width="800" height="600" loading="lazy" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
-          <div class="absolute inset-0 bg-gradient-to-t from-ink/80 via-transparent to-transparent"></div>
-          <div class="absolute bottom-0 left-0 w-full p-8">
-            <h3 class="mb-2 font-heading text-2xl font-semibold text-white">Rendang Padang Premium</h3>
-            <p class="text-white/80">Daging sapi pilihan yang dimasak perlahan selama 8 jam dengan rempah rahasia keluarga.</p>
-          </div>
-        </div>
-        <div class="group relative overflow-hidden rounded-xl shadow-soft md:col-span-4">
-          <img src={INTERIOR_IMG} alt="Sate Lilit Bali" width="600" height="400" loading="lazy" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105" />
-          <div class="absolute bottom-0 left-0 w-full border-t border-outline-variant bg-surface/90 p-6 backdrop-blur-sm">
-            <h4 class="text-sm font-semibold text-ink">Sate Lilit Bali</h4>
-          </div>
-        </div>
-        <div class="flex flex-col items-center justify-center rounded-xl bg-primary p-6 text-center text-white shadow-soft md:col-span-4">
-          <Icon name="lucide:book-open" class="mb-4 h-12 w-12" />
-          <h4 class="mb-2 font-heading text-xl font-semibold">Lihat Menu Lengkap</h4>
-          <p class="mb-4 text-sm text-white/80">Temukan puluhan hidangan lainnya</p>
-          <a href="#" class="rounded-full bg-white px-4 py-2 text-xs font-semibold text-primary-deep transition hover:bg-surface-high">Unduh PDF Menu</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Reservation -->
-  <section id="reservasi" class="bg-surface-low px-4 py-16 sm:px-6 lg:py-20">
-    <div class="mx-auto grid max-w-container items-center gap-16 md:grid-cols-2">
-      <div class="h-[400px] overflow-hidden rounded-2xl border border-outline-variant shadow-soft md:h-[500px]">
-        <img src={INTERIOR_IMG} alt="Interior restoran modern" width="800" height="600" loading="lazy" class="h-full w-full object-cover" />
-      </div>
-      <div class="flex flex-col gap-6 rounded-2xl border border-white/40 bg-white/85 p-8 shadow-card backdrop-blur">
-        <div>
-          <h2 class="mb-2 font-heading text-3xl font-bold text-ink">Pesan Meja Anda</h2>
-          <p class="text-ink-muted">Pastikan tempat Anda tersedia. Kami menerima reservasi untuk acara keluarga maupun pertemuan bisnis.</p>
-        </div>
-        <div class="flex flex-col gap-4">
-          <div class="flex items-center gap-4 rounded-xl border border-outline-variant bg-surface p-4">
-            <span class="rounded-full bg-primary-soft p-3 text-primary-deep"><Icon name="lucide:clock" class="h-5 w-5" /></span>
-            <div>
-              <h4 class="text-sm font-semibold text-ink">Jam Operasional</h4>
-              <p class="text-ink-muted">Setiap Hari: 10:00 – 22:00 WIB</p>
-            </div>
-          </div>
-          <div class="flex items-center gap-4 rounded-xl border border-outline-variant bg-surface p-4">
-            <span class="rounded-full bg-primary-soft p-3 text-primary-deep"><Icon name="lucide:map-pin" class="h-5 w-5" /></span>
-            <div>
-              <h4 class="text-sm font-semibold text-ink">Lokasi Strategis</h4>
-              <p class="text-ink-muted">Pusat Kuliner Sudirman, Jakarta</p>
-            </div>
-          </div>
-        </div>
-        <a href={reserveLink} target="_blank" rel="noopener noreferrer" class="mt-2 flex items-center justify-center gap-3 rounded-xl bg-[#25D366] px-6 py-4 text-sm font-semibold text-white shadow-soft transition hover:scale-[1.02]">
-          <Icon name="lucide:message-circle" class="h-5 w-5" /> Reservasi via WhatsApp
-        </a>
-        <p class="text-center text-xs text-ink-muted">Respon cepat dalam 5 menit</p>
-      </div>
-    </div>
-  </section>
-</BaseLayout>
+<DemoLayout title="Rasa — A place at our table" slug="restoran" description="Demo restoran dengan menu yang bisa difilter dan simulasi reservasi meja.">
+ <div class="rasa">
+  <header class="rasa-nav d-container"><a class="rasa-brand" href="#demo-main">rasa<span>NUSANTARA</span></a><nav aria-label="Navigasi Rasa"><a href="#menu">Dari dapur</a><a href="#ruang">Ruang kami</a><a class="reserve-link" href="#reservasi">Reservasi meja ↗</a></nav></header>
+  <section class="rasa-hero"><img class="hero-photo" src="/images/demo-assets/photo-1414235077428-338989a2e8c0.webp" data-fallback="/images/demo/restoran.svg" alt="Hidangan restoran yang disajikan hangat di meja" width="1600" height="1000" fetchpriority="high" /><div class="hero-shade"></div><div class="d-container hero-content"><p class="d-kicker">CERITA BAIK DIMULAI DI MEJA MAKAN</p><h1>Datang untuk rasa.<br /><em>Tinggal untuk cerita.</em></h1><p>Hidangan akrab. Sentuhan baru.<br />Satu meja untuk semua yang Anda sayangi.</p><a class="d-button" href="#menu">Temukan selera Anda <span>↓</span></a></div><div class="hero-bottom d-container"><span>INDONESIAN COMFORT DINING</span><span>KONSEP RESTORAN · DEMO CARISITE</span></div></section>
+  <section class="intro d-container"><span class="intro-flower" aria-hidden="true">✳</span><p>Kami percaya makanan terbaik adalah yang<br class="desktop-break" /> membuat Anda merasa <em>pulang.</em></p><span class="d-kicker">REMpAH · RASA · CERITA</span></section>
+  <section id="menu" class="menu-section d-container"><div class="menu-head"><div><p class="d-kicker">DARI DAPUR KAMI</p><h2>Dibuat untuk<br /><em>dinikmati bersama.</em></h2></div><p>Resep yang akrab di lidah.<br />Diracik untuk momen yang istimewa.</p></div><div class="d-filter menu-filters" aria-label="Kategori menu">{['Semua','Hidangan utama','Pembuka','Minuman'].map((category,index)=><button type="button" data-menu-filter={category} aria-pressed={index===0}>{category}</button>)}</div><p class="menu-count" id="menu-count" aria-live="polite">4 pilihan menu</p><div class="menu-grid">{dishes.map(dish=><article class="dish" data-menu-category={dish.category}><div class="dish-image"><img src={`/images/demo-assets/${dish.image}.webp`} data-fallback="/images/demo/restoran.svg" alt={dish.name} width="600" height="650" loading="lazy" /><span>{dish.label}</span></div><div class="dish-title"><h3>{dish.name}</h3><span>{dish.price}<small>k</small></span></div><p>{dish.description}</p></article>)}</div><p class="menu-note">Menu dan harga ilustratif, dalam ribuan rupiah. Fotografi sebagai referensi suasana. Informasi alergi pada restoran asli perlu dikonfirmasi kepada staf.</p></section>
+  <section id="ruang" class="space-section"><div class="space-photo"><img src="/images/demo-assets/photo-1517248135467-4c7edcad34c4.webp" data-fallback="/images/demo/restoran.svg" alt="Interior restoran dengan pencahayaan hangat" width="1100" height="850" loading="lazy" /></div><div class="space-copy"><p class="d-kicker">AMBIL WAKTU ANDA</p><h2>Ada tempat<br />untuk <em>Anda.</em></h2><p>Makan siang yang santai. Perayaan kecil. Atau sekadar percakapan yang tak ingin cepat selesai.</p><div class="hours"><span>CONTOH JAM OPERASIONAL</span><p>Senin – Minggu <b>11.00 – 22.00</b></p><p>Area pilihan <b>Dalam ruang / Teras</b></p></div><a class="d-button" href="#reservasi">Pilih waktu berkunjung ↗</a></div></section>
+  <section id="reservasi" class="reservation d-container d-section"><div><p class="d-kicker">KAMI SIAPKAN MEJANYA</p><h2>Rencanakan<br /><em>momen Anda.</em></h2><p>Coba alur reservasi dengan memilih tanggal, waktu, dan jumlah tamu.</p><p class="simulation">SIMULASI RESERVASI<br />Tidak ada meja yang dipesan. Data tidak dikirim.</p></div><form id="reservation-form"><div class="d-form-grid"><label class="d-field">Nama reservasi<input name="name" autocomplete="given-name" required minlength="2" maxlength="80" placeholder="Nama Anda" /></label><label class="d-field">Jumlah tamu<select name="guests" required>{[1,2,3,4,5,6,7,8].map(number=><option value={number} selected={number===2}>{number} orang</option>)}</select></label><label class="d-field">Tanggal kunjungan<input id="reservation-date" type="date" name="date" required /></label><label class="d-field">Waktu<select name="time" required><option value="">Pilih waktu</option>{['11:00','12:00','13:00','15:00','17:00','18:00','19:00','20:00'].map(time=><option value={time}>{time} WIB</option>)}</select></label></div><label class="d-field">Area duduk<select name="area"><option>Dalam ruang</option><option>Teras</option></select></label><p id="reservation-error" class="form-error" role="alert" hidden></p><button class="d-button" type="submit">Coba reservasi meja <span>↗</span></button><p class="form-note">Tanggal tersedia dalam simulasi: hari ini hingga 90 hari ke depan.</p></form></section>
+  <footer class="rasa-footer"><div class="d-container"><a class="rasa-brand" href="#demo-main">rasa<span>NUSANTARA</span></a><p>Good food. Better company.<br />Demo restoran oleh Carisite — brand ilustratif.</p><a href="/kontak?demo=restoran">Hadirkan restoran Anda online ↗</a></div></footer>
+ </div>
+ <dialog class="d-dialog" id="reservation-dialog" aria-labelledby="reservation-title"><button type="button" data-close-dialog>Tutup ×</button><span class="d-kicker">SIMULASI BERHASIL</span><h2 id="reservation-title">Meja untuk momen Anda.</h2><div id="reservation-summary" class="d-result"></div><p>Alur reservasi selesai dicoba. Ini bukan konfirmasi booking dan tidak ada data yang dikirim ke restoran.</p><button type="button" class="d-button" data-close-dialog>Kembali ke restoran</button></dialog>
+</DemoLayout>
+<script>
+ document.querySelectorAll<HTMLButtonElement>('[data-menu-filter]').forEach(button=>button.addEventListener('click',()=>{
+  document.querySelectorAll('[data-menu-filter]').forEach(item=>item.setAttribute('aria-pressed',String(item===button)));let count=0;
+  document.querySelectorAll<HTMLElement>('[data-menu-category]').forEach(card=>{const visible=button.dataset.menuFilter==='Semua'||button.dataset.menuFilter===card.dataset.menuCategory;card.hidden=!visible;if(visible)count++;});
+  document.getElementById('menu-count')!.textContent=count+' pilihan menu';
+ }));
+ const dateInput=document.getElementById('reservation-date') as HTMLInputElement;
+ const localDate=(date:Date)=>[date.getFullYear(),String(date.getMonth()+1).padStart(2,'0'),String(date.getDate()).padStart(2,'0')].join('-');
+ const today=new Date(),latest=new Date();latest.setDate(today.getDate()+90);dateInput.min=localDate(today);dateInput.max=localDate(latest);
+ document.getElementById('reservation-form')!.addEventListener('submit',event=>{
+  event.preventDefault();const form=event.currentTarget as HTMLFormElement;if(!form.reportValidity())return;const data=new FormData(form),error=document.getElementById('reservation-error')!;
+  const chosen=new Date(String(data.get('date'))+'T'+String(data.get('time'))+':00');
+  if(chosen<=new Date()){error.textContent='Waktu tersebut sudah lewat. Pilih waktu kunjungan berikutnya.';error.hidden=false;dateInput.focus();return;}
+  error.hidden=true;const summary=document.getElementById('reservation-summary')!;summary.replaceChildren();
+  const dateLabel=chosen.toLocaleDateString('id-ID',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+  [['Nama',data.get('name')],['Kunjungan',dateLabel+', '+data.get('time')+' WIB'],['Tamu',data.get('guests')+' orang'],['Area',data.get('area')]].forEach(([label,value])=>{const p=document.createElement('p');const strong=document.createElement('strong');strong.textContent=label+': ';p.append(strong,document.createTextNode(String(value)));summary.append(p);});
+  (document.getElementById('reservation-dialog') as HTMLDialogElement).showModal();
+ });
+</script>
+<style>
+ .rasa{--accent:#8c342a;--button-text:#fff6e7;background:#faf5eb;color:#47291f}.rasa-nav{height:100px;display:flex;align-items:center;justify-content:space-between}.rasa-brand{font-family:Georgia,serif;font-size:47px;line-height:.8;letter-spacing:-3px}.rasa-brand span{font:8px Inter,sans-serif;display:block;margin-top:12px;letter-spacing:.25em}.rasa-nav nav{display:flex;gap:36px;font-size:12px;align-items:center}.reserve-link{border-bottom:1px solid;padding-bottom:9px}.rasa-hero{position:relative;min-height:650px;background:#322018;color:#fff5e6;display:flex;align-items:center}.hero-photo{position:absolute;inset:0;width:100%;height:100%}.hero-shade{position:absolute;inset:0;background:linear-gradient(90deg,#21110dd9,#21110d55)}.hero-content{position:relative;padding-top:30px;padding-bottom:100px}.hero-content h1{font-family:Georgia,serif;font-size:clamp(48px,5.5vw,76px);font-weight:400;letter-spacing:-2.5px;line-height:1.15;margin:27px 0}.hero-content h1 em{font-weight:400;color:#efd2a4}.hero-content>p:not(.d-kicker){font-size:14px;line-height:1.9;color:#eadccc}.hero-content .d-button{margin-top:30px;background:#f2dbaf;color:#4d2a1f}.hero-bottom{position:absolute;bottom:30px;left:50%;transform:translateX(-50%);display:flex;justify-content:space-between;font-size:9px;letter-spacing:.13em;color:#eadccc}.intro{text-align:center;padding-block:66px;border-bottom:1px solid #dacbb6}.intro-flower{font-size:34px;color:#9f5a34}.intro>p{font-family:Georgia,serif;font-size:30px;line-height:1.5;margin:15px 0 20px}.intro>p em{color:#9b4a32}.intro .d-kicker{font-size:9px}.menu-section{padding-top:80px;padding-bottom:85px}.menu-head{display:flex;justify-content:space-between;align-items:end}.menu-head h2,.space-copy h2,.reservation h2{font-family:Georgia,serif;font-weight:400;font-size:48px;line-height:1.12;letter-spacing:-1.4px;margin-top:20px}.menu-head h2 em,.space-copy h2 em,.reservation h2 em{font-weight:400;color:#a26443}.menu-head>p{font-size:12px;line-height:1.9;color:#7e6856}.menu-filters{margin-top:35px}.menu-filters button{border-color:#d3bfa8}.menu-count{font-size:10px;color:#7e6856;margin:16px 0 24px}.menu-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}.dish-image{aspect-ratio:1;position:relative;overflow:hidden;background:#e9daca}.dish-image img{height:100%;width:100%;transition:transform .4s}.dish:hover img{transform:scale(1.04)}.dish-image>span{position:absolute;bottom:12px;left:12px;background:#faf5ebee;font-size:8px;letter-spacing:.05em;padding:10px}.dish-title{display:flex;justify-content:space-between;gap:12px;align-items:start;margin-top:20px}.dish-title h3{font-family:Georgia,serif;font-weight:400;font-size:23px;line-height:1.1}.dish-title>span{font-size:17px}.dish-title small{font-size:10px}.dish>p{font-size:11px;line-height:1.8;color:#705e4f;margin-top:14px}.menu-note{font-size:10px;line-height:1.8;color:#705e4f;margin-top:35px;max-width:800px}.space-section{display:grid;grid-template-columns:1fr 1fr;background:#eee2cf}.space-photo img{width:100%;height:100%;min-height:560px}.space-copy{padding:70px clamp(30px,6vw,100px)}.space-copy h2{font-size:57px}.space-copy>p:not(.d-kicker){font-size:13px;line-height:1.9;color:#705e4f;margin-top:24px;max-width:330px}.hours{border-top:1px solid #cdbba1;margin-top:28px;padding-top:22px}.hours>span{font-size:8px;letter-spacing:.12em}.hours p{display:flex;justify-content:space-between;gap:16px;font-size:11px;margin-top:13px}.hours b{font-weight:400}.space-copy .d-button{margin-top:30px}.reservation{display:grid;grid-template-columns:1fr 1fr;gap:100px}.reservation>div>p:not(.d-kicker){font-size:13px;line-height:1.9;color:#705e4f;margin-top:25px;max-width:330px}.reservation .simulation{font-size:10px!important;letter-spacing:.04em}.reservation form{display:grid;gap:20px}.reservation .d-field input,.reservation .d-field select{background:#fffaf1;border-color:#d4c7b2}.form-note{font-size:10px;color:#705e4f;line-height:1.7}.form-error{font-size:12px;line-height:1.7;color:#9f2929}.rasa-footer{background:#492c22;color:#f6e4c6;padding-block:45px}.rasa-footer>div{display:flex;align-items:center;justify-content:space-between;gap:30px}.rasa-footer p{font-size:11px;line-height:1.9;color:#d1b99e}.rasa-footer a:last-child{font-size:11px}
+ @media(max-width:850px){.menu-grid{grid-template-columns:1fr 1fr}.reservation{gap:40px}.space-copy{padding:45px 30px}.space-copy h2{font-size:45px}.space-photo img{min-height:530px}}
+ @media(max-width:600px){.rasa-nav{height:90px}.rasa-nav nav>a:not(.reserve-link){display:none}.rasa-hero{min-height:610px}.hero-content{padding-top:30px}.hero-content h1{font-size:48px;letter-spacing:-2px}.hero-bottom{flex-direction:column;gap:10px;font-size:8px}.intro{padding-block:45px}.intro>p{font-size:25px}.desktop-break{display:none}.menu-head{display:block}.menu-head h2,.reservation h2{font-size:39px}.menu-head>p{margin-top:20px}.menu-section{padding-block:55px}.menu-filters button{padding:10px 12px;font-size:10px}.menu-grid{gap:30px 16px}.dish-title h3{font-size:20px}.dish-title>span{font-size:14px}.dish-image>span{font-size:7px;left:7px;bottom:7px;padding:8px}.space-section,.reservation{grid-template-columns:1fr}.space-photo img{min-height:0;height:320px}.space-copy{padding:40px 25px}.reservation{gap:32px}.rasa-footer>div{align-items:start;flex-direction:column;gap:28px}}
+</style>

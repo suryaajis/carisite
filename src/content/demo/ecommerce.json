@@ -1,0 +1,21 @@
+{
+  "title": "COMMON",
+  "description": "Brand essentials dengan pengalaman memilih produk hingga simulasi checkout.",
+  "category": "E-commerce",
+  "image": "/images/previews/ecommerce-desktop.webp",
+  "demoUrl": "https://carisite.id/demo/live/ecommerce",
+  "livePath": "/demo/live/ecommerce",
+  "features": [
+    "Pilihan varian",
+    "Keranjang interaktif",
+    "Checkout simulasi"
+  ],
+  "status": "Konsep / demo",
+  "accent": "#514636",
+  "year": 2026,
+  "challenge": "Bagaimana membuat alur belanja sederhana tanpa menghilangkan karakter brand?",
+  "solution": "Katalog terkurasi, pilihan varian yang jelas, dan keranjang yang dapat diedit.",
+  "design": "Editorial retail dengan tipografi tegas dan fokus pada produk.",
+  "interaction": "Pilih varian, tambah produk, ubah jumlah, dan coba checkout simulasi.",
+  "order": 6
+}

@@ -1,0 +1,50 @@
+[
+  {
+    "route": "/",
+    "violations": []
+  },
+  {
+    "route": "/demo",
+    "violations": []
+  },
+  {
+    "route": "/kontak",
+    "violations": []
+  },
+  {
+    "route": "/demo/preview/restoran",
+    "violations": []
+  },
+  {
+    "route": "/demo/live/restoran",
+    "violations": []
+  },
+  {
+    "route": "/demo/live/dashboard",
+    "violations": []
+  },
+  {
+    "route": "/demo/live/company-profile",
+    "violations": []
+  },
+  {
+    "route": "/demo/live/kriya-kayu",
+    "violations": []
+  },
+  {
+    "route": "/demo/live/sekolah",
+    "violations": []
+  },
+  {
+    "route": "/demo/live/properti",
+    "violations": []
+  },
+  {
+    "route": "/demo/live/hotel",
+    "violations": []
+  },
+  {
+    "route": "/demo/live/ecommerce",
+    "violations": []
+  }
+]

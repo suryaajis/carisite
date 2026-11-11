@@ -1,44 +1,9 @@
 ---
-import { Icon } from 'astro-icon/components'
-import SectionLabel from '@/components/ui/SectionLabel.astro'
-
-const advantages = [
-  { icon: 'lucide:palette', title: 'Desain Modern & Profesional', desc: 'Estetik & sesuai dengan kepercayaan brand bisnis Anda.' },
-  { icon: 'lucide:smartphone', title: 'Mobile Friendly', desc: 'Tampilan sempurna di semua perangkat.' },
-  { icon: 'lucide:zap', title: 'Akses Super Cepat', desc: 'Performa optimal, pelanggan tidak menunggu.' },
-  { icon: 'lucide:search', title: 'SEO Friendly', desc: 'Mudah ditemukan di pencarian Google.' },
-  { icon: 'lucide:globe', title: 'Domain .COM', desc: 'Identitas bisnis yang profesional & milik Anda.' },
-  { icon: 'lucide:headphones', title: 'Support Berkelanjutan', desc: 'Bantuan teknis setelah website selesai.' },
-  { icon: 'lucide:store', title: 'Cocok untuk Semua UMKM', desc: 'Kuliner, jasa, retail, dan lainnya.' },
-  { icon: 'lucide:message-circle', title: 'Integrasi WhatsApp', desc: 'Terhubung langsung dengan pelanggan.' },
+const steps = [
+ ['01', 'Kenalan dulu.', 'Kami mendengar cerita bisnis, audiens, dan tujuan Anda. Dari sini, arah dan lingkup kerja disepakati bersama.', 'Discovery & brief'],
+ ['02', 'Bentuk idenya.', 'Struktur halaman dan arah visual mulai terbentuk. Anda melihat dan memberi masukan sebelum dikembangkan.', 'Structure & design'],
+ ['03', 'Bangun detailnya.', 'Desain menjadi website yang responsif. Konten, formulir, dan integrasi dikerjakan sesuai kebutuhan yang disepakati.', 'Development & review'],
+ ['04', 'Siap bertemu dunia.', 'Kami memeriksa tampilan dan fungsi, membantu peluncuran, lalu memberikan panduan untuk langkah selanjutnya.', 'Launch & handover'],
 ]
 ---
-
-<section id="advantages" class="bg-surface">
-  <div class="mx-auto max-w-container px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
-    <SectionLabel label="Keunggulan" />
-    <h2 class="reveal mt-4 text-center text-3xl font-extrabold text-ink sm:text-4xl">
-      Mengapa Memilih <span class="text-primary">Carisite</span>?
-    </h2>
-    <p class="reveal mx-auto mt-3 max-w-2xl text-center text-ink-muted">
-      Kami membawakan solusi digital terbaik untuk membantu UMKM Indonesia naik
-      kelas dengan website profesional.
-    </p>
-
-    <div class="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-      {
-        advantages.map((a) => (
-          <div class="reveal rounded-xl border border-outline-variant bg-surface-lowest p-6 shadow-soft">
-            <span class="flex h-11 w-11 items-center justify-center rounded-full bg-primary-soft text-primary">
-              <Icon name={a.icon} class="h-5 w-5" />
-            </span>
-            <h3 class="mt-4 flex items-start gap-1.5 font-heading text-base font-bold text-ink">
-              {a.title}
-            </h3>
-            <p class="mt-1.5 text-sm leading-relaxed text-ink-muted">{a.desc}</p>
-          </div>
-        ))
-      }
-    </div>
-  </div>
-</section>
+<section id="proses" class="section process-section"><div class="wrap"><div class="section-top"><span class="eyebrow">03 / Our process</span><span class="quiet-label">Kolaborasi yang jelas, dari awal.</span></div><div class="section-heading"><h2 data-motion>Langkah sederhana.<br /><em>Hasil yang dipikirkan.</em></h2><p>Anda selalu tahu apa yang sedang dikerjakan, apa yang perlu disiapkan, dan apa langkah berikutnya.</p></div><div class="process-grid">{steps.map(([n,title,desc,label]) => <article class="process-step" data-motion><div class="process-number">{n}<span aria-hidden="true">↗</span></div><span class="eyebrow">{label}</span><h3>{title}</h3><p>{desc}</p></article>)}</div></div></section>

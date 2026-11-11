@@ -1,0 +1,20 @@
+---
+interface Props { decorative?: boolean }
+const {decorative=false}=Astro.props
+---
+<div class:list={['scene-shell', {decorative}]} data-scene-shell>
+  <div class="scene-poster" data-scene-poster><div class="poster-browser"><div class="poster-bar"><span>● ● ●</span><span>carisite / explore in depth</span></div><img src="/images/previews/restoran-desktop.webp" width="1440" height="1000" alt={decorative?'':'Pratinjau website restoran dalam komposisi tiga dimensi'} loading="lazy"/></div><div class="poster-mini"><img src="/images/previews/ecommerce-mobile.webp" alt="" width="390" height="844" loading="lazy"/></div></div>
+  <div class="scene-canvas" data-scene-canvas aria-hidden="true"></div>
+  {!decorative && <div class="scene-controls"><button type="button" data-scene-enable>Jelajahi dalam 3D ↗</button><button type="button" data-scene-pause hidden aria-pressed="false">Jeda gerakan Ⅱ</button><span data-scene-status role="status">Preview ringan · 3D opsional</span></div>}
+</div>
+<style>
+.scene-shell{position:relative;width:100%;height:560px;background:radial-gradient(ellipse at 50% 60%,#426744 0%,#1e4333 50%,#13392c 100%);overflow:hidden;border-radius:7px}.scene-shell.decorative{height:100%;background:transparent}.scene-canvas{position:absolute;inset:0;opacity:0;transition:opacity .6s}.scene-shell[data-active] .scene-canvas{opacity:1}.scene-shell[data-active] .scene-poster{opacity:0;pointer-events:none}.scene-canvas :global(canvas){width:100%;height:100%;display:block}.scene-poster{position:absolute;inset:0;transition:opacity .5s;display:flex;align-items:center;justify-content:center;perspective:1000px}.poster-browser{width:64%;transform:rotateY(-15deg) rotateX(7deg) rotateZ(-5deg);border:5px solid #b4cbb5;border-radius:9px;box-shadow:20px 35px 70px #001c1c66;overflow:hidden}.poster-bar{display:flex;gap:2rem;background:#edf1e5;color:#50664e;font-size:9px;padding:.6rem .8rem}.poster-browser img{width:100%;aspect-ratio:1.6;object-fit:cover;object-position:top}.poster-mini{width:14%;position:absolute;right:15%;bottom:18%;border:6px solid #dce4cd;border-radius:20px;transform:rotateY(-10deg) rotateZ(10deg);box-shadow:15px 25px 45px #001a1b66;overflow:hidden}.poster-mini img{width:100%}.scene-controls{position:absolute;bottom:22px;left:24px;right:24px;display:flex;gap:1rem;align-items:center;justify-content:center;flex-wrap:wrap;color:#dce6d2}.scene-controls button{border:1px solid #a7c29766;background:#153b2d;color:#e8f1dd;padding:.7rem 1rem;border-radius:5px;font-size:11px}.scene-controls button[hidden]{display:none}.scene-controls span{font-size:10px;color:#b9cab3}.decorative .scene-poster{opacity:.16}.decorative .poster-mini{display:none}@media(max-width:640px){.scene-shell{height:370px}.poster-browser{width:80%}.poster-mini{width:20%;right:7%;bottom:22%;border-width:4px;border-radius:12px}.poster-bar{font-size:6px;gap:1rem}.scene-controls{left:12px;right:12px;bottom:18px;gap:.7rem}.scene-controls span{width:100%;text-align:center;font-size:9px}}@media(prefers-reduced-motion:reduce){.scene-canvas,.scene-poster{transition:none}}
+</style>
+<script>
+import {mountScene} from '@/scripts/scene'
+document.querySelectorAll<HTMLElement>('[data-scene-shell]').forEach(shell=>{
+  if(shell.classList.contains('decorative'))return
+  const observer=new IntersectionObserver(entries=>{if(entries.some(e=>e.isIntersecting)){observer.disconnect();const lowMotion=matchMedia('(prefers-reduced-motion: reduce)').matches;const narrow=matchMedia('(max-width: 767px)').matches;const connection=(navigator as Navigator & {connection?:{saveData?:boolean}}).connection;if(!lowMotion&&!narrow&&!connection?.saveData)void mountScene(shell)}} ,{rootMargin:'100px'})
+  observer.observe(shell);shell.querySelector('[data-scene-enable]')?.addEventListener('click',()=>{observer.disconnect();void mountScene(shell)});window.addEventListener('pagehide',()=>observer.disconnect(),{once:true})
+})
+</script>

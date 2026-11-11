@@ -1,0 +1,21 @@
+{
+  "title": "SÉLA",
+  "description": "Website penginapan dengan suasana tenang dan simulasi rencana menginap.",
+  "category": "Hospitality",
+  "image": "/images/previews/hotel-desktop.webp",
+  "demoUrl": "https://carisite.id/demo/live/hotel",
+  "livePath": "/demo/live/hotel",
+  "features": [
+    "Pilihan kamar",
+    "Tanggal & tamu",
+    "Simulasi ketersediaan"
+  ],
+  "status": "Konsep / demo",
+  "accent": "#466651",
+  "year": 2026,
+  "challenge": "Bagaimana menghubungkan daya tarik tempat dengan informasi praktis untuk merencanakan liburan?",
+  "solution": "Presentasi kamar dan formulir tanggal yang menghasilkan pilihan menginap contoh.",
+  "design": "Palet tropis yang redup, visual lanskap besar, dan ritme halaman yang tenang.",
+  "interaction": "Pilih tanggal serta tamu untuk melihat simulasi ketersediaan.",
+  "order": 5
+}

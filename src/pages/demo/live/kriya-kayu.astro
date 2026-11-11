@@ -1,168 +1,37 @@
 ---
-import BaseLayout from '@/layouts/BaseLayout.astro'
-import { Icon } from 'astro-icon/components'
-
-const WA = '6281234567890'
-const orderLink = (product: string) =>
-  `https://wa.me/${WA}?text=${encodeURIComponent(`Halo Kriya Kayu Abadi, saya tertarik memesan ${product}.`)}`
-
-const HERO_IMG = 'https://lh3.googleusercontent.com/aida-public/AB6AXuC8g95CqG9VrAY6yEQhgTPkH2SqYf1pyfOpQfipxAZOzetl3_FOYpah9Uo9yeoTsnV62uwHScCG-bJL1RMdu06lzWbcX4bGVfVAfSug-AqstEXcLlkQ1DOzXPTpPB09jSTOtrpPH99DXlePAahFp_jPiR1JM_UK60qnAxVA_CFpcPsuNvH0yzU9DylyalkQmJJqqFVimNInhBm_VGS6KB5oDJ9cEN7FZy7YFDBgsecU8zp65OjumdafhtPZ2IiN2Wxa5cnLrRfNPy8'
-const STORY_IMG = 'https://lh3.googleusercontent.com/aida-public/AB6AXuDnXUsDn6I5joFm5MGqZCvm3ZckqgpwR4K0cktPBMb8_YweAmZu_j-6ET2Yl5unA4mPWXzahq97lUMNIu00i3W1OitC8_ASUGjhIV39VSiiT-ojKPP40V6N_GGYqC7dJQ2woAD5ANHc-Iy5-bNTcNEX8Ds1UNgq6bjWiHWC5_y8dIF1KIyZM1eHImpuXbR8SnHD2rcBvGVoYp8FMckYF_tpSpJFUrUUbMkl3rCAhfjbeyCoAznNq4klCAwVKTtfPI3u4yVzMLW2f6E'
-
+import DemoLayout from '@/layouts/DemoLayout.astro'
 const products = [
-  { name: 'Meja Kopi Minimalis', price: 'Rp 1.250.000', img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBHHJuIhmC7UhwYW7Sx6_t0a_Wi_ixuA2-aueeeuQrIQDLj1fER4-FSxpGwbcno8XDVwGeyuqn18zJ2klPTgBi58fuM7POHElpue-y_2MsNiWyBuCsUfK9Bw2LTEizAAlOjBABzSv6kgbvWfcDc5fCyHHzoUPTO2OcQOsAk6ncUNHtfKe1BuWSpAIWaYy71PnxAOq8M3-3ofraUKe5TdcEmM1p2jJWFg78C-BH6pZSeipDCus7-I5Cl82grUbQdUDKwkWlLSq_P3YU', desc: 'Kayu jati solid pilihan dengan serat alami yang indah. Desain minimalis untuk ruang keluarga modern maupun Skandinavia.' },
-  { name: 'Kursi Santai Jati', price: 'Rp 850.000', img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuB-c9ILdA_kf83X3PG09craeKEFL0LyjcLdZ7NNiP_DNpSeWnDE-YFpEQZI7aIvjrDs3GcMJIaBHmKuP_-axfsreLehUjB54bm29KWruE92p1HtZTXHyWJIdoP4U7XpP56CCnaAKN5PhYPQE3MX0Dk2ZokLiQsN4BtBvMqwAo5rcBjL7EeYshkxO_hBColjGVJsrnF15i8cNocd-V9OphohGizk-DUk_eVrF0wpso2VbpLJs701VzXzi6ooFJ6MOiIe3E6BD-KLF8M', desc: 'Kursi berlengan dengan lengkungan ergonomis yang menopang postur tubuh. Finishing natural doff menjaga nuansa otentik kayu jati.' },
-  { name: 'Rak Dinding Hexagon', price: 'Rp 350.000', img: 'https://lh3.googleusercontent.com/aida-public/AB6AXuC89kRVAYokcvA6aLo72Zchv4iHLHjQ9E5c46grcq9r4kUmLpUBMszAS1zzTHNxMgkBlu-4QAVISnAD6uyZDqSE65q5TRnDG0NtZdk-q1d4fRr74gC2LzRA1-Yf7CT3ozuMtLiBFsGBl2AgilQIfWYXjwEPNpTrG-ny1uXjowrZQiGKLm4lQG6DRPLdOr5ExZNKX7Mw59xrROlkZNiub0azw9JYwJvZ6e_E1dv3gNAS-y9rGQ2TvtojRLTDret1rt8pkwECNgCGzBM', desc: 'Set rak dinding heksagonal dari kayu mahoni. Fungsional sebagai penyimpanan kecil sekaligus elemen dekorasi yang memikat.' },
-]
-const reasons = [
-  { icon: 'lucide:hammer', title: 'Buatan Tangan', desc: 'Dikerjakan teliti oleh pengrajin ahli, memastikan detail presisi dan karakter unik.' },
-  { icon: 'lucide:trees', title: 'Kayu Berkelanjutan', desc: 'Material bersumber dari hutan legal yang dikelola lestari untuk menjaga keseimbangan alam.' },
-  { icon: 'lucide:pen-tool', title: 'Desain Kustom', desc: 'Menerima pesanan khusus menyesuaikan ukuran, gaya, dan kebutuhan ruangan Anda.' },
-  { icon: 'lucide:truck', title: 'Pengiriman Aman', desc: 'Dikemas berlapis dengan aman agar produk sampai di rumah Anda tanpa lecet sedikit pun.' },
-]
-const reviews = [
-  { initial: 'A', name: 'Anisa R.', role: 'Ibu Rumah Tangga, Jakarta', stars: 5, text: 'Meja kopinya benar-benar memuaskan. Serat jati-nya terlihat sangat mewah dan rapi. Pelayanannya ramah dan sabar melayani konsultasi ukuran.' },
-  { initial: 'D', name: 'Dimas P.', role: 'Pemilik Cafe, Bandung', stars: 5, text: 'Pesan kursi santai custom untuk cafe saya. Hasilnya presisi, kokoh, dan sesuai banget dengan ekspektasi desain awal. Pasti pesan lagi!' },
-  { initial: 'F', name: 'Fitri L.', role: 'Karyawan Swasta, Surabaya', stars: 5, text: 'Hiasan dindingnya cantik sekali, bikin ruangan jadi estetik. Pengirimannya aman banget, pakai bubble wrap berlapis dan packing kayu.' },
+ { name:'Kursi Senja', category:'Duduk', price:'Rp 2.450.000', image:'photo-1598300042247-d088f8ab3a91', material:'Jati solid · anyaman rotan', size:'62 × 70 × 78 cm', story:'Garis sederhana dan sandaran lapang untuk jeda yang lebih panjang. Pilihan untuk sudut baca yang tenang.' },
+ { name:'Meja Temu', category:'Meja', price:'Rp 3.800.000', image:'photo-1533090161767-e6ffed986c88', material:'Sungkai solid · natural oil', size:'120 × 60 × 42 cm', story:'Permukaan hangat untuk percakapan, buku favorit, dan secangkir kopi. Sudut lembut yang ramah untuk ruang keluarga.' },
+ { name:'Kursi Hening', category:'Duduk', price:'Rp 1.850.000', image:'photo-1567538096630-e0c55bd6374c', material:'Oak · kain linen', size:'56 × 58 × 82 cm', story:'Siluet ringan yang menemani keseharian. Bentuk yang sederhana membuatnya mudah berpadu dengan meja kesayangan.' },
+ { name:'Rak Sela', category:'Penyimpanan', price:'Rp 2.100.000', image:'photo-1595428774223-ef52624120d2', material:'Sungkai · lapisan matte', size:'80 × 35 × 120 cm', story:'Beri ruang bagi benda-benda yang punya cerita. Penyimpanan terbuka yang menghadirkan ritme pada dinding kosong.' },
 ]
 ---
-
-<BaseLayout
-  title="Kriya Kayu Abadi — Demo Katalog UMKM | Carisite"
-  description="Contoh website katalog produk UMKM kerajinan kayu dengan cerita brand dan testimoni, dibuat oleh Carisite."
->
-  <div class="bg-primary-deep px-4 py-2 text-center text-xs text-white sm:px-6">
-    Contoh website (demo) yang dibuat oleh Carisite —
-    <a href="/#demo" class="font-semibold underline underline-offset-2">lihat demo lain</a>
-  </div>
-
-  <!-- Hero -->
-  <section class="relative flex min-h-[560px] items-center overflow-hidden bg-surface-low lg:min-h-[680px]">
-    <div class="absolute inset-0 z-0">
-      <img src={HERO_IMG} alt="Bengkel kerajinan kayu artisan" width="1280" height="720" loading="eager" class="h-full w-full object-cover opacity-20" />
-      <div class="absolute inset-0 bg-gradient-to-r from-surface-low via-surface-low/90 to-transparent"></div>
-    </div>
-    <div class="relative z-10 mx-auto w-full max-w-container px-4 py-16 sm:px-6 lg:px-8">
-      <div class="max-w-2xl">
-        <span class="mb-6 inline-flex items-center gap-2 rounded-full border border-primary-soft bg-primary-soft px-3 py-1 text-xs font-semibold text-primary-deep">
-          <Icon name="lucide:leaf" class="h-4 w-4" /> 100% Kayu Lokal Berkelanjutan
-        </span>
-        <h1 class="mb-6 font-heading text-4xl font-extrabold text-ink sm:text-5xl">
-          Sentuhan Alam <br /><span class="text-primary">Untuk Ruang Anda.</span>
-        </h1>
-        <p class="mb-8 max-w-xl text-lg leading-relaxed text-ink-muted">
-          Kriya Kayu Abadi menghadirkan kerajinan kayu premium yang memadukan keindahan organik
-          dengan desain fungsional modern. Karya pengrajin lokal untuk UMKM Indonesia.
-        </p>
-        <div class="flex flex-col gap-3 sm:flex-row">
-          <a href="#katalog" class="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-8 py-3 text-sm font-semibold text-white transition hover:bg-primary-hover active:scale-95">
-            Lihat Koleksi <Icon name="lucide:arrow-right" class="h-4 w-4" />
-          </a>
-          <a href="#cerita" class="inline-flex items-center justify-center rounded-full border border-outline-variant bg-surface px-8 py-3 text-sm font-semibold text-ink shadow-soft transition hover:bg-surface-high">Cerita Kami</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Produk Unggulan -->
-  <section id="katalog" class="mx-auto max-w-container px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
-    <div class="mb-12 text-center">
-      <h2 class="mb-3 font-heading text-3xl font-bold text-ink">Produk Unggulan Kami</h2>
-      <p class="mx-auto max-w-2xl text-ink-muted">Koleksi terlaris yang dirancang dengan presisi untuk menghadirkan kenyamanan dan estetika ke ruangan Anda.</p>
-    </div>
-    <div class="grid gap-6 md:grid-cols-3">
-      {products.map((p) => (
-        <div class="group overflow-hidden rounded-xl border border-outline-variant bg-surface shadow-soft">
-          <div class="relative h-[300px] overflow-hidden">
-            <img src={p.img} alt={p.name} width="600" height="450" loading="lazy" class="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105" />
-            <div class="absolute right-3 top-3 rounded-full border border-outline-variant bg-surface-container/90 px-3 py-1 text-xs font-semibold text-ink backdrop-blur-sm">{p.price}</div>
-          </div>
-          <div class="flex flex-col p-6">
-            <h3 class="mb-1 font-heading text-xl font-semibold text-ink">{p.name}</h3>
-            <p class="mb-5 line-clamp-3 text-sm text-ink-muted">{p.desc}</p>
-            <a href={orderLink(p.name)} target="_blank" rel="noopener noreferrer" class="mt-auto inline-flex w-full items-center justify-center gap-2 rounded-lg bg-primary px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-primary-hover">
-              <Icon name="lucide:message-circle" class="h-4 w-4" /> Pesan via WA
-            </a>
-          </div>
-        </div>
-      ))}
-    </div>
-  </section>
-
-  <!-- Cerita Kami -->
-  <section id="cerita" class="border-y border-outline-variant bg-surface-low py-16 lg:py-20">
-    <div class="mx-auto grid max-w-container items-center gap-16 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
-      <div class="group relative overflow-hidden rounded-2xl shadow-card">
-        <img src={STORY_IMG} alt="Pengrajin kayu sedang bekerja" width="800" height="500" loading="lazy" class="h-[500px] w-full object-cover transition-transform duration-700 group-hover:scale-105" />
-      </div>
-      <div class="flex flex-col justify-center">
-        <div class="mb-3 inline-flex items-center gap-2 text-primary-deep">
-          <Icon name="lucide:heart" class="h-5 w-5" />
-          <span class="text-sm font-bold uppercase tracking-wider">Dedikasi Kami</span>
-        </div>
-        <h2 class="mb-6 font-heading text-3xl font-bold leading-tight text-ink">Cerita di Balik <br /><span class="text-primary">Serat Kayu.</span></h2>
-        <p class="mb-3 text-lg text-ink-muted">
-          Berawal dari bengkel kecil yang penuh serpihan kayu, Kriya Kayu Abadi lahir dari hasrat
-          sederhana: menghadirkan kehangatan alam ke dalam rumah-rumah modern.
-        </p>
-        <p class="mb-8 leading-relaxed text-ink-muted">
-          Kami bangga memberdayakan pengrajin lokal yang mewarisi keahlian pertukangan dari generasi
-          ke generasi. Setiap material bersumber dari hutan yang dikelola bertanggung jawab — bagi kami,
-          setiap guratan kayu menceritakan perjalanan.
-        </p>
-        <div class="flex gap-8 border-t border-outline-variant pt-6">
-          <div><h4 class="mb-1 font-heading text-3xl font-extrabold text-primary">10+</h4><p class="text-sm text-ink-muted">Tahun Pengalaman</p></div>
-          <div class="w-px bg-outline-variant"></div>
-          <div><h4 class="mb-1 font-heading text-3xl font-extrabold text-primary">100%</h4><p class="text-sm text-ink-muted">Kayu Lokal</p></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Kenapa Memilih Kami -->
-  <section class="mx-auto max-w-container px-4 py-16 sm:px-6 lg:px-8 lg:py-20">
-    <div class="mb-12 text-center">
-      <h2 class="mb-3 font-heading text-3xl font-bold text-ink">Kenapa Memilih Kami?</h2>
-      <p class="mx-auto max-w-2xl text-ink-muted">Komitmen kami untuk memberikan pengalaman dan kualitas terbaik di setiap pesanan.</p>
-    </div>
-    <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-      {reasons.map((r) => (
-        <div class="flex flex-col items-center rounded-xl border border-outline-variant bg-surface-lowest p-6 text-center shadow-soft transition-colors hover:border-primary/40">
-          <span class="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-primary-soft text-primary-deep"><Icon name={r.icon} class="h-8 w-8" /></span>
-          <h3 class="mb-1 font-heading text-lg font-semibold text-ink">{r.title}</h3>
-          <p class="text-sm text-ink-muted">{r.desc}</p>
-        </div>
-      ))}
-    </div>
-  </section>
-
-  <!-- Testimoni -->
-  <section class="border-t border-outline-variant bg-surface-high/40 py-16 lg:py-20">
-    <div class="mx-auto max-w-container px-4 sm:px-6 lg:px-8">
-      <div class="mb-12 text-center">
-        <h2 class="mb-3 font-heading text-3xl font-bold text-ink">Testimoni Pelanggan</h2>
-        <p class="text-ink-muted">Kebahagiaan mereka adalah motivasi terbesar kami.</p>
-      </div>
-      <div class="grid gap-6 md:grid-cols-3">
-        {reviews.map((rev) => (
-          <div class="relative flex h-full flex-col rounded-2xl border border-outline-variant bg-surface p-8 shadow-soft">
-            <Icon name="lucide:quote" class="absolute right-6 top-6 h-12 w-12 text-primary-soft" />
-            <div class="mb-3 flex gap-1 text-accent">
-              {Array.from({ length: rev.stars }).map(() => (
-                <Icon name="lucide:star" class="h-5 w-5" />
-              ))}
-            </div>
-            <p class="mb-6 flex-grow text-ink-muted">&ldquo;{rev.text}&rdquo;</p>
-            <div class="mt-auto flex items-center gap-3 border-t border-outline-variant pt-4">
-              <div class="flex h-10 w-10 items-center justify-center rounded-full bg-surface-high font-bold text-primary-deep">{rev.initial}</div>
-              <div>
-                <p class="text-sm font-semibold text-ink">{rev.name}</p>
-                <p class="text-xs text-ink-muted">{rev.role}</p>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-</BaseLayout>
+<DemoLayout title="Kriya Kayu — Objects for slow living" slug="kriya-kayu" description="Demo katalog furnitur editorial dengan filter, detail produk, dan daftar pilihan interaktif.">
+ <div class="kriya">
+  <header class="d-container wood-nav"><a class="wood-brand" href="#demo-main">kriya kayu<span>CRAFTED FOR EVERYDAY</span></a><nav aria-label="Navigasi Kriya Kayu"><a href="#koleksi">Koleksi</a><a href="#cerita">Filosofi</a><button type="button" id="show-shortlist">Pilihan saya <span id="shortlist-count">0</span></button></nav></header>
+  <section class="wood-hero"><div class="hero-image"><img src="/images/demo-assets/photo-1600210492486-724fe5c67fb0.webp" data-fallback="/images/demo/kriya-kayu.svg" alt="Ruang keluarga bernuansa alami dengan furnitur kayu" width="1600" height="950" fetchpriority="high" /></div><div class="d-container hero-content"><p class="d-kicker">A SLOWER WAY OF LIVING</p><h1>Ruang yang hangat.<br />Cerita yang <em>dekat.</em></h1><p>Furnitur dengan bentuk bersahaja.<br />Untuk rumah yang terasa seperti Anda.</p><a class="d-button" href="#koleksi">Jelajahi koleksi <span>↗</span></a><span class="hero-caption">KOLEKSI RUANG / KONSEP BRAND DEMO</span></div></section>
+  <div class="wood-strip"><span>BENTUK YANG BERSAHAJA</span><i>✳</i><span>TEKSTUR YANG BERCERITA</span><i>✳</i><span>UNTUK KESEHARIAN</span></div>
+  <section id="koleksi" class="d-section d-container"><div class="collection-head"><div><p class="d-kicker">PILIHAN UNTUK RUANG ANDA</p><h2>Benda yang ingin<br />Anda <em>tinggali bersama.</em></h2></div><p>Telusuri koleksi, lihat detail,<br />lalu simpan yang Anda sukai.</p></div><div class="filters-row"><div class="d-filter" aria-label="Kategori furnitur">{['Semua','Duduk','Meja','Penyimpanan'].map((category,index)=><button type="button" data-category={category} aria-pressed={index===0}>{category}</button>)}</div><p id="product-count" aria-live="polite">4 objek pilihan</p></div><div class="products">{products.map((p,index)=><article class="product" data-product-category={p.category}><button class="product-image" type="button" data-detail={index} aria-label={`Lihat detail ${p.name}`}><img src={`/images/demo-assets/${p.image}.webp`} data-fallback="/images/demo/kriya-kayu.svg" alt={p.name} width="600" height="700" loading="lazy" /><span>Lihat objek ↗</span></button><div class="product-info"><div><span>{p.category} / 0{index+1}</span><h3>{p.name}</h3><p>{p.price}</p></div><button class="save" type="button" data-save={index} aria-pressed="false" aria-label={`Simpan ${p.name}`}>＋</button></div></article>)}</div><p class="catalog-note">Seluruh produk dan harga adalah contoh untuk demonstrasi katalog. Tidak tersedia pembelian.</p></section>
+  <section id="cerita" class="wood-story"><div class="d-container story-grid"><div class="story-image"><img src="/images/demo-assets/photo-1452860606245-08befc0ff44b.webp" data-fallback="/images/demo/kriya-kayu.svg" alt="Meja kerja kreatif dengan detail material dan alat" width="800" height="850" loading="lazy" /></div><div><p class="d-kicker">FILOSOFI KOLEKSI</p><h2>Tidak perlu banyak.<br />Cukup yang <em>bermakna.</em></h2><p>Kami membayangkan rumah sebagai tempat untuk melambat. Tempat material alami, cahaya, dan benda kesayangan bertemu dalam keseimbangan.</p><p>Konsep koleksi ini merayakan tekstur kayu dan bentuk yang fungsional. Setiap objek dipilih untuk menjadi bagian dari ritme hidup sehari-hari.</p><a href="#koleksi" class="story-link">Temukan objek Anda <span>↗</span></a></div></div></section>
+  <footer class="d-container d-footer"><span class="wood-brand">kriya kayu</span><p>Objects for slow living.<br />Demo katalog oleh Carisite — brand ilustratif.</p><a href="/kontak?demo=kriya-kayu">Buat katalog untuk brand Anda ↗</a></footer>
+ </div>
+ <dialog id="product-dialog" class="d-dialog" aria-labelledby="product-title"><button type="button" data-close-dialog>Tutup ×</button><p class="d-kicker">DETAIL OBJEK · SIMULASI</p><h2 id="product-title"></h2><p id="product-story"></p><div id="product-spec" class="d-result"></div><p id="product-price"></p><button id="dialog-save" type="button" class="d-button">Simpan ke pilihan</button></dialog>
+ <dialog id="shortlist-dialog" class="d-dialog" aria-labelledby="shortlist-title"><button type="button" data-close-dialog>Tutup ×</button><p class="d-kicker">KURASI PERSONAL</p><h2 id="shortlist-title">Pilihan saya</h2><div id="shortlist-items" aria-live="polite"></div><p class="d-notice">Pilihan tersimpan selama halaman ini terbuka. Ini simulasi, bukan keranjang belanja atau pesanan.</p><button type="button" class="d-button" data-close-dialog>Lanjut jelajahi</button></dialog>
+</DemoLayout>
+<script is:inline define:vars={{ products }}>
+ const saved = new Set(); let activeProduct = 0;
+ const update = () => { document.getElementById('shortlist-count').textContent = String(saved.size); document.querySelectorAll('[data-save]').forEach(button => {const active=saved.has(Number(button.dataset.save)); button.setAttribute('aria-pressed',String(active));button.textContent=active?'✓':'＋';button.setAttribute('aria-label',(active?'Hapus ':'Simpan ')+products[Number(button.dataset.save)].name);}); document.getElementById('dialog-save').textContent=saved.has(activeProduct)?'Hapus dari pilihan':'Simpan ke pilihan'; };
+ const toggle = index => {saved.has(index)?saved.delete(index):saved.add(index);update();};
+ document.querySelectorAll('[data-save]').forEach(button => button.addEventListener('click',()=>toggle(Number(button.dataset.save))));
+ document.querySelectorAll('[data-category]').forEach(button => button.addEventListener('click',()=>{document.querySelectorAll('[data-category]').forEach(item=>item.setAttribute('aria-pressed',String(item===button)));let count=0;document.querySelectorAll('[data-product-category]').forEach(card=>{const visible=button.dataset.category==='Semua'||card.dataset.productCategory===button.dataset.category;card.hidden=!visible;if(visible)count++;});document.getElementById('product-count').textContent=count+' objek pilihan';}));
+ document.querySelectorAll('[data-detail]').forEach(button=>button.addEventListener('click',()=>{activeProduct=Number(button.dataset.detail);const product=products[activeProduct];document.getElementById('product-title').textContent=product.name;document.getElementById('product-story').textContent=product.story;document.getElementById('product-spec').textContent=product.material+' · Ukuran '+product.size;document.getElementById('product-price').textContent=product.price+' — harga ilustratif';update();document.getElementById('product-dialog').showModal();}));
+ document.getElementById('dialog-save').addEventListener('click',()=>toggle(activeProduct));
+ const renderShortlist=()=>{const target=document.getElementById('shortlist-items');target.replaceChildren();if(!saved.size){const p=document.createElement('p');p.textContent='Belum ada pilihan. Gunakan tombol + pada objek yang Anda sukai.';target.append(p);}saved.forEach(index=>{const row=document.createElement('div');row.style.cssText='display:flex;gap:16px;align-items:center;justify-content:space-between;padding:16px 0;border-bottom:1px solid #ddd3c5';const text=document.createElement('span');text.textContent=products[index].name+' · '+products[index].price;const button=document.createElement('button');button.type='button';button.textContent='Hapus';button.style.cssText='padding:10px;background:transparent;border:1px solid #b9ac98';button.setAttribute('aria-label','Hapus '+products[index].name);button.addEventListener('click',()=>{toggle(index);renderShortlist();document.querySelector('#shortlist-items button')?.focus();});row.append(text,button);target.append(row);});};
+ document.getElementById('show-shortlist').addEventListener('click',()=>{renderShortlist();document.getElementById('shortlist-dialog').showModal();});
+</script>
+<style>
+ .kriya{--accent:#4c4438;--button-text:#fff8ee;background:#f5f1e9;color:#3f392f}.wood-nav{display:flex;justify-content:space-between;align-items:center;min-height:105px}.wood-brand{font-family:Georgia,serif;font-size:32px;letter-spacing:-1.7px}.wood-brand span{display:block;font-family:Inter,sans-serif;font-size:8px;letter-spacing:.19em;margin-top:6px}.wood-nav nav{display:flex;align-items:center;gap:34px;font-size:12px}.wood-nav button{border:0;background:transparent;color:inherit;padding:10px 0;font-size:12px}.wood-nav button span{display:inline-grid;place-items:center;width:24px;height:24px;background:#e3dccf;border-radius:50%;margin-left:5px}.wood-hero{position:relative;min-height:660px;background:#3a352e;color:#fff9ef}.hero-image{position:absolute;inset:0}.hero-image::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,#211c13bb 0%,#211c1366 50%,#211c1310 100%)}.hero-image img{height:100%;width:100%}.hero-content{position:relative;padding-top:100px;padding-bottom:35px}.hero-content h1{font-family:Georgia,serif;font-size:clamp(48px,5.3vw,74px);font-weight:400;letter-spacing:-2.6px;line-height:1.12;margin:27px 0}.hero-content h1 em{font-weight:400;color:#f0d5a7}.hero-content>p:not(.d-kicker){font-size:14px;line-height:1.9;color:#f0e8da}.hero-content .d-button{margin-top:30px;background:#f4eddf;color:#41392a}.hero-caption{display:block;font-size:9px;letter-spacing:.15em;margin-top:65px}.wood-strip{background:#e8e1d3;display:flex;justify-content:center;align-items:center;gap:70px;padding:24px 20px;font-size:10px;letter-spacing:.13em}.wood-strip i{font-size:22px;font-style:normal}.collection-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:40px}.collection-head h2,.story-grid h2{font-family:Georgia,serif;font-size:45px;font-weight:400;line-height:1.15;letter-spacing:-1.4px;margin-top:20px}.collection-head h2 em,.story-grid h2 em{font-weight:400;color:#927e61}.collection-head>p{font-size:12px;line-height:1.9;color:#6e675a}.filters-row{display:flex;justify-content:space-between;align-items:center;margin-bottom:30px}.filters-row>p{font-size:11px;color:#6e675a}.products{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}.product-image{display:block;position:relative;aspect-ratio:3/4;width:100%;padding:0;border:0;background:#e4ddcf;overflow:hidden}.product-image img{width:100%;height:100%;transition:transform .5s;filter:saturate(.7)}.product-image:hover img{transform:scale(1.04)}.product-image>span{position:absolute;bottom:12px;left:12px;background:#f5f1e9ed;padding:11px 15px;font-size:10px}.product-info{display:flex;justify-content:space-between;gap:10px;padding-top:20px}.product-info span{font-size:9px;color:#716957}.product-info h3{font-family:Georgia,serif;font-size:23px;font-weight:400;margin:10px 0}.product-info p{font-size:11px;color:#6f6252}.save{width:42px;height:42px;border:1px solid #c8bfaf;background:transparent;font-size:23px;color:#554936}.save[aria-pressed=true]{background:#524735;color:#fff}.catalog-note{font-size:10px;line-height:1.7;color:#72685a;margin-top:36px}.wood-story{background:#e9e3d7;padding:70px 0}.story-grid{display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:100px}.story-image{height:450px}.story-image img{width:100%;height:100%;filter:saturate(.6)}.story-grid>div>p:not(.d-kicker){font-size:13px;line-height:1.9;color:#6c6151;margin-top:24px;max-width:400px}.story-link{display:flex;justify-content:space-between;border-bottom:1px solid #a99b85;padding:20px 0;font-size:12px;max-width:350px;margin-top:20px}.d-footer{border:0;align-items:center;padding-block:45px}.d-footer p{color:#726858}
+ @media(max-width:850px){.products{grid-template-columns:1fr 1fr}.story-grid{gap:40px}.wood-strip{gap:25px;font-size:8px}.wood-strip i{font-size:16px}.wood-nav nav{gap:20px}.collection-head h2,.story-grid h2{font-size:37px}}
+ @media(max-width:600px){.wood-nav{min-height:90px}.wood-nav nav>a{display:none}.wood-brand{font-size:29px}.wood-hero{min-height:610px}.hero-content{padding-top:75px}.hero-content h1{font-size:49px}.hero-image::after{background:#211c1388}.wood-strip{gap:12px;padding:20px 12px;letter-spacing:.04em;font-size:7px}.wood-strip i{font-size:12px}.collection-head{display:block}.collection-head>p{margin-top:20px}.filters-row{display:block}.filters-row>p{margin-top:18px}.d-filter{gap:6px}.d-filter button{padding:10px 13px;font-size:10px}.products{gap:28px 16px}.product-info h3{font-size:20px}.product-info{gap:5px}.save{width:35px;height:40px;flex-shrink:0}.product-image>span{font-size:8px;left:8px;bottom:8px;padding:9px}.story-grid{grid-template-columns:1fr;gap:35px}.story-image{height:320px}.wood-story{padding:40px 0}.d-footer{align-items:start}}
+</style>

@@ -1,0 +1,21 @@
+{
+  "title": "Pulse Workspace",
+  "description": "Antarmuka analitik yang mengubah data contoh menjadi informasi yang mudah ditindaklanjuti.",
+  "category": "Dashboard",
+  "image": "/images/previews/dashboard-desktop.webp",
+  "demoUrl": "https://carisite.id/demo/live/dashboard",
+  "livePath": "/demo/live/dashboard",
+  "features": [
+    "Filter periode",
+    "Grafik dinamis",
+    "Pencarian & detail data"
+  ],
+  "status": "Konsep / demo",
+  "accent": "#6a61bf",
+  "year": 2026,
+  "challenge": "Bagaimana menyajikan indikator dan aktivitas operasional dalam satu tampilan yang mudah dipindai?",
+  "solution": "Ringkasan metrik, grafik yang berubah menurut periode, serta tabel yang dapat dicari.",
+  "design": "Sistem visual rapat namun lapang, aksen violet, dan hierarki angka yang konsisten.",
+  "interaction": "Ganti periode, cari data tabel, dan buka rincian item.",
+  "order": 7
+}

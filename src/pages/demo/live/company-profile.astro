@@ -1,116 +1,46 @@
 ---
-import BaseLayout from '@/layouts/BaseLayout.astro'
-import { Icon } from 'astro-icon/components'
-
-const HERO_IMG =
-  'https://lh3.googleusercontent.com/aida-public/AB6AXuB1icWiP0M03Rc0CTVMZr5lSBMkqjOdrFW3YZop1aTPXZvHcap9RGwnKIgFkmdK-VmviDysAhbtCzDZH5e729Sd47WmzA90CdyYjRDoxGx4Q63IrEew5LYBUT7ZiPSE6UXB0fcRrB5ZiemQu0LtaD1rktlCMj4b1T8e8Vw5LAoF3scMFrkYZL1rpgUHWWL5SWqLs2VpdFh26r1kfFf_1QBFyDtVSoA3kElv60WyN6tfYE0Av38lpD7k00EI27uxTpj-hWdi7pBVC6A'
-const ABOUT_IMG =
-  'https://lh3.googleusercontent.com/aida-public/AB6AXuBU6rwhsfNP-_lMFvAtDlLbiqPs1qDmF6-pBR_NsKn5svsQAl-fjOLRPZRvQilvafUGWaEpulkMxdW-QknuRpK7vh1nm9H6uzuRsLFVhZkoW7ijhoU2q5ns6tdGSzSMy00OJqttc6PCFjsifucOT7FR7r5AoDmmUJ87Re7jaUbR3XlQOblfF3TmFsgCPMZu_pDEOKi6mKIaFPyGoeuRfePoshEy1kqZK2O5fILTj5F02X42oJOi2Quwa1jeSMcqocFPN3JUPxTrIcw'
-
-const about = [
-  'Lebih dari 10 tahun pengalaman industri B2B.',
-  'Pendekatan kustom untuk setiap tantangan korporat.',
-  'Jaringan profesional global yang luas.',
+import DemoLayout from '@/layouts/DemoLayout.astro'
+const services = [
+  { title: 'Strategi bisnis', label: 'Arah yang lebih jelas.', desc: 'Petakan peluang, tentukan prioritas, dan bangun rencana pertumbuhan yang dapat dijalankan tim Anda.', deliverable: 'Peta peluang, prioritas inisiatif, dan roadmap 90 hari.', time: '4–6 minggu', number: '01' },
+  { title: 'Efisiensi operasional', label: 'Ruang untuk lebih baik.', desc: 'Temukan hambatan dalam alur kerja dan rancang proses yang membuat tim bergerak lebih efektif.', deliverable: 'Audit proses, rancangan SOP, dan indikator operasional.', time: '6–8 minggu', number: '02' },
+  { title: 'Transformasi digital', label: 'Teknologi yang tepat guna.', desc: 'Selaraskan kebutuhan bisnis dengan pilihan teknologi, dari pemetaan sistem hingga rencana adopsi.', deliverable: 'Pemetaan sistem, rekomendasi teknologi, dan rencana adopsi.', time: '8–12 minggu', number: '03' },
 ]
 ---
-
-<BaseLayout
-  title="Artha Solusi Mandiri — Demo Company Profile | Carisite"
-  description="Contoh website company profile korporat untuk perusahaan jasa & konsultan B2B, dibuat oleh Carisite."
->
-  <div class="bg-primary-deep px-4 py-2 text-center text-xs text-white sm:px-6">
-    Contoh website (demo) yang dibuat oleh Carisite —
-    <a href="/#demo" class="font-semibold underline underline-offset-2">lihat demo lain</a>
+<DemoLayout title="Artha — Strategy & Advisory" slug="company-profile" description="Simulasi company profile konsultan dengan pemilih layanan dan penyusun brief interaktif.">
+  <div class="artha">
+    <header class="d-container brand-nav"><a class="brand" href="#demo-main">artha<span>®</span></a><nav aria-label="Navigasi Artha"><a href="#pendekatan">Pendekatan</a><a href="#layanan">Keahlian</a><a class="nav-contact" href="#brief">Mari berdiskusi ↗</a></nav></header>
+    <section class="hero d-container">
+      <div class="hero-copy"><p class="d-kicker">ARTHA SOLUSI MANDIRI · DEMO BRAND</p><h1>Kejelasan arah.<br />Ketepatan <em>langkah.</em></h1><p class="lead">Mitra berpikir bagi bisnis yang siap bergerak maju. Strategi yang terarah, dari percakapan pertama hingga implementasi.</p><a class="d-button" href="#brief">Temukan langkah berikutnya <span>↗</span></a><div class="hero-note"><span>STRATEGY</span><span>OPERATIONS</span><span>TRANSFORMATION</span></div></div>
+      <div class="hero-art"><img src="/images/demo-assets/photo-1486406146926-c627a92ad1ab.webp" data-fallback="/images/demo/company-profile.svg" alt="Garis arsitektur gedung modern mengarah ke langit" width="900" height="1050" fetchpriority="high" /><div class="image-label"><span>Perspektif baru.<br />Kemungkinan baru.</span><span>↗</span></div><div class="art-tag">PERSPECTIVE / 001</div></div>
+    </section>
+    <section id="pendekatan" class="approach"><div class="d-container approach-grid"><p class="d-kicker">BERANGKAT DARI PEMAHAMAN</p><div><h2>Bisnis Anda unik.<br />Begitu pula jalan ke depannya.</h2><p>Kami memulai dengan mendengar. Memahami tantangan, menguji asumsi, lalu menyusun langkah yang relevan dengan realitas bisnis Anda.</p><div class="steps"><article><span>01 / DISCOVER</span><h3>Pahami konteks</h3><p>Diskusi terbuka tentang ambisi dan tantangan.</p></article><article><span>02 / DESIGN</span><h3>Susun arah</h3><p>Prioritas yang jelas, dengan ruang untuk beradaptasi.</p></article><article><span>03 / DELIVER</span><h3>Gerakkan perubahan</h3><p>Rencana kerja dan indikator untuk memandu tim.</p></article></div></div></div></section>
+    <section id="layanan" class="d-container d-section"><div class="section-head"><div><p class="d-kicker">RUANG KEAHLIAN</p><h2>Di mana kita bisa<br />membuat perbedaan?</h2></div><p>Pilih tantangan Anda untuk melihat<br />pendekatan yang sesuai.</p></div><div class="services"><div class="service-list" aria-label="Pilih layanan">{services.map((service, index) => <button data-service={index} aria-pressed={index === 0}><span>{service.number}</span>{service.title}<b aria-hidden="true">↗</b></button>)}</div><article class="service-detail" aria-live="polite"><span class="d-kicker" id="service-number">LAYANAN 01</span><h3 id="service-label">{services[0].label}</h3><p id="service-desc">{services[0].desc}</p><div class="deliverable"><span>HASIL DISKUSI & PROYEK</span><p id="service-deliverable">{services[0].deliverable}</p></div><a class="text-link" href="#brief">Susun brief untuk layanan ini ↗</a></article></div></section>
+    <section id="brief" class="brief-section"><div class="d-container brief-grid"><div><p class="d-kicker">MULAI DARI SEBUAH PERCAKAPAN</p><h2>Apa yang ingin<br />Anda <em>ubah?</em></h2><p>Gunakan penyusun brief untuk mendapatkan gambaran awal kerja sama.</p><span class="simulation">SIMULASI · Data tidak dikirim atau disimpan.</span></div><form id="brief-form"><label class="d-field">Nama bisnis<input name="business" required minlength="2" maxlength="100" placeholder="Contoh: Studio Ruang" autocomplete="organization" /></label><label class="d-field">Fokus kebutuhan<select id="brief-service" name="service">{services.map((service,index) => <option value={index}>{service.title}</option>)}</select></label><label class="d-field">Tantangan utama<textarea name="challenge" required minlength="15" maxlength="800" placeholder="Ceritakan tujuan dan hambatan tim Anda (minimal 15 karakter)."></textarea></label><button class="d-button" type="submit">Buat ringkasan brief <span>↗</span></button></form></div></section>
+    <footer class="d-container d-footer"><a class="brand" href="#demo-main">artha<span>®</span></a><p>Konsep website konsultan oleh Carisite.<br />Seluruh brand, layanan, dan estimasi adalah ilustrasi.</p><a href="/kontak?demo=company-profile">Diskusikan website Anda ↗</a></footer>
   </div>
-
-  <!-- Hero -->
-  <section class="relative flex min-h-[600px] items-center overflow-hidden bg-surface-lowest lg:min-h-[700px]">
-    <div class="absolute inset-0 z-0">
-      <img src={HERO_IMG} alt="Suasana kantor korporat modern" width="1280" height="720" loading="eager" class="h-full w-full object-cover opacity-20" />
-      <div class="absolute inset-0 bg-gradient-to-r from-surface-lowest via-surface-lowest/80 to-transparent"></div>
-    </div>
-    <div class="relative z-10 mx-auto max-w-container px-4 sm:px-6 lg:px-8">
-      <div class="max-w-2xl space-y-6">
-        <span class="inline-flex items-center gap-2 rounded-full border border-outline-variant bg-surface-high px-4 py-2 text-sm font-semibold text-ink-muted">
-          <span class="h-2 w-2 rounded-full bg-primary"></span> Solusi Bisnis Profesional
-        </span>
-        <h1 class="font-heading text-4xl font-extrabold leading-tight text-ink sm:text-5xl">
-          Mendorong Pertumbuhan Bisnis dengan <span class="text-primary">Keunggulan</span>
-        </h1>
-        <p class="text-lg leading-relaxed text-ink-muted">
-          Artha Solusi Mandiri menyediakan layanan konsultasi korporat komprehensif yang
-          dirancang untuk menskalakan operasi B2B Anda dan mengoptimalkan efisiensi di setiap level.
-        </p>
-        <div class="flex flex-wrap gap-3 pt-2">
-          <a href="#" class="rounded-full bg-primary px-8 py-3 text-sm font-semibold text-white shadow-soft transition hover:bg-primary-hover active:scale-95">Konsultasi Gratis</a>
-          <a href="#layanan" class="rounded-full border border-primary-deep bg-surface px-8 py-3 text-sm font-semibold text-primary-deep transition hover:bg-surface-container active:scale-95">Pelajari Layanan Kami</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- About -->
-  <section class="bg-surface py-16 lg:py-20">
-    <div class="mx-auto grid max-w-container items-center gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
-      <div class="relative">
-        <div class="absolute -left-4 -top-4 -z-10 h-24 w-24 rounded-xl bg-surface-high"></div>
-        <div class="absolute -bottom-4 -right-4 -z-10 h-32 w-32 rounded-full bg-primary-soft opacity-70"></div>
-        <img src={ABOUT_IMG} alt="Tim profesional sedang rapat" width="800" height="600" loading="lazy" class="aspect-[4/3] w-full rounded-xl border border-outline-variant object-cover shadow-card" />
-      </div>
-      <div class="space-y-4">
-        <h2 class="font-heading text-3xl font-bold text-ink">Tentang Artha Solusi Mandiri</h2>
-        <p class="leading-relaxed text-ink-muted">
-          Kami adalah mitra strategis untuk perusahaan menengah hingga besar, berdedikasi
-          memberikan solusi terukur yang mendorong kinerja finansial dan operasional. Dengan
-          pendekatan berbasis data dan keahlian industri yang mendalam, kami menjembatani
-          kesenjangan antara visi dan eksekusi.
-        </p>
-        <ul class="space-y-3 pt-2">
-          {about.map((item) => (
-            <li class="flex items-start gap-3">
-              <Icon name="lucide:check-circle-2" class="mt-0.5 h-5 w-5 shrink-0 text-primary" />
-              <span class="text-ink">{item}</span>
-            </li>
-          ))}
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- Services bento -->
-  <section id="layanan" class="bg-surface-lowest py-16 lg:py-20">
-    <div class="mx-auto max-w-container px-4 sm:px-6 lg:px-8">
-      <div class="mx-auto mb-12 max-w-2xl space-y-3 text-center">
-        <h2 class="font-heading text-3xl font-bold text-ink">Layanan Komprehensif Kami</h2>
-        <p class="text-ink-muted">Solusi end-to-end untuk mengoptimalkan setiap aspek bisnis Anda demi pertumbuhan yang berkelanjutan.</p>
-      </div>
-      <div class="grid gap-6 md:grid-cols-3">
-        <div class="flex flex-col justify-between rounded-xl border border-outline-variant bg-surface p-6 transition-shadow hover:shadow-card md:col-span-2">
-          <div>
-            <span class="mb-6 flex h-12 w-12 items-center justify-center rounded-lg bg-primary-soft text-primary"><Icon name="lucide:line-chart" class="h-7 w-7" /></span>
-            <h3 class="mb-2 font-heading text-2xl font-semibold text-ink">Konsultasi Manajemen Strategis</h3>
-            <p class="max-w-lg text-ink-muted">Panduan ahli dalam restrukturisasi organisasi, optimalisasi proses, dan perencanaan pertumbuhan jangka panjang untuk keunggulan kompetitif.</p>
-          </div>
-        </div>
-        <div class="rounded-xl border border-outline-variant bg-surface p-6 transition-shadow hover:shadow-card">
-          <span class="mb-6 flex h-12 w-12 items-center justify-center rounded-lg bg-primary-soft text-primary-deep"><Icon name="lucide:landmark" class="h-7 w-7" /></span>
-          <h3 class="mb-2 text-lg font-bold text-ink">Advisori Finansial</h3>
-          <p class="text-sm text-ink-muted">Analisis mendalam dan strategi alokasi modal untuk memaksimalkan ROI dan memitigasi risiko.</p>
-        </div>
-        <div class="rounded-xl border border-outline-variant bg-surface p-6 transition-shadow hover:shadow-card">
-          <span class="mb-6 flex h-12 w-12 items-center justify-center rounded-lg bg-amber-50 text-accent"><Icon name="lucide:network" class="h-7 w-7" /></span>
-          <h3 class="mb-2 text-lg font-bold text-ink">Integrasi Teknologi</h3>
-          <p class="text-sm text-ink-muted">Transformasi digital B2B melalui implementasi sistem enterprise yang mulus.</p>
-        </div>
-        <div class="relative flex flex-col items-center justify-between gap-6 overflow-hidden rounded-xl bg-ink p-6 md:col-span-2 md:flex-row">
-          <div class="absolute -right-10 -top-10 h-40 w-40 rounded-full bg-primary/20 blur-3xl"></div>
-          <div class="relative z-10 md:w-2/3">
-            <h3 class="mb-2 font-heading text-2xl font-semibold text-white">Manajemen Rantai Pasok</h3>
-            <p class="text-white/70">Optimalisasi logistik dan pengadaan untuk mengurangi biaya operasional dan meningkatkan efisiensi pengiriman hulu ke hilir.</p>
-          </div>
-          <a href="#" class="relative z-10 whitespace-nowrap rounded-full bg-primary px-5 py-2 text-sm font-semibold text-white">Pelajari Lebih Lanjut</a>
-        </div>
-      </div>
-    </div>
-  </section>
-</BaseLayout>
+  <dialog class="d-dialog" id="brief-dialog" aria-labelledby="brief-title"><button type="button" data-close-dialog>Tutup ×</button><span class="d-kicker">RINGKASAN SIMULASI</span><h2 id="brief-title">Brief awal Anda</h2><div id="brief-output" class="d-result"></div><p class="d-notice">Ini adalah pratinjau alur konsultasi. Tidak ada data yang dikirim. Estimasi durasi merupakan contoh, bukan penawaran.</p><button class="d-button" type="button" data-close-dialog>Kembali ke brief</button></dialog>
+</DemoLayout>
+<script is:inline define:vars={{ services }}>
+  const serviceButtons = document.querySelectorAll('[data-service]');
+  const select = document.getElementById('brief-service');
+  serviceButtons.forEach(button => button.addEventListener('click', () => {
+    const index = Number(button.dataset.service), service = services[index];
+    serviceButtons.forEach(item => item.setAttribute('aria-pressed', String(item === button)));
+    document.getElementById('service-number').textContent = 'LAYANAN ' + service.number;
+    document.getElementById('service-label').textContent = service.label;
+    document.getElementById('service-desc').textContent = service.desc;
+    document.getElementById('service-deliverable').textContent = service.deliverable;
+    select.value = String(index);
+  }));
+  document.getElementById('brief-form').addEventListener('submit', event => {
+    event.preventDefault(); const form = event.currentTarget; if (!form.reportValidity()) return;
+    const data = new FormData(form), service = services[Number(data.get('service'))];
+    const output = document.getElementById('brief-output'); output.replaceChildren();
+    [['Bisnis', data.get('business')], ['Fokus', service.title], ['Tantangan', data.get('challenge')], ['Usulan hasil', service.deliverable], ['Estimasi ilustratif', service.time]].forEach(([label,value]) => { const p = document.createElement('p'); const strong = document.createElement('strong'); strong.textContent = label + ': '; p.append(strong,document.createTextNode(String(value))); output.append(p); });
+    document.getElementById('brief-dialog').showModal();
+  });
+</script>
+<style>
+  .artha{--accent:#d5e5a9;--button-text:#203f37;background:#f5f5ee;color:#253e36}.brand-nav{height:100px;display:flex;align-items:center;justify-content:space-between}.brand{font-size:37px;letter-spacing:-2px;font-weight:600}.brand span{font-size:13px;vertical-align:top;line-height:3;letter-spacing:0}.brand-nav nav{display:flex;gap:38px;font-size:12px;align-items:center}.nav-contact{border-bottom:1px solid;padding-bottom:8px}.hero{display:grid;grid-template-columns:1.1fr 1fr;gap:60px;padding-top:35px;padding-bottom:85px;align-items:center}.hero h1{font-size:clamp(44px,5.4vw,74px);font-weight:500;line-height:1.09;letter-spacing:-4px;margin-top:32px}.hero em,.brief-section em{font-family:Georgia,serif;font-weight:400}.lead{font-size:15px;line-height:1.9;max-width:390px;margin:28px 0 30px;color:#63716a}.hero .d-button{background:#244b3f;color:white}.hero-note{display:flex;gap:20px;font-size:8px;letter-spacing:.13em;margin-top:48px}.hero-art{height:550px;position:relative;background:#bac9c0}.hero-art img{width:100%;height:100%;filter:saturate(.45)}.image-label{position:absolute;bottom:0;left:0;right:0;background:#244b3fe8;color:#fff;display:flex;justify-content:space-between;padding:26px 30px;font-size:20px;line-height:1.5;font-family:Georgia,serif}.image-label>span:last-child{font-family:Inter;font-size:40px}.art-tag{position:absolute;top:25px;left:25px;background:#f5f5ee;padding:12px;font-size:9px;letter-spacing:.12em}.approach{padding:76px 0;background:#e9ece2}.approach-grid{display:grid;grid-template-columns:1fr 2fr;gap:70px}.approach h2,.section-head h2{font-size:38px;font-weight:500;letter-spacing:-1.5px;line-height:1.2}.approach-grid>div>p{font-size:14px;line-height:1.9;max-width:600px;color:#5c6860;margin-top:22px}.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:45px}.steps article{border-top:1px solid #bcc7b8;padding-top:18px}.steps span{font-size:9px;letter-spacing:.08em}.steps h3{font-size:14px;font-weight:500;margin:20px 0 9px}.steps p{font-size:12px;line-height:1.8;color:#5c6860}.section-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:45px}.section-head h2{margin-top:18px}.section-head>p{font-size:12px;line-height:1.8;color:#5c6860}.services{display:grid;grid-template-columns:1fr 1fr;gap:60px}.service-list button{display:flex;align-items:center;gap:25px;width:100%;padding:28px 15px;border:0;border-bottom:1px solid #cbd2c3;background:none;text-align:left;color:inherit;font-size:17px}.service-list button span{font-size:11px;color:#5d685c}.service-list button b{margin-left:auto;font-weight:400}.service-list button[aria-pressed=true]{background:#e7ecdc}.service-detail{background:#e7ecdc;padding:40px}.service-detail h3{font-family:Georgia,serif;font-size:30px;font-weight:400;margin:25px 0 15px}.service-detail p{font-size:13px;line-height:1.8;color:#596b5e}.deliverable{padding-top:22px;margin-top:25px;border-top:1px solid #c4cdb9}.deliverable>span{font-size:9px;letter-spacing:.12em}.deliverable p{margin-top:9px}.text-link{display:block;font-size:12px;margin-top:24px;font-weight:600}.brief-section{background:#244b3f;color:white;padding:80px 0}.brief-grid{display:grid;grid-template-columns:1fr 1fr;gap:100px}.brief-section h2{font-size:54px;font-weight:400;line-height:1.1;letter-spacing:-2px;margin:25px 0}.brief-section p{color:#c5d3c9;font-size:14px;line-height:1.8;max-width:330px}.simulation{display:block;font-size:10px;margin-top:30px;color:#c5d3c9}.brief-section form{display:grid;gap:18px}.brief-section .d-field input,.brief-section .d-field select,.brief-section .d-field textarea{border-color:#688675;background:#315749;color:#fff}.brief-section input::placeholder,.brief-section textarea::placeholder{color:#c1cfc5}.d-footer{border-color:#d6dcce;align-items:center;padding-block:36px}.d-footer p{color:#617061}
+  @media(max-width:760px){.brand-nav{height:78px}.brand-nav nav{gap:18px}.brand-nav nav>a:not(.nav-contact){display:none}.hero{grid-template-columns:1fr;padding-top:25px;gap:35px;padding-bottom:45px}.hero h1{letter-spacing:-2.8px;font-size:52px}.hero-art{height:360px}.hero-note{margin-top:30px;gap:15px}.approach-grid,.brief-grid,.services{grid-template-columns:1fr;gap:30px}.approach{padding:50px 0}.approach h2,.section-head h2{font-size:32px}.steps{gap:14px}.steps h3{font-size:12px}.section-head{display:block}.section-head>p{margin-top:20px}.service-detail{padding:28px}.brief-section{padding:55px 0}.brief-section h2{font-size:46px}.d-footer{align-items:start}}
+</style>

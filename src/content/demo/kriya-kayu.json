@@ -1,9 +1,21 @@
 {
   "title": "Kriya Kayu Abadi",
-  "description": "Katalog produk UMKM kerajinan kayu dengan galeri produk, harga, cerita brand, dan testimoni pelanggan.",
-  "category": "UMKM / Kerajinan",
-  "image": "/images/demo/kriya-kayu.svg",
-  "demoUrl": "https://carisite.id",
+  "description": "Katalog furniture yang memberi ruang bagi material, detail produk, dan pilihan personal.",
+  "category": "Furniture",
+  "image": "/images/previews/kriya-kayu-desktop.webp",
+  "demoUrl": "https://carisite.id/demo/live/kriya-kayu",
   "livePath": "/demo/live/kriya-kayu",
-  "features": ["Katalog produk + harga", "Pesan via WhatsApp", "Cerita brand", "Testimoni pelanggan"]
+  "features": [
+    "Filter katalog",
+    "Detail produk",
+    "Shortlist pilihan"
+  ],
+  "status": "Konsep / demo",
+  "accent": "#71543c",
+  "year": 2026,
+  "challenge": "Bagaimana membantu pembeli membandingkan furniture sebelum bertanya lebih lanjut?",
+  "solution": "Katalog terfilter dengan informasi produk dan daftar pilihan yang dapat disusun sendiri.",
+  "design": "Nuansa natural, tekstur kayu, dan fotografi besar untuk menonjolkan karakter produk.",
+  "interaction": "Filter produk, buka detail, dan tambahkan produk ke shortlist.",
+  "order": 1
 }

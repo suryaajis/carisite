@@ -1,0 +1,7 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import BriefForm from '@/components/ui/BriefForm.astro'
+import {SITE,waLink} from '@/config/site'
+---
+<BaseLayout title="Diskusikan Proyek Website — Carisite" description="Susun kebutuhan website Anda dan mulai konsultasi melalui WhatsApp dengan brief yang jelas."><section class="page-hero"><div class="container"><span class="eyebrow">Start a conversation</span><h1>Ide Anda.<br/><em>Langkah pertama kita.</em></h1><p>Ceritakan yang ingin Anda bangun. Pilihan di bawah membantu menyiapkan percakapan yang lebih terarah.</p><div class="contact-links"><a href={waLink()} target="_blank" rel="noopener noreferrer">Langsung ke WhatsApp ↗</a><a href={`mailto:${SITE.email}`}>{SITE.email} ↗</a></div></div></section><section class="section"><div class="container"><BriefForm/></div></section></BaseLayout>
+<style>.contact-links{display:flex;gap:1.5rem;flex-wrap:wrap;margin-top:2rem;font-size:.85rem}.contact-links a{border-bottom:1px solid var(--line);padding-bottom:.4rem}</style>

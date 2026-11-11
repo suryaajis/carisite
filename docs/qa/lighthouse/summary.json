@@ -1,0 +1,57 @@
+{
+  "generatedAt": "2026-11-11T13:20:16.830Z",
+  "environment": "Local Windows, headless Microsoft Edge, Lighthouse mobile simulated throttling, viewport 390x844, DPR 1. Lab results, not field Core Web Vitals.",
+  "results": [
+    {
+      "route": "/demo",
+      "scores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "first-contentful-paint": "1.1 s",
+        "largest-contentful-paint": "1.1 s",
+        "total-blocking-time": "0 ms",
+        "cumulative-layout-shift": "0",
+        "speed-index": "1.1 s"
+      },
+      "warnings": []
+    },
+    {
+      "route": "/demo/live/dashboard",
+      "scores": {
+        "performance": 100,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 63
+      },
+      "metrics": {
+        "first-contentful-paint": "0.9 s",
+        "largest-contentful-paint": "0.9 s",
+        "total-blocking-time": "10 ms",
+        "cumulative-layout-shift": "0",
+        "speed-index": "0.9 s"
+      },
+      "warnings": []
+    },
+    {
+      "route": "/",
+      "scores": {
+        "performance": 98,
+        "accessibility": 100,
+        "best-practices": 100,
+        "seo": 100
+      },
+      "metrics": {
+        "first-contentful-paint": "1.1 s",
+        "largest-contentful-paint": "2.3 s",
+        "total-blocking-time": "0 ms",
+        "cumulative-layout-shift": "0",
+        "speed-index": "1.1 s"
+      },
+      "warnings": []
+    }
+  ]
+}

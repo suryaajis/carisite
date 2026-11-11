@@ -1,0 +1,42 @@
+[
+  {
+    "path": "/",
+    "status": 200,
+    "pass": true
+  },
+  {
+    "path": "/does-not-exist-carisite",
+    "status": 404,
+    "pass": true
+  },
+  {
+    "path": "/demo/live/ecommerce/",
+    "status": 200,
+    "frame": "SAMEORIGIN",
+    "pass": true
+  },
+  {
+    "path": "/demo/preview/restoran/",
+    "status": 200,
+    "frame": "SAMEORIGIN",
+    "pass": true
+  },
+  {
+    "path": "/karya/hotel/",
+    "status": 200,
+    "frame": "SAMEORIGIN",
+    "pass": true
+  },
+  {
+    "path": "/_astro/Hero.astro_astro_type_script_index_0_lang.DUSPAc1r.js",
+    "status": 200,
+    "cache": "max-age=31536000, public, immutable",
+    "pass": true
+  },
+  {
+    "path": "/images/previews/restoran-desktop.webp",
+    "status": 200,
+    "cache": "max-age=86400, public, max-age=86400",
+    "pass": true
+  }
+]

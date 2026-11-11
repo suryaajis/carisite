@@ -1,0 +1,9 @@
+{
+  "chosen": {
+    "src": "http://127.0.0.1:4321/images/previews/restoran-480.webp",
+    "loaded": true
+  },
+  "showreel": true,
+  "articleFilter": true,
+  "errors": []
+}

@@ -1,0 +1,8 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import ProjectGrid from '@/components/ui/ProjectGrid.astro'
+import {getCollection} from 'astro:content'
+const count=(await getCollection('demo')).length
+---
+<BaseLayout title="Demo Website Interaktif — Carisite" description="Jelajahi demo website restoran, properti, sekolah, e-commerce, dan dashboard. Coba langsung pengalaman yang sesuai bisnis Anda."><section class="page-hero"><div class="container"><span class="eyebrow">The demo collection / {String(count).padStart(2,'0')}</span><h1>Bukan sekadar dilihat.<br/>Silakan <em>dicoba.</em></h1><p>Dari cerita sebuah brand hingga alur sebuah aplikasi. Temukan arah yang cocok, lalu jelajahi setiap detailnya.</p><p class="demo-note">Seluruh koleksi adalah konsep dengan data simulasi, bukan website klien aktif.</p></div></section><section class="section"><div class="container"><ProjectGrid filterable/></div></section></BaseLayout>
+<style>.demo-note{font-size:.8rem!important;margin-top:1.5rem!important}</style>

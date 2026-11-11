@@ -1,0 +1,37 @@
+---
+import '../styles/demo.css'
+interface Props { title: string; slug: string; description?: string }
+const { title, slug, description = 'Jelajahi simulasi website interaktif dari Carisite.' } = Astro.props
+---
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta name="robots" content="noindex, follow" />
+    <meta name="theme-color" content="#151a23" />
+    <title>{title} | Demo Carisite</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+  <body>
+    <a class="d-skip" href="#demo-main">Lewati ke konten</a>
+    <aside class="demo-toolbar" aria-label="Navigasi demo Carisite">
+      <a class="demo-back" href="/demo" target="_top"><span aria-hidden="true">←</span> Galeri demo</a>
+      <span class="demo-status"><i></i> Demo interaktif <span>· semua transaksi simulasi</span></span>
+      <div><a href={`/demo/${slug}`} target="_top">Detail demo</a><a class="demo-order" href={`/kontak?demo=${slug}`} target="_top">Buat seperti ini <span aria-hidden="true">↗</span></a></div>
+    </aside>
+    <main id="demo-main"><slot /></main>
+    <script>
+      if (window.self !== window.top || new URLSearchParams(location.search).get('embed') === '1') document.body.classList.add('demo-embedded')
+      document.querySelectorAll<HTMLImageElement>('img[data-fallback]').forEach((img) => {
+        const fallback = () => { const src = img.dataset.fallback; if (src && !img.src.endsWith(src)) { img.src = src; img.removeAttribute('srcset'); } }
+        img.addEventListener('error', fallback, { once: true })
+        if (img.complete && img.naturalWidth === 0) fallback()
+      })
+      document.querySelectorAll<HTMLButtonElement>('[data-close-dialog]').forEach((button) => {
+        button.addEventListener('click', () => button.closest('dialog')?.close())
+      })
+    </script>
+  </body>
+</html>
